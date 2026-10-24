@@ -337,7 +337,7 @@ const QUESTIONS_PER_TEST = 25;   // ← cantidad de preguntas por test
    ========================================================= */
 const QUESTIONS = [
 
-  /* ═══════════════ SECCIÓN 1 · ESTATUTO ADMINISTRATIVO ═══════════════ */
+    /* ═══════════════ SECCIÓN 1 · ESTATUTO ADMINISTRATIVO ═══════════════ */
 
   { id:'s1q1', sec:'s1',
     q:'¿Cuál es un requisito de ingreso a la Administración Municipal según la Ley N° 18.883?',
@@ -345,47 +345,250 @@ const QUESTIONS = [
     a:0, exp:'El artículo 12 exige, entre otros, ser ciudadano con derecho a sufragio, tener salud compatible con el cargo y cumplir los requisitos de estudio y capacitación.' },
 
   { id:'s1q2', sec:'s1',
-    q:'¿Cuál de las siguientes constituye una prohibición para el funcionario municipal?',
-    opts:['Solicitar permiso administrativo','Ejecutar actividades políticas o partidistas dentro del horario de trabajo','Participar en capacitaciones','Presentar reclamos por escrito'],
-    a:1, exp:'El artículo 84 prohíbe, entre otras conductas, ejecutar actividades políticas o partidistas dentro del horario de trabajo.' },
-
-  { id:'s1q3', sec:'s1',
     q:'¿Cuántos días hábiles de feriado anual corresponden, en general, a un funcionario municipal?',
     opts:['10 días hábiles','15 días hábiles','20 días hábiles','30 días hábiles'],
-    a:1, exp:'El artículo 96 otorga 15 días hábiles de feriado anual, que aumentan a 20 en las regiones extremas del país.' },
+    a:1, exp:'El artículo 65 otorga 15 días hábiles de feriado anual; en las regiones extremas del país se aumentan a 20 días hábiles.' },
 
-  { id:'s1q4', sec:'s1',
+  { id:'s1q3', sec:'s1',
     q:'¿Cuál es la medida disciplinaria de mayor gravedad contemplada en la Ley N° 18.883?',
     opts:['Censura','Multa','Suspensión del empleo','Destitución'],
     a:3, exp:'El artículo 122 distingue censura, multa, suspensión y destitución; esta última es la más grave y pone término a la relación funcionaria.' },
 
-  { id:'s1q5', sec:'s1',
+  { id:'s1q4', sec:'s1',
     q:'El permiso sin goce de remuneraciones que puede otorgarse a un funcionario municipal es de hasta:',
     opts:['15 días en el año','3 meses dentro del año','6 meses dentro del año','12 meses dentro del año'],
     a:1, exp:'El artículo 111 permite hasta 3 meses en el año, pudiendo el alcalde ampliarlo por motivos calificados conforme a la misma norma.' },
 
-  // ┌──────────────────────────────────────────────────────────────┐
-  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 1 (s1)          │
-  // │                                                              │
-  // │  1) Agrega una COMA al final de la última pregunta de arriba.│
-  // │  2) Pega aquí debajo tus preguntas nuevas.                   │
-  // │                                                              │
-  // │  Ejemplo:                                                    │
-  // │  { id:'s1q6', sec:'s1',                                      │
-  // │    q:'¿Pregunta?',                                           │
-  // │    opts:['A','B','C','D'],                                   │
-  // │    a:0,                                                      │
-  // │    exp:'Explicación.' },                                     │
-  // │                                                              │
-  // │  { id:'s1q7', sec:'s1',                                      │
-  // │    q:'¿Otra pregunta?',                                      │
-  // │    opts:['A','B','C','D'],                                   │
-  // │    a:2,                                                      │
-  // │    exp:'Explicación.' },                                     │
-  // └──────────────────────────────────────────────────────────────┘
+  { id:'s1q5', sec:'s1',
+    q:'¿Cuál de las siguientes constituye una prohibición para el funcionario municipal?',
+    opts:['Solicitar permiso administrativo','Ejecutar actividades políticas o partidistas dentro del horario de trabajo','Participar en capacitaciones','Presentar reclamos por escrito'],
+    a:1, exp:'El artículo 84 prohíbe, entre otras conductas, ejecutar actividades políticas o partidistas dentro del horario de trabajo.' },
 
+  { id:'s1q6', sec:'s1',
+    q:'¿Cuántas medidas disciplinarias contempla la Ley N° 18.883?',
+    opts:['Dos: amonestación y destitución','Tres: censura, suspensión y destitución','Cuatro: censura, multa, suspensión y destitución','Cinco: incluye además el traslado'],
+    a:2, exp:'El artículo 122 contempla cuatro medidas: censura, multa, suspensión del empleo y destitución.' },
 
-  /* ═══════════════ SECCIÓN 2 · LEY ORGÁNICA DE MUNICIPALIDADES ═══════════════ */
+  { id:'s1q7', sec:'s1',
+    q:'La jornada ordinaria de trabajo de los funcionarios municipales es de:',
+    opts:['40 horas semanales','42 horas semanales','44 horas semanales','48 horas semanales'],
+    a:2, exp:'La jornada ordinaria es de 44 horas semanales, distribuidas de lunes a viernes, sin perjuicio de jornadas especiales por la naturaleza del cargo.' },
+
+  { id:'s1q8', sec:'s1',
+    q:'¿Qué es la subrogación en la Administración Municipal?',
+    opts:['El reemplazo temporal del titular ausente por el funcionario de mayor grado o antigüedad','El ascenso definitivo a un cargo vacante','La contratación de personal externo','La suspensión de funciones por medida disciplinaria'],
+    a:0, exp:'La subrogación es el reemplazo temporal del titular ausente por el funcionario de mayor grado o antigüedad del mismo escalafón.' },
+
+  { id:'s1q9', sec:'s1',
+    q:'La suplencia se diferencia de la subrogación porque:',
+    opts:['Solo aplica a funcionarios a contrata','Se usa para proveer cargos vacantes o ausencias prolongadas','Es una sanción disciplinaria','Requiere concurso público obligatorio'],
+    a:1, exp:'La suplencia se utiliza para cargos vacantes o ausencias prolongadas; la subrogación opera para ausencias temporales del titular.' },
+
+  { id:'s1q10', sec:'s1',
+    q:'¿Cuál es la edad legal de jubilación que produce el cese de funciones en la Administración Municipal?',
+    opts:['60 años','62 años','65 años','68 años'],
+    a:2, exp:'A los 65 años de edad el funcionario cesa en sus funciones por jubilación, conforme a las normas previsionales aplicables.' },
+
+  { id:'s1q11', sec:'s1',
+    q:'¿Con cuánta anticipación debe presentarse la renuncia voluntaria para que produzca efectos?',
+    opts:['10 días','15 días','30 días','60 días'],
+    a:2, exp:'La renuncia debe presentarse con 30 días de anticipación; el alcalde puede aceptarla antes si lo estima conveniente.' },
+
+  { id:'s1q12', sec:'s1',
+    q:'El cese por salud incompatible con el desempeño del cargo requiere:',
+    opts:['Solo la voluntad del alcalde','Un informe médico que acredite la incompatibilidad','Una resolución del Concejo Municipal','Aprobación del Servicio de Salud'],
+    a:1, exp:'Se requiere un informe médico que acredite que el funcionario no puede desempeñar el cargo por razones de salud.' },
+
+  { id:'s1q13', sec:'s1',
+    q:'El cese por evaluación deficiente del desempeño procede cuando el funcionario ha obtenido:',
+    opts:['Una calificación en lista 3','Dos calificaciones consecutivas en lista 3 o tres alternadas en el mismo grado','Tres calificaciones en lista 2','Cualquier calificación en lista 2'],
+    a:1, exp:'El artículo 146 letra e) exige dos calificaciones consecutivas o tres alternadas en lista 3 dentro del mismo grado.' },
+
+  { id:'s1q14', sec:'s1',
+    q:'¿Cuál de las siguientes es una causal de cese de funciones?',
+    opts:['Cambio de domicilio del funcionario','Renuncia voluntaria aceptada por el alcalde','Tomar vacaciones','Ser dirigente gremial'],
+    a:1, exp:'La aceptación de la renuncia es una de las causales de cese contempladas en la ley, junto con jubilación, destitución, evaluación deficiente, entre otras.' },
+
+  { id:'s1q15', sec:'s1',
+    q:'La declaración jurada de intereses y patrimonio debe presentarse al asumir el cargo dentro de:',
+    opts:['10 días','30 días','60 días','6 meses'],
+    a:1, exp:'La declaración debe presentarse dentro de los 30 días siguientes a la asunción del cargo, y actualizarse anualmente.' },
+
+  { id:'s1q16', sec:'s1',
+    q:'Respecto de las inhabilidades por parentesco, no pueden ingresar a la municipalidad:',
+    opts:['Parientes hasta el 4° grado de consanguinidad del alcalde','El cónyuge o parientes hasta el 3er grado de consanguinidad y 2° de afinidad del alcalde','Cualquier pariente del alcalde','Solo hermanos y padres'],
+    a:1, exp:'Existe inhabilidad para el cónyuge y los parientes hasta el tercer grado de consanguinidad y segundo de afinidad del alcalde en funciones.' },
+
+  { id:'s1q17', sec:'s1',
+    q:'¿Qué es un escalafón en la Administración Municipal?',
+    opts:['Una sanción disciplinaria','Una agrupación de funcionarios ordenada por grado y jerarquía','Un permiso especial','Un tipo de contrato'],
+    a:1, exp:'El escalafón es la agrupación ordenada de funcionarios por grado y jerarquía, que sirve de base para la carrera funcionaria y los ascensos.' },
+
+  { id:'s1q18', sec:'s1',
+    q:'La carrera funcionaria en la Ley N° 18.883 se entiende como:',
+    opts:['Un sistema de libre designación política','Un conjunto de principios y normas que regulan el desarrollo del funcionario','Un mecanismo de contratación a honorarios','Un régimen de despidos programados'],
+    a:1, exp:'La carrera funcionaria es el sistema que regula el ingreso, ascensos, desarrollo y término de la relación laboral, basado en mérito y antigüedad.' },
+
+  { id:'s1q19', sec:'s1',
+    q:'Los ascensos de grado en la carrera funcionaria se otorgan principalmente por:',
+    opts:['Solo antigüedad','Solo recomendación del alcalde','Mérito y antigüedad conforme al escalafón','Sorteo público'],
+    a:2, exp:'Los ascensos consideran tanto el mérito (calificaciones) como la antigüedad en el grado, conforme al escalafón respectivo.' },
+
+  { id:'s1q20', sec:'s1',
+    q:'¿Qué derecho tiene el funcionario municipal respecto de la capacitación?',
+    opts:['Ninguno: es facultad exclusiva del alcalde','Derecho a capacitarse para el desempeño del cargo, con posibles becas y permisos','Solo capacitación voluntaria fuera del horario','Capacitación solo si la paga el propio funcionario'],
+    a:1, exp:'El funcionario tiene derecho a la capacitación para el mejor desempeño de sus funciones; el municipio puede otorgar becas y permisos para ello.' },
+
+  { id:'s1q21', sec:'s1',
+    q:'El plazo general para sustanciar un sumario administrativo es de:',
+    opts:['10 días hábiles','20 días hábiles, prorrogables por resolución fundada','30 días hábiles improrrogables','60 días hábiles'],
+    a:1, exp:'El sumario debe concluir en 20 días hábiles, plazo que puede ampliarse por resolución fundada por otros 20 días.' },
+
+  { id:'s1q22', sec:'s1',
+    q:'¿Cuándo se instruye una investigación sumaria en lugar de un sumario?',
+    opts:['Cuando los hechos son de fácil comprobación y no revisten gravedad','Cuando el funcionario lo solicita','Cuando lo exige la Contraloría','Cuando hay más de un inculpado'],
+    a:0, exp:'La investigación sumaria se usa cuando los hechos son de fácil comprobación y no revisten gravedad; el sumario se reserva para casos más complejos.' },
+
+  { id:'s1q23', sec:'s1',
+    q:'La medida disciplinaria de suspensión del empleo puede aplicarse por un máximo de:',
+    opts:['15 días','30 días','60 días','90 días'],
+    a:1, exp:'La suspensión del empleo no puede exceder de 30 días y conlleva la pérdida de la remuneración durante ese período.' },
+
+  { id:'s1q24', sec:'s1',
+    q:'La multa como medida disciplinaria no puede exceder de:',
+    opts:['5% de la remuneración mensual','10% de la remuneración mensual','Una remuneración mensual','Dos remuneraciones mensuales'],
+    a:2, exp:'La multa no puede exceder del monto de una remuneración mensual del funcionario sancionado.' },
+
+  { id:'s1q25', sec:'s1',
+    q:'El recurso de reposición debe interponerse dentro de:',
+    opts:['3 días hábiles','5 días hábiles desde la notificación del acto','10 días hábiles','15 días hábiles'],
+    a:1, exp:'El recurso de reposición se interpone dentro de 5 días hábiles desde la notificación, ante la misma autoridad que dictó el acto.' },
+
+  { id:'s1q26', sec:'s1',
+    q:'El recurso jerárquico debe interponerse dentro de:',
+    opts:['5 días hábiles desde la notificación','10 días hábiles','15 días hábiles','20 días hábiles'],
+    a:0, exp:'El recurso jerárquico se interpone dentro de 5 días hábiles desde la notificación, ante el superior jerárquico del que dictó el acto.' },
+
+  { id:'s1q27', sec:'s1',
+    q:'La autoridad que conoce el recurso jerárquico debe resolverlo dentro de:',
+    opts:['5 días hábiles','10 días hábiles','20 días hábiles','30 días hábiles'],
+    a:2, exp:'La autoridad debe pronunciarse sobre el recurso jerárquico dentro de 20 días hábiles contados desde su interposición.' },
+
+  { id:'s1q28', sec:'s1',
+    q:'La asignación municipal corresponde, como mínimo, a:',
+    opts:['5% del sueldo base','10% del sueldo base','15% del sueldo base','25% del sueldo base'],
+    a:2, exp:'La asignación municipal es de al menos 15% del sueldo base y puede ser superior según la realidad de cada municipio.' },
+
+  { id:'s1q29', sec:'s1',
+    q:'La asignación de experiencia se paga por año de servicio y equivale a un porcentaje que no puede superar:',
+    opts:['10% del sueldo base','20% del sueldo base','30% del sueldo base','50% del sueldo base'],
+    a:2, exp:'La asignación de experiencia equivale a un 2% por cada año de servicio, con un tope del 30% del sueldo base.' },
+
+  { id:'s1q30', sec:'s1',
+    q:'La bonificación de especialidad se otorga cuando el funcionario:',
+    opts:['Cumple 20 años de servicio','Posee un título o especialidad que el municipio requiera para el cargo','Es dirigente gremial','Trabaja en regiones extremas'],
+    a:1, exp:'La bonificación de especialidad se paga a quienes acrediten un título o especialidad que el municipio determine como necesaria para el cargo.' },
+
+  { id:'s1q31', sec:'s1',
+    q:'El viático es:',
+    opts:['Una asignación permanente del sueldo','Un pago por gastos de traslado y permanencia fuera del lugar habitual de trabajo','Una bonificación de fin de año','Un descuento previsional'],
+    a:1, exp:'El viático cubre gastos de traslado, alojamiento y alimentación cuando el funcionario debe cumplir funciones fuera de su lugar habitual de trabajo.' },
+
+  { id:'s1q32', sec:'s1',
+    q:'El cometido funcionario consiste en:',
+    opts:['Realizar funciones fuera del lugar habitual de trabajo, con autorización','Reemplazar al jefe superior','Participar en una comisión del Concejo','Asumir un cargo por concurso'],
+    a:0, exp:'El cometido es la autorización para cumplir funciones fuera del lugar habitual de trabajo, por un tiempo determinado y con derecho a viático.' },
+
+  { id:'s1q33', sec:'s1',
+    q:'El feriado progresivo consiste en:',
+    opts:['Un día adicional cada 10 años de servicio','Un día hábil adicional por cada 5 años de servicio, con un máximo de 10 días','Triplicar el feriado a los 20 años','Un permiso de 3 meses a los 15 años'],
+    a:1, exp:'El feriado progresivo otorga 1 día hábil adicional por cada 5 años de servicio, con un tope de 10 días hábiles (a partir de los 15 años de servicio).' },
+
+  { id:'s1q34', sec:'s1',
+    q:'El permiso administrativo con goce de remuneraciones por motivos particulares permite ausentarse hasta:',
+    opts:['3 días al año','6 días al año','10 días al año','15 días al año'],
+    a:1, exp:'El funcionario puede solicitar hasta 6 días hábiles al año con goce de sueldo por motivos particulares, con autorización del jefe superior.' },
+
+  { id:'s1q35', sec:'s1',
+    q:'La licencia médica debe ser autorizada por:',
+    opts:['El alcalde','El jefe directo','El organismo administrador de salud correspondiente (FONASA o Isapre)','La Dirección de Control'],
+    a:2, exp:'La licencia médica es autorizada por el organismo de salud (FONASA o Isapre), que verifica la incapacidad laboral temporal.' },
+
+  { id:'s1q36', sec:'s1',
+    q:'El descanso maternal en la Administración Municipal corresponde a:',
+    opts:['12 semanas','15 semanas','18 semanas','24 semanas'],
+    a:2, exp:'El descanso maternal es de 18 semanas: 6 antes del parto y 12 después, conforme a las normas del Código del Trabajo aplicables supletoriamente.' },
+
+  { id:'s1q37', sec:'s1',
+    q:'El fuero maternal protege a la funcionaria desde:',
+    opts:['El momento del parto hasta 6 meses después','El inicio del embarazo hasta un año después del nacimiento','Solo durante la licencia maternal','Desde el parto hasta 2 años después'],
+    a:1, exp:'El fuero maternal se extiende desde el inicio del embarazo y hasta un año después del nacimiento, impidiendo el despido sin autorización judicial.' },
+
+  { id:'s1q38', sec:'s1',
+    q:'La responsabilidad administrativa del funcionario se genera por:',
+    opts:['Solo por delitos penales','Por el incumplimiento de las obligaciones y deberes funcionarios','Por decisión arbitraria del alcalde','Por no pertenecer a un partido político'],
+    a:1, exp:'La responsabilidad administrativa deriva del incumplimiento de los deberes funcionarios y se persigue mediante sumario o investigación sumaria.' },
+
+  { id:'s1q39', sec:'s1',
+    q:'La acción disciplinaria para perseguir faltas administrativas prescribe en:',
+    opts:['1 año','2 años','4 años','6 años'],
+    a:2, exp:'La acción disciplinaria prescribe en 4 años contados desde la fecha de la comisión de la falta, sin perjuicio de las reglas especiales.' },
+
+  { id:'s1q40', sec:'s1',
+    q:'Respecto de la obediencia debida, el funcionario:',
+    opts:['Debe obedecer siempre al superior jerárquico','No debe obedecer una orden que sea manifiestamente ilegal o constituya delito','Puede desobedecer cualquier orden que no le guste','Solo obedece si la orden es escrita'],
+    a:1, exp:'El funcionario debe obedecer las órdenes del superior, pero no está obligado a cumplir una orden manifiestamente ilegal o que constituya delito.' },
+
+  { id:'s1q41', sec:'s1',
+    q:'Ante la detección de una irregularidad en el servicio, el funcionario debe:',
+    opts:['Callar para evitar problemas','Denunciarla por escrito a la jefatura, a la Dirección de Control o a la Contraloría','Comentarla solo con compañeros de confianza','Esperar a que otro la denuncie'],
+    a:1, exp:'El funcionario tiene el deber de denunciar por escrito las irregularidades de las que tome conocimiento, a su jefatura, a la Dirección de Control o a la Contraloría.' },
+
+  { id:'s1q42', sec:'s1',
+    q:'El deber de secreto respecto de la información del servicio implica que el funcionario:',
+    opts:['No puede comentar fuera del servicio información reservada o confidencial','Solo debe guardar reserva sobre su sueldo','No puede hablar con nadie del trabajo','Debe publicar todo en redes sociales'],
+    a:0, exp:'El funcionario debe guardar reserva sobre la información reservada o confidencial conocida en razón de su cargo, incluso después del cese.' },
+
+  { id:'s1q43', sec:'s1',
+    q:'El uso de bienes municipales por parte del funcionario debe ser:',
+    opts:['Libre, para fines personales','Exclusivo para el cumplimiento de las funciones del cargo','Solo con autorización del jefe directo','Solo en días hábiles'],
+    a:1, exp:'Los bienes y recursos municipales deben usarse exclusivamente para el cumplimiento de las funciones del cargo, no para fines personales.' },
+
+  { id:'s1q44', sec:'s1',
+    q:'Si un tercero ofrece una dádiva o regalo a un funcionario en razón de su cargo, este debe:',
+    opts:['Aceptarla si es de bajo valor','Aceptarla si es su cumpleaños','Rechazarla y, si es un ofrecimiento irregular, denunciarlo','Aceptarla y compartirla con su equipo'],
+    a:2, exp:'El funcionario debe rechazar dádivas o regalos que se le ofrezcan en razón del cargo, y denunciar los ofrecimientos irregulares.' },
+
+  { id:'s1q45', sec:'s1',
+    q:'El abandono de cargo se configura cuando el funcionario:',
+    opts:['Llega tarde repetidamente','Se ausenta sin justificación por los días que fija la ley','Solicita permiso sin goce','Pide la renuncia voluntaria'],
+    a:1, exp:'El abandono de cargo se presume cuando el funcionario se ausenta sin justificación por los días que establece la ley, y puede ser causal de destitución.' },
+
+  { id:'s1q46', sec:'s1',
+    q:'¿Cuántos días de inasistencia injustificada hacen presumir el abandono de cargo?',
+    opts:['1 día consecutivo','2 días consecutivos o 3 alternados en el mes','3 días consecutivos o 5 alternados en un mes','5 días consecutivos'],
+    a:2, exp:'Se presume abandono de cargo cuando el funcionario se ausenta 3 días consecutivos o 5 alternados en el término de un mes, sin justificación.' },
+
+  { id:'s1q47', sec:'s1',
+    q:'En el contexto funcionario municipal, el retiro se refiere a:',
+    opts:['La renuncia voluntaria del cargo','El cese por necesidades del servicio y supresión del cargo, con indemnización','El traslado a otra unidad','La suspensión por medida disciplinaria'],
+    a:1, exp:'El retiro es el cese por necesidades del servicio, producto de la supresión del cargo o del término del período legal, con derecho a indemnización en su caso.' },
+
+  { id:'s1q48', sec:'s1',
+    q:'La supresión del cargo como causal de cese puede fundarse en:',
+    opts:['La opinión personal del alcalde','Necesidades del servicio debidamente fundamentadas','Un conflicto entre compañeros','Una denuncia anónima'],
+    a:1, exp:'La supresión del cargo debe fundarse en necesidades del servicio, acreditadas mediante resolución fundada y ajustada a derecho.' },
+
+  { id:'s1q49', sec:'s1',
+    q:'Una medida disciplinaria debe ser notificada al funcionario:',
+    opts:['Verbalmente por el jefe directo','Por escrito, dejando constancia en la hoja de vida funcionaria','Solo por correo electrónico','Solo por publicación en el Diario Oficial'],
+    a:1, exp:'La medida disciplinaria debe notificarse por escrito al afectado y anotarse en su hoja de vida funcionaria, dejando constancia del hecho.' },
+
+  { id:'s1q50', sec:'s1',
+    q:'Ante una denuncia por acoso laboral, la funcionaria o funcionario puede presentarla:',
+    opts:['Solo en Carabineros','Solo en el Juzgado de Letras','Ante su jefatura, la Dirección de Control o la Dirección de Recursos Humanos del municipio','Solo en la Contraloría'],
+    a:2, exp:'La denuncia por acoso laboral se presenta ante la jefatura, la Dirección de Control o la unidad de Recursos Humanos, que debe investigar conforme al procedimiento respectivo.' },
+    /* ═══════════════ SECCIÓN 2 · LEY ORGÁNICA DE MUNICIPALIDADES ═══════════════ */
 
   { id:'s2q1', sec:'s2',
     q:'¿Qué función le corresponde al Concejo Municipal?',
@@ -412,14 +615,232 @@ const QUESTIONS = [
     opts:['3 años','4 años','5 años','6 años'],
     a:1, exp:'El alcalde es elegido por sufragio universal por un período de 4 años, con posibilidad de reelección conforme a la normativa vigente.' },
 
-  // ┌──────────────────────────────────────────────────────────────┐
-  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 2 (s2)          │
-  // │  (mismo formato que la sección 1, cambiando sec:'s2')        │
-  // │  Recuerda: id único → s2q6, s2q7, s2q8...                    │
-  // └──────────────────────────────────────────────────────────────┘
+  { id:'s2q6', sec:'s2',
+    q:'¿Cuántos concejales tiene un Concejo Municipal según el número de habitantes?',
+    opts:['Siempre 4','Entre 6 y 10, según la población de la comuna','Siempre 12','Depende del presupuesto municipal'],
+    a:1, exp:'El número de concejales varía entre 6 y 10 según la cantidad de electores de la comuna, conforme a la Ley N° 18.695.' },
 
+  { id:'s2q7', sec:'s2',
+    q:'¿Cuánto dura el período de los concejales?',
+    opts:['2 años','3 años','4 años','6 años'],
+    a:2, exp:'Los concejales son elegidos por sufragio universal por un período de 4 años, coincidente con el período del alcalde.' },
 
-  /* ═══════════════ SECCIÓN 3 · LEY 19.880 ═══════════════ */
+  { id:'s2q8', sec:'s2',
+    q:'¿Cómo se elige al alcalde en Chile actualmente?',
+    opts:['Por designación del Presidente de la República','Por elección del Concejo Municipal','Por sufragio universal en elección directa','Por concurso público'],
+    a:2, exp:'Desde la reforma constitucional, el alcalde es elegido directamente por la ciudadanía mediante sufragio universal.' },
+
+  { id:'s2q9', sec:'s2',
+    q:'¿Qué mayoría se requiere para elegir al alcalde en primera vuelta?',
+    opts:['Mayoría simple','Mayoría absoluta (50% + 1)','Mayoría de dos tercios','Un tercio de los votos'],
+    a:1, exp:'En primera vuelta se requiere mayoría absoluta; si ningún candidato la obtiene, se realiza una segunda vuelta entre los dos más votados.' },
+
+  { id:'s2q10', sec:'s2',
+    q:'Una de las atribuciones exclusivas del alcalde es:',
+    opts:['Aprobar el presupuesto municipal','Dictar las ordenanzas municipales','Fiscalizar la gestión del propio alcalde','Nombrar y remover a los funcionarios municipales de su dependencia'],
+    a:3, exp:'El alcalde tiene la atribución de nombrar y remover al personal de su dependencia conforme al Estatuto Administrativo, entre otras funciones ejecutivas.' },
+
+  { id:'s2q11', sec:'s2',
+    q:'¿Quién convoca y preside las sesiones del Concejo Municipal?',
+    opts:['El Secretario Municipal','El alcalde','El concejal más antiguo','El Director de Control'],
+    a:1, exp:'El alcalde convoca y preside las sesiones del Concejo Municipal, conforme al artículo 63 de la Ley N° 18.695.' },
+
+  { id:'s2q12', sec:'s2',
+    q:'Las sesiones del Concejo Municipal pueden ser:',
+    opts:['Solo ordinarias','Solo extraordinarias','Ordinarias y extraordinarias','Solo secretas'],
+    a:2, exp:'El Concejo sesiona de manera ordinaria y extraordinaria; también puede constituirse en sala de sesiones de manera pública o reservada en casos excepcionales.' },
+
+  { id:'s2q13', sec:'s2',
+    q:'Las sesiones ordinarias del Concejo Municipal se realizan:',
+    opts:['Una vez al mes como mínimo','Una vez cada dos meses','Solo cuando el alcalde lo estima','Cuando lo pide el Presidente de la República'],
+    a:0, exp:'El Concejo debe sesionar ordinariamente a lo menos una vez al mes, conforme al reglamento interno que dicte.' },
+
+  { id:'s2q14', sec:'s2',
+    q:'¿Quién cita a sesión extraordinaria del Concejo Municipal?',
+    opts:['Cualquier concejal','El alcalde o a petición de al menos tres concejales','El Secretario Municipal','El Director de Control'],
+    a:1, exp:'Las sesiones extraordinarias son convocadas por el alcalde, sea por propia iniciativa o a petición de a lo menos tres concejales.' },
+
+  { id:'s2q15', sec:'s2',
+    q:'La Secretaría Municipal es la unidad que:',
+    opts:['Administra los recursos financieros','Asiste al alcalde y al Concejo, y custodia documentos oficiales','Fiscaliza internamente al municipio','Atiende a los contribuyentes en la DOM'],
+    a:1, exp:'La Secretaría Municipal asiste al alcalde y al Concejo, cita a sesiones, levanta actas y custodia los documentos oficiales del municipio.' },
+
+  { id:'s2q16', sec:'s2',
+    q:'La Dirección de Administración y Finanzas (DAF) tiene como función principal:',
+    opts:['Administrar los recursos humanos y financieros del municipio','Tramitar permisos de edificación','Atender consultas sociales','Fiscalizar al alcalde'],
+    a:0, exp:'La DAF administra los recursos humanos y financieros del municipio, incluida la elaboración del presupuesto y la ejecución del gasto.' },
+
+  { id:'s2q17', sec:'s2',
+    q:'¿Qué unidad municipal emite el Certificado de Informaciones Previas?',
+    opts:['DIDECO','La Dirección de Control','La Dirección de Obras Municipales','La Secretaría Municipal'],
+    a:2, exp:'La Dirección de Obras Municipales (DOM) emite el Certificado de Informaciones Previas, que informa sobre las normas urbanísticas aplicables a un predio.' },
+
+  { id:'s2q18', sec:'s2',
+    q:'La Dirección de Obras Municipales depende jerárquicamente de:',
+    opts:['El Concejo Municipal','La Dirección de Control','El alcalde','El Ministerio de Obras Públicas'],
+    a:2, exp:'La DOM depende del alcalde en lo administrativo, sin perjuicio de las competencias técnicas que ejerce conforme a la Ley General de Urbanismo y Construcciones.' },
+
+  { id:'s2q19', sec:'s2',
+    q:'¿Quién nombra al Director de Obras Municipales?',
+    opts:['El Concejo Municipal','El alcalde','La Contraloría','El Presidente de la República'],
+    a:1, exp:'El Director de Obras Municipales es nombrado por el alcalde, previo concurso público, conforme al Estatuto Administrativo y a la LOC de Municipalidades.' },
+
+  { id:'s2q20', sec:'s2',
+    q:'La unidad de Asesoría Jurídica del municipio tiene como función:',
+    opts:['Representar al municipio en juicios','Asesorar legalmente al alcalde y a las distintas unidades municipales','Resolver sumarios administrativos','Emitir permisos de edificación'],
+    a:1, exp:'La Asesoría Jurídica presta asesoramiento legal al alcalde y a las unidades municipales, sin perjuicio de la representación judicial que corresponde al alcalde.' },
+
+  { id:'s2q21', sec:'s2',
+    q:'El Juez de Policía Local depende administrativamente de:',
+    opts:['El alcalde','El Concejo Municipal','El Poder Judicial','La Contraloría'],
+    a:0, exp:'Los Juzgados de Policía Local dependen administrativamente de la municipalidad respectiva, aunque ejercen jurisdicción como tribunales.' },
+
+  { id:'s2q22', sec:'s2',
+    q:'El presupuesto municipal debe ser aprobado por:',
+    opts:['El alcalde','El Concejo Municipal','La Contraloría','El Ministerio de Hacienda'],
+    a:1, exp:'El presupuesto municipal, elaborado por el alcalde con la asesoría de la DAF, debe ser aprobado por el Concejo Municipal.' },
+
+  { id:'s2q23', sec:'s2',
+    q:'¿En qué plazo debe el alcalde presentar el proyecto de presupuesto al Concejo?',
+    opts:['Antes del 15 de octubre','Antes del 30 de septiembre','Antes del 31 de diciembre','Antes del 15 de noviembre'],
+    a:0, exp:'El alcalde debe presentar el proyecto de presupuesto al Concejo antes del 15 de octubre de cada año para su aprobación.' },
+
+  { id:'s2q24', sec:'s2',
+    q:'Si el Concejo no aprueba el presupuesto en el plazo legal, se aplica:',
+    opts:['El presupuesto del año anterior con reajuste','El presupuesto propuesto por el alcalde se entiende aprobado','Se prorroga el presupuesto vigente por seis meses','Se reúne el Concejo con el Intendente'],
+    a:0, exp:'Si no hay acuerdo, rige el presupuesto del año anterior con los reajustes y modificaciones que correspondan conforme a la ley.' },
+
+  { id:'s2q25', sec:'s2',
+    q:'La cuenta pública que rinde el alcalde al Concejo se refiere a:',
+    opts:['Los gastos personales del alcalde','La gestión administrativa y financiera del año anterior','Los viajes del Concejo','Las compras menores'],
+    a:1, exp:'El alcalde debe rendir cuenta pública anual al Concejo sobre la gestión administrativa y financiera del municipio, dentro de los plazos legales.' },
+
+  { id:'s2q26', sec:'s2',
+    q:'La participación ciudadana en la gestión municipal se canaliza, entre otros mecanismos, mediante:',
+    opts:['Las Juntas de Vecinos y organizaciones comunitarias','Los partidos políticos','Los sindicatos municipales','Las Fuerzas Armadas'],
+    a:0, exp:'La Ley N° 18.695 reconoce a las Juntas de Vecinos y organizaciones comunitarias como cauces de participación ciudadana en la gestión municipal.' },
+
+  { id:'s2q27', sec:'s2',
+    q:'El Concejo Municipal debe consultar a las organizaciones comunitarias en materias como:',
+    opts:['El presupuesto de defensa','El plan comunal de desarrollo y las ordenanzas municipales','Las decisiones judiciales','La política exterior'],
+    a:1, exp:'El Concejo debe consultar a las organizaciones comunitarias en la elaboración del plan comunal de desarrollo y en la dictación de ordenanzas, entre otras materias.' },
+
+  { id:'s2q28', sec:'s2',
+    q:'El Plan de Desarrollo Comunal (PLADECO) es:',
+    opts:['Un instrumento de planificación de la comuna con objetivos y metas de desarrollo','Un plan de obras viales','Un reglamento interno del Concejo','Un presupuesto anual'],
+    a:0, exp:'El PLADECO es el instrumento que orienta el desarrollo de la comuna, con objetivos, metas y acciones a mediano y largo plazo.' },
+
+  { id:'s2q29', sec:'s2',
+    q:'El Plan Regulador Comunal es aprobado por:',
+    opts:['La Contraloría','El Concejo Municipal, a proposición del alcalde','El Ministerio de Vivienda','El Presidente de la República'],
+    a:1, exp:'El Plan Regulador Comunal se aprueba por el Concejo Municipal a proposición del alcalde, previa consulta a la comunidad, conforme a la Ley General de Urbanismo y Construcciones.' },
+
+  { id:'s2q30', sec:'s2',
+    q:'Los ingresos propios de la municipalidad provienen, entre otros, de:',
+    opts:['El impuesto a la renta','Los derechos municipales, patentes y permisos','El IVA','Los impuestos aduaneros'],
+    a:1, exp:'Los ingresos propios provienen de derechos municipales, patentes comerciales, permisos de edificación y otras tasas y contribuciones locales.' },
+
+  { id:'s2q31', sec:'s2',
+    q:'El Fondo Común Municipal (FCM) se distribuye entre las municipalidades con el objetivo de:',
+    opts:['Premiar a las comunas más ricas','Compensar las desigualdades entre comunas','Financiar la defensa nacional','Pagar sueldos de alcaldes'],
+    a:1, exp:'El FCM busca compensar las desigualdades entre comunas con mayor y menor capacidad económica, mediante criterios de distribución legalmente establecidos.' },
+
+  { id:'s2q32', sec:'s2',
+    q:'¿Qué unidad municipal se encarga de la atención de la infancia y la familia en programas sociales?',
+    opts:['DIDECO','Dirección de Control','Dirección de Obras','Secretaría Municipal'],
+    a:0, exp:'DIDECO administra programas sociales, incluyendo aquellos relacionados con la infancia, la familia y la protección social en coordinación con otros organismos.' },
+
+  { id:'s2q33', sec:'s2',
+    q:'Las Oficinas de Protección de los Derechos de la Infancia (OPD) funcionan en coordinación con:',
+    opts:['Las municipalidades y el Servicio Nacional de Protección Especializada a la Niñez','El Ministerio de Defensa','Las Fuerzas Armadas','La Contraloría'],
+    a:0, exp:'Las OPD operan en convenio entre las municipalidades y el Servicio Nacional de Protección Especializada a la Niñez y Adolescencia.' },
+
+  { id:'s2q34', sec:'s2',
+    q:'La Oficina Municipal de Intermediación Laboral (OMIL) depende de:',
+    opts:['La Dirección de Control','DIDECO','La DOM','El Concejo Municipal'],
+    a:1, exp:'La OMIL suele depender de DIDECO y se encarga de intermediar entre oferentes y demandantes de empleo en la comuna.' },
+
+  { id:'s2q35', sec:'s2',
+    q:'El municipio puede celebrar convenios con otros organismos públicos o privados para:',
+    opts:['Solo fines recreativos','Cumplir sus funciones y prestar servicios a la comunidad','Evitar la fiscalización','Sustituir al Concejo'],
+    a:1, exp:'El municipio puede celebrar convenios para el cumplimiento de sus funciones y la prestación de servicios, conforme a la ley y con aprobación del Concejo cuando corresponda.' },
+
+  { id:'s2q36', sec:'s2',
+    q:'Las ordenanzas municipales son normas:',
+    opts:['De rango constitucional','De carácter general y obligatorio en la comuna, dictadas por el alcalde con acuerdo del Concejo','De carácter interno del municipio','De aplicación solo en el edificio municipal'],
+    a:1, exp:'Las ordenanzas son normas generales y obligatorias para la comuna, dictadas por el alcalde con acuerdo del Concejo, en las materias de su competencia.' },
+
+  { id:'s2q37', sec:'s2',
+    q:'Los reglamentos municipales son dictados por:',
+    opts:['El alcalde','El Concejo','La Contraloría','El Poder Judicial'],
+    a:0, exp:'Los reglamentos son dictados por el alcalde y tienen por objeto regular la aplicación de las ordenanzas y el funcionamiento interno del municipio.' },
+
+  { id:'s2q38', sec:'s2',
+    q:'Una de las atribuciones del Concejo Municipal es:',
+    opts:['Nombrar y remover al personal municipal','Fiscalizar la gestión del alcalde','Dictar reglamentos internos del municipio','Otorgar permisos de edificación'],
+    a:1, exp:'El Concejo tiene entre sus funciones fiscalizar la gestión del alcalde y de las unidades municipales, a través de la información que debe entregar la autoridad comunal.' },
+
+  { id:'s2q39', sec:'s2',
+    q:'La moción de censura contra el alcalde puede presentarse:',
+    opts:['Por cualquier concejal en cualquier momento','Por al menos la mayoría absoluta de los concejales, por infracción grave a la ley','Por el Presidente de la República','Por el Director de Control'],
+    a:1, exp:'La moción de censura puede ser presentada por a lo menos la mayoría absoluta de los concejales en ejercicio, por infracción grave a la ley o a las ordenanzas.' },
+
+  { id:'s2q40', sec:'s2',
+    q:'Para que la moción de censura sea aprobada se requiere el voto conforme de:',
+    opts:['La mayoría simple de los concejales','Los dos tercios de los concejales en ejercicio','La totalidad de los concejales','Tres concejales'],
+    a:1, exp:'La moción de censura debe ser aprobada por los dos tercios de los concejales en ejercicio para producir la destitución del alcalde.' },
+
+  { id:'s2q41', sec:'s2',
+    q:'Los concejales tienen derecho a:',
+    opts:['Recibir remuneración equivalente al alcalde','Percibir una dieta por asistencia a sesiones','Ser contratados como funcionarios municipales','Recibir viáticos permanentes'],
+    a:1, exp:'Los concejales perciben una dieta por su asistencia a las sesiones del Concejo, cuyo monto y modalidad establece la ley.' },
+
+  { id:'s2q42', sec:'s2',
+    q:'Los concejales, mientras ejercen su cargo, tienen prohibición de:',
+    opts:['Participar en sesiones','Ser candidatos a otros cargos de elección popular sin renunciar','Viajar fuera del país','Reunirse con vecinos'],
+    a:1, exp:'Los concejales no pueden postular a otros cargos de elección popular sin renunciar previamente a su cargo, entre otras incompatibilidades.' },
+
+  { id:'s2q43', sec:'s2',
+    q:'El cargo de alcalde es incompatible con:',
+    opts:['Ejercer otro cargo público remunerado o actividades empresariales incompatibles','Ser voluntario en una organización social','Pertencer a un club deportivo','Tener familia'],
+    a:0, exp:'El cargo de alcalde es incompatible con el ejercicio de otro empleo o función pública remunerada y con actividades empresariales que generen conflictos de interés.' },
+
+  { id:'s2q44', sec:'s2',
+    q:'El patrimonio municipal está constituido por:',
+    opts:['Solo bienes inmuebles','Bienes muebles e inmuebles, derechos y acciones afectos al cumplimiento de sus fines','Solo dinero en efectivo','Solo bienes donados'],
+    a:1, exp:'El patrimonio municipal está compuesto por los bienes muebles e inmuebles, derechos y acciones que el municipio adquiere o le son asignados para el cumplimiento de sus fines.' },
+
+  { id:'s2q45', sec:'s2',
+    q:'Los bienes municipales se clasifican en:',
+    opts:['Públicos y privados','Nacionales, municipales y particulares','De uso público, de uso privado, activos y rentas','Muebles e inmuebles solamente'],
+    a:2, exp:'Los bienes municipales se clasifican en bienes de uso público de la comuna, bienes municipales de uso privado, bienes activos y rentas, conforme a la ley.' },
+
+  { id:'s2q46', sec:'s2',
+    q:'Un ejemplo de bien nacional de uso público administrado por el municipio es:',
+    opts:['Las calles y plazas de la comuna','Un edificio arrendado por el municipio','Los vehículos municipales','Las oficinas de la DOM'],
+    a:0, exp:'Las calles, plazas y otros bienes nacionales de uso público son administrados por la municipalidad respectiva, conforme a la ley.' },
+
+  { id:'s2q47', sec:'s2',
+    q:'La responsabilidad administrativa de los funcionarios municipales se ejerce, entre otros, a través de:',
+    opts:['El Tribunal Constitucional','Los procedimientos disciplinarios internos y la Contraloría','El Poder Judicial','La Cámara de Diputados'],
+    a:1, exp:'La responsabilidad administrativa se persigue por medio de procedimientos disciplinarios internos y del control que ejerce la Contraloría General de la República.' },
+
+  { id:'s2q48', sec:'s2',
+    q:'La Contraloría General de la República, respecto de los municipios, puede:',
+    opts:['Nombrar al alcalde','Fiscalizar el uso de los recursos públicos y la legalidad de los actos','Aprobar ordenanzas','Reemplazar al Concejo'],
+    a:1, exp:'La Contraloría fiscaliza la legalidad de los actos y el uso de los recursos públicos de los municipios, y puede dictar instrucciones y observaciones.' },
+
+  { id:'s2q49', sec:'s2',
+    q:'El Tribunal Electoral Regional (TER) en el ámbito municipal conoce de:',
+    opts:['Los reclamos contra actos del alcalde','Las reclamaciones electorales y de calificación de candidaturas','Los sumarios administrativos','Los permisos de edificación'],
+    a:1, exp:'El TER conoce de las reclamaciones electorales y de calificación de candidaturas a cargos municipales, entre otras materias.' },
+
+  { id:'s2q50', sec:'s2',
+    q:'La Ley N° 18.695 establece que la municipalidad es:',
+    opts:['Una empresa pública','Una corporación autónoma de derecho público con personalidad jurídica y patrimonio propio','Un servicio dependiente del Ministerio del Interior','Una entidad privada sin fines de lucro'],
+    a:1, exp:'La municipalidad es una corporación autónoma de derecho público, con personalidad jurídica y patrimonio propio, encargada de la administración local de la comuna.' },
+  
+    /* ═══════════════ SECCIÓN 3 · LEY 19.880 ═══════════════ */
 
   { id:'s3q1', sec:'s3',
     q:'A falta de plazo legal especial, ¿en cuánto tiempo debe concluir el procedimiento administrativo?',
@@ -446,79 +867,736 @@ const QUESTIONS = [
     opts:['Siempre efecto positivo','Efecto negativo, salvo que una norma disponga lo contrario','Ningún efecto jurídico','La nulidad de oficio del procedimiento'],
     a:1, exp:'El silencio produce efectos negativos, es decir, se entiende rechazada la solicitud, salvo que una norma legal especial disponga lo contrario.' },
 
-  // ┌──────────────────────────────────────────────────────────────┐
-  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 3 (s3)          │
-  // │  Recuerda: sec:'s3', ids: s3q6, s3q7, s3q8...                │
-  // └──────────────────────────────────────────────────────────────┘
+  { id:'s3q6', sec:'s3',
+    q:'¿Cuál es el ámbito de aplicación de la Ley N° 19.880?',
+    opts:['Solo la Administración Central del Estado','Los procedimientos administrativos que rigen los actos de los órganos de la Administración del Estado','Solo los actos del Poder Judicial','Solo los actos municipales'],
+    a:1, exp:'La Ley N° 19.880 regula las bases de los procedimientos administrativos que rigen los actos de los órganos de la Administración del Estado, incluyendo municipios.' },
 
+  { id:'s3q7', sec:'s3',
+    q:'¿Cuál de los siguientes NO es un principio de la Ley N° 19.880?',
+    opts:['Escrituración','Celeridad','Impulsión de oficio','Secreto absoluto'],
+    a:3, exp:'La Ley N° 19.880 se basa en la publicidad y transparencia, no en el secreto absoluto. Los principios están enumerados en el artículo 4.' },
 
-  /* ═══════════════ SECCIÓN 4 · PROBIDAD Y TRANSPARENCIA ═══════════════ */
+  { id:'s3q8', sec:'s3',
+    q:'El principio de escrituración implica que:',
+    opts:['Todo el procedimiento debe ser escrito en papel','El procedimiento se desarrolla en soporte electrónico o papel, dejando constancia documental de las actuaciones','Solo se escriben las resoluciones finales','El interesado debe escribir todas las solicitudes'],
+    a:1, exp:'El principio de escrituración exige dejar constancia documental de las actuaciones del procedimiento, sea en papel o en soporte electrónico.' },
+
+  { id:'s3q9', sec:'s3',
+    q:'El principio de celeridad obliga a la Administración a:',
+    opts:['Aplazar los trámites innecesarios sin límite','Remover los obstáculos que impidan el desarrollo oportuno del procedimiento','Realizar el procedimiento sin plazos','Delegar en el interesado la rapidez'],
+    a:1, exp:'El principio de celeridad exige remover los trámites y obstáculos que impidan el desarrollo oportuno y eficiente del procedimiento.' },
+
+  { id:'s3q10', sec:'s3',
+    q:'El principio conclusivo significa que:',
+    opts:['El procedimiento puede durar indefinidamente','Todo procedimiento debe tener un término o conclusión cierta','El procedimiento se cierra solo cuando el interesado lo pide','Solo el juez puede concluir un procedimiento'],
+    a:1, exp:'El principio conclusivo exige que todo procedimiento tenga un término cierto, evitando dilaciones indefinidas.' },
+
+  { id:'s3q11', sec:'s3',
+    q:'El principio de economía procedimental busca:',
+    opts:['Gastar más recursos para mayor calidad','Evitar trámites innecesarios y simplificar el procedimiento','Suprimir todos los plazos','Eliminar la audiencia del interesado'],
+    a:1, exp:'El principio de economía procedimental busca la simplificación y evitación de trámites innecesarios, alcanzando el resultado con el menor costo posible.' },
+
+  { id:'s3q12', sec:'s3',
+    q:'El principio de contradictoriedad garantiza al interesado:',
+    opts:['Solo ser informado al final del procedimiento','El derecho a ser oído y a aportar pruebas antes de la resolución','Elegir a la autoridad que resuelve','Dictar la resolución final'],
+    a:1, exp:'El principio de contradictoriedad asegura que el interesado sea oído, pueda aportar antecedentes y pruebas antes de la decisión.' },
+
+  { id:'s3q13', sec:'s3',
+    q:'El principio de imparcialidad exige que la Administración:',
+    opts:['Favorezca al interesado que primero llega','Actúe objetivamente, sin favorecer intereses particulares','Siga las instrucciones del superior aunque sean ilegales','Priorice a los funcionarios públicos'],
+    a:1, exp:'El principio de imparcialidad obliga a la autoridad a actuar con objetividad y sin favorecer intereses particulares o de terceros.' },
+
+  { id:'s3q14', sec:'s3',
+    q:'El principio de abstención se refiere a que:',
+    opts:['La Administración debe abstenerse de actuar','El funcionario debe abstenerse de intervenir cuando tenga interés personal o conflicto en el asunto','El interesado debe abstenerse de presentar pruebas','El procedimiento se suspende sin causa'],
+    a:1, exp:'El principio de abstención obliga al funcionario a inhibirse cuando concurra alguna causal de inhabilidad, como tener interés personal o conflicto de intereses.' },
+
+  { id:'s3q15', sec:'s3',
+    q:'El principio de gratuidad implica que:',
+    opts:['La Administración paga por el interesado','El procedimiento administrativo es gratuito, sin perjuicio de tasas o derechos especiales','Solo los pobres están exentos','Todo procedimiento es de pago'],
+    a:1, exp:'El principio de gratuidad implica que el procedimiento es gratuito, salvo que normas especiales establezcan el pago de tasas o derechos por actuaciones específicas.' },
+
+  { id:'s3q16', sec:'s3',
+    q:'El principio de publicidad y transparencia exige que:',
+    opts:['El procedimiento sea secreto','Los actos y el contenido del procedimiento sean públicos, con las excepciones legales','Solo el interesado conozca el expediente','Se publiquen los datos personales'],
+    a:1, exp:'El principio de publicidad y transparencia exige que los actos y el contenido del procedimiento sean accesibles al interesado y al público, salvo excepciones legales.' },
+
+  { id:'s3q17', sec:'s3',
+    q:'El principio de probidad administrativa en el marco de la Ley N° 19.880 implica:',
+    opts:['Actuar con transparencia y sin conflictos de interés','Priorizar intereses personales','No rendir cuentas','Mantener el anonimato'],
+    a:0, exp:'El principio de probidad exige un actuar transparente, imparcial y sin conflictos de interés, con primacía del interés público.' },
+
+  { id:'s3q18', sec:'s3',
+    q:'¿Quiénes son interesados en un procedimiento administrativo según la Ley N° 19.880?',
+    opts:['Solo los funcionarios públicos','Quienes promuevan el procedimiento como titulares de derechos o intereses, y quienes puedan resultar afectados','Solo las personas jurídicas','Solo el Estado'],
+    a:1, exp:'Son interesados quienes promuevan el procedimiento como titulares de derechos o intereses legítimos, y también quienes puedan resultar afectados por la decisión.' },
+
+  { id:'s3q19', sec:'s3',
+    q:'Un interesado puede hacerse representar en el procedimiento por:',
+    opts:['Solo un abogado','Un representante legal o voluntario con mandato suficiente','Solo un familiar directo','Solo un funcionario del mismo órgano'],
+    a:1, exp:'El interesado puede actuar por sí o hacerse representar por una persona con mandato suficiente, sea o no abogado, salvo que se exija patrocinio letrado.' },
+
+  { id:'s3q20', sec:'s3',
+    q:'¿Cuál es el plazo general para interponer el recurso de reposición?',
+    opts:['5 días hábiles desde la notificación','10 días hábiles','15 días hábiles','20 días hábiles'],
+    a:0, exp:'El recurso de reposición debe interponerse dentro de los 5 días hábiles siguientes a la notificación del acto recurrido.' },
+
+  { id:'s3q21', sec:'s3',
+    q:'¿Cuál es el plazo general para interponer el recurso jerárquico?',
+    opts:['5 días hábiles desde la notificación','10 días hábiles','15 días hábiles','20 días hábiles'],
+    a:0, exp:'El recurso jerárquico debe interponerse dentro de los 5 días hábiles siguientes a la notificación del acto recurrido.' },
+
+  { id:'s3q22', sec:'s3',
+    q:'Si se interpone reposición y jerárquico de manera conjunta, el recurso jerárquico se entiende:',
+    opts:['Improcedente','Interpuesto de manera subsidiaria','Renunciado','Nulo'],
+    a:1, exp:'Cuando se interponen ambos recursos, el jerárquico se entiende interpuesto subsidiariamente para el caso de que no sea acogida la reposición.' },
+
+  { id:'s3q23', sec:'s3',
+    q:'El recurso de aclaración o rectificación tiene por objeto:',
+    opts:['Cambiar el fondo de la decisión','Corregir errores de hecho o de derecho manifiestos contenidos en el acto','Anular el acto','Suspender la ejecución'],
+    a:1, exp:'El recurso de aclaración o rectificación busca corregir errores de hecho o de derecho manifiestos en el acto, sin alterar su fondo.' },
+
+  { id:'s3q24', sec:'s3',
+    q:'La interposición de un recurso administrativo:',
+    opts:['Suspende siempre la ejecución del acto','No suspende la ejecución del acto, salvo norma especial o resolución fundada','Anula el acto automáticamente','Suspende solo si es jerárquico'],
+    a:1, exp:'Por regla general la interposición de recursos no suspende la ejecución del acto, salvo que una norma especial o una resolución fundada disponga lo contrario.' },
+
+  { id:'s3q25', sec:'s3',
+    q:'El plazo para resolver el recurso de reposición es de:',
+    opts:['5 días hábiles','10 días hábiles','20 días hábiles','30 días hábiles'],
+    a:2, exp:'La autoridad debe pronunciarse sobre el recurso de reposición dentro de los 20 días hábiles siguientes a su interposición.' },
+
+  { id:'s3q26', sec:'s3',
+    q:'La resolución que resuelve un recurso jerárquico debe dictarse dentro de:',
+    opts:['5 días hábiles','10 días hábiles','20 días hábiles','30 días hábiles'],
+    a:2, exp:'La autoridad superior debe resolver el recurso jerárquico dentro de los 20 días hábiles siguientes a su interposición.' },
+
+  { id:'s3q27', sec:'s3',
+    q:'Contra la resolución que resuelve un recurso jerárquico procede:',
+    opts:['Nuevo recurso de reposición','Nuevo recurso jerárquico','Recurso de aclaración o rectificación, y en su caso, reclamación judicial','Nada: queda firme'],
+    a:2, exp:'Contra la resolución que resuelve el recurso jerárquico procede el recurso de aclaración o rectificación y, eventualmente, la reclamación ante la justicia ordinaria.' },
+
+  { id:'s3q28', sec:'s3',
+    q:'La notificación personal se practica:',
+    opts:['Por correo certificado','En el domicilio del interesado, entregando copia íntegra del acto','Por publicación en el Diario Oficial','Por teléfono'],
+    a:1, exp:'La notificación personal se practica en el domicilio del interesado, entregándole copia íntegra del acto y dejando constancia de la diligencia.' },
+
+  { id:'s3q29', sec:'s3',
+    q:'La notificación por carta certificada se entiende practicada:',
+    opts:['El día en que se despacha','El tercer día hábil siguiente al despacho','El quinto día hábil siguiente','Diez días después'],
+    a:1, exp:'La notificación por carta certificada se entiende practicada al tercer día hábil siguiente al despacho de la carta, conforme al artículo 46.' },
+
+  { id:'s3q30', sec:'s3',
+    q:'La notificación por avisos se utiliza cuando:',
+    opts:['El interesado es desconocido o se ignora su domicilio','El interesado es un funcionario público','El acto es de mera tramitación','El interesado lo pide'],
+    a:0, exp:'La notificación por avisos se emplea cuando el interesado es desconocido, se ignora su domicilio o cuando la notificación personal no fue posible.' },
+
+  { id:'s3q31', sec:'s3',
+    q:'El procedimiento administrativo puede iniciarse:',
+    opts:['Solo de oficio','Solo a solicitud del interesado','De oficio o a solicitud del interesado','Solo por orden judicial'],
+    a:2, exp:'El procedimiento puede iniciarse de oficio por la Administración o a solicitud de un interesado, según la naturaleza del asunto.' },
+
+  { id:'s3q32', sec:'s3',
+    q:'La solicitud de inicio debe contener, entre otros requisitos:',
+    opts:['Solo el nombre del interesado','Nombre, domicilio, hechos, peticiones concretas y fundamentos','Solo la firma del abogado','Solo el RUT del funcionario'],
+    a:1, exp:'La solicitud debe contener la identificación del interesado, hechos, razones y peticiones concretas, con la firma correspondiente.' },
+
+  { id:'s3q33', sec:'s3',
+    q:'Si la solicitud está incompleta, la Administración debe:',
+    opts:['Rechazarla de inmediato','Requerir al interesado para que subsane las deficiencias en un plazo','Archivarla sin aviso','Derivarla a otra unidad'],
+    a:1, exp:'Si la solicitud presenta deficiencias, la Administración debe requerir al interesado para que las subsane en un plazo determinado, bajo apercibimiento de archivo.' },
+
+  { id:'s3q34', sec:'s3',
+    q:'La Administración puede adoptar medidas provisionales:',
+    opts:['Solo después de la resolución final','Antes de la resolución, cuando sea necesario para asegurar el resultado del procedimiento','Solo si lo pide el interesado','Nunca'],
+    a:1, exp:'La Administración puede adoptar medidas provisionales motivadas cuando sean necesarias para asegurar la eficacia de la resolución que eventualmente se dicte.' },
+
+  { id:'s3q35', sec:'s3',
+    q:'La instrucción del procedimiento comprende:',
+    opts:['Solo la resolución final','Todos los actos necesarios para la determinación, conocimiento y comprobación de los hechos','Solo la notificación al interesado','Solo la audiencia pública'],
+    a:1, exp:'La instrucción comprende los actos de determinación, conocimiento y comprobación de los datos en virtud de los cuales debe pronunciarse la resolución.' },
+
+  { id:'s3q36', sec:'s3',
+    q:'Los informes que se soliciten en el procedimiento deben ser evacuados:',
+    opts:['Sin plazo','En el plazo que se señale y, a falta de este, en 10 días','Solo cuando el interesado insiste','En 30 días'],
+    a:1, exp:'Los informes deben evacuarse en el plazo que se señale y, a falta de este, dentro de 10 días hábiles.' },
+
+  { id:'s3q37', sec:'s3',
+    q:'La vista del expediente permite al interesado:',
+    opts:['Solo revisar el acto final','Conocer el contenido íntegro del procedimiento y obtener copias','Eliminar documentos','Cambiar la resolución'],
+    a:1, exp:'La vista del expediente permite al interesado conocer el contenido íntegro del procedimiento y obtener copias de los documentos que lo conforman.' },
+
+  { id:'s3q38', sec:'s3',
+    q:'El trámite de audiencia al interesado tiene por objeto:',
+    opts:['Informar el resultado final','Que el interesado formule alegaciones y aporte pruebas antes de la resolución','Pagar tasas','Suspender el procedimiento'],
+    a:1, exp:'La audiencia permite al interesado formular alegaciones y aportar documentos o pruebas antes de que se dicte la resolución.' },
+
+  { id:'s3q39', sec:'s3',
+    q:'La resolución que pone término al procedimiento debe ser:',
+    opts:['Verbal','Motivada y por escrito, expresando los hechos y fundamentos de derecho','Solo publicada en el Diario Oficial','Reservada'],
+    a:1, exp:'La resolución debe ser motivada, por escrito y contener los hechos y fundamentos de derecho que justifican la decisión.' },
+
+  { id:'s3q40', sec:'s3',
+    q:'El desistimiento del interesado:',
+    opts:['No tiene efectos','Pone término al procedimiento, salvo que afecte el interés público o a terceros','Obliga a la Administración a continuar','Solo procede antes del inicio'],
+    a:1, exp:'El desistimiento pone término al procedimiento cuando no afecte el interés público ni a terceros, y siempre que no exista una norma que lo impida.' },
+
+  { id:'s3q41', sec:'s3',
+    q:'La renuncia al derecho en que se funda la solicitud:',
+    opts:['No es posible en procedimientos administrativos','Pone término al procedimiento, salvo norma en contrario','Requiere autorización judicial','Solo procede en materia tributaria'],
+    a:1, exp:'La renuncia al derecho pone término al procedimiento, salvo que una norma lo prohíba o afecte el interés público o derechos de terceros.' },
+
+  { id:'s3q42', sec:'s3',
+    q:'El abandono del procedimiento se produce cuando:',
+    opts:['El interesado no realiza las actuaciones necesarias para su continuación en el plazo legal','La Administración no resuelve en 30 días','El interesado cambia de abogado','El funcionario se cambia de oficina'],
+    a:0, exp:'El abandono se produce por la inactividad del interesado en la continuación del procedimiento por el plazo legalmente establecido.' },
+
+  { id:'s3q43', sec:'s3',
+    q:'La caducidad del procedimiento se produce por:',
+    opts:['Falta de resolución dentro del plazo legal, sin perjuicio de las responsabilidades','Inactividad del interesado','Muerte del funcionario','Cambio de gobierno'],
+    a:0, exp:'La caducidad se produce cuando vence el plazo para resolver sin que se haya dictado resolución, sin perjuicio de las responsabilidades administrativas.' },
+
+  { id:'s3q44', sec:'s3',
+    q:'La nulidad de oficio de un acto administrativo puede ser declarada por:',
+    opts:['El interesado','La autoridad que lo dictó o su superior jerárquico, previa instrucción de procedimiento','El Concejo Municipal','La Contraloría'],
+    a:1, exp:'La nulidad de oficio puede ser declarada por la autoridad que dictó el acto o por su superior jerárquico, previa instrucción del procedimiento respectivo.' },
+
+  { id:'s3q45', sec:'s3',
+    q:'La nulidad de oficio tiene un plazo máximo de:',
+    opts:['1 año','2 años','4 años','6 meses'],
+    a:1, exp:'La nulidad de oficio tiene un plazo máximo de 2 años contados desde la dictación del acto, conforme al artículo 53 de la Ley N° 19.880.' },
+
+  { id:'s3q46', sec:'s3',
+    q:'La revisión de oficio de un acto firme procede cuando:',
+    opts:['Hay antecedentes nuevos que no se conocían al tiempo de la dictación','El interesado lo solicita','La Contraloría lo exige','El acto es impopular'],
+    a:0, exp:'La revisión de oficio procede cuando aparecen antecedentes nuevos que no se tuvieron en cuenta al momento de dictar el acto y que podrían haber cambiado la decisión.' },
+
+  { id:'s3q47', sec:'s3',
+    q:'La ejecución de los actos administrativos:',
+    opts:['Requiere siempre autorización judicial','Puede hacerse de oficio, salvo que se requiera intervención judicial','No existe en el procedimiento administrativo','Solo procede si el interesado lo pide'],
+    a:1, exp:'La Administración puede ejecutar sus actos de oficio, salvo que se requiera intervención judicial, conforme al principio de autotutela administrativa.' },
+
+  { id:'s3q48', sec:'s3',
+    q:'El plazo para interponer el recurso de aclaración o rectificación es de:',
+    opts:['2 días hábiles','5 días hábiles','10 días hábiles','20 días hábiles'],
+    a:1, exp:'El recurso de aclaración o rectificación se interpone dentro de los 5 días hábiles siguientes a la notificación del acto.' },
+
+  { id:'s3q49', sec:'s3',
+    q:'El procedimiento administrativo debe ser tramitado y resuelto por:',
+    opts:['El juez de letras','El órgano competente de la Administración','La Contraloría','El Concejo'],
+    a:1, exp:'El procedimiento debe ser tramitado y resuelto por el órgano de la Administración que tenga competencia sobre la materia.' },
+
+  { id:'s3q50', sec:'s3',
+    q:'La reclamación ante la justicia ordinaria contra un acto administrativo debe interponerse dentro de:',
+    opts:['10 días hábiles','20 días hábiles','30 días hábiles','No tiene plazo'],
+    a:1, exp:'Sin perjuicio de los plazos especiales, la reclamación judicial contra actos administrativos se interpone dentro de 20 días hábiles desde la notificación o desde que el acto quedó firme.' },
+  
+    /* ═══════════════ SECCIÓN 4 · PROBIDAD Y TRANSPARENCIA ═══════════════ */
 
   { id:'s4q1', sec:'s4',
     q:'¿Cuál es el plazo general para responder una solicitud de acceso a la información pública?',
     opts:['5 días hábiles','10 días corridos','20 días hábiles, prorrogables por 10 días hábiles','30 días hábiles'],
-    a:2, exp:'La Ley N° 20.285 establece 20 días hábiles, prorrogables por otros 10 días hábiles cuando existan circunstancias que lo justifiquen.' },
+    a:2, exp:'La Ley N° 20.285 establece 20 días hábiles, prorrogables por otros 10 días hábiles cuando existan circunstancias que hagan difícil reunir la información, comunicando previamente al solicitante las razones de la prórroga.[reference:0]' },
 
   { id:'s4q2', sec:'s4',
     q:'¿Qué organismo conoce de los amparos por denegación de información?',
     opts:['La Contraloría General de la República','El Consejo para la Transparencia','La Corte Suprema','El Ministerio Público'],
-    a:1, exp:'El Consejo para la Transparencia es el órgano autónomo que resuelve los amparos por denegación de acceso a la información.' },
+    a:1, exp:'El Consejo para la Transparencia es el órgano autónomo que resuelve los amparos por denegación de acceso a la información.[reference:1]' },
 
   { id:'s4q3', sec:'s4',
     q:'¿Cuál de las siguientes es una causal de secreto o reserva de la información?',
     opts:['Que la información sea muy extensa','Que el documento esté en formato papel','Afectar la seguridad de la Nación o el interés nacional','Que el funcionario esté de vacaciones'],
-    a:2, exp:'El artículo 21 de la Ley N° 20.285 enumera las causales de secreto o reserva, entre ellas la afectación de la seguridad de la Nación o del interés nacional.' },
+    a:2, exp:'El artículo 21 de la Ley N° 20.285 enumera las causales de secreto o reserva, entre ellas la afectación de la seguridad de la Nación o del interés nacional.[reference:2]' },
 
   { id:'s4q4', sec:'s4',
     q:'La declaración de intereses y patrimonio debe presentarse, al asumir el cargo, dentro de:',
     opts:['10 días','30 días','60 días','6 meses'],
-    a:1, exp:'La Ley N° 20.880 exige presentar la declaración dentro de los 30 días siguientes a la asunción del cargo, y actualizarla anualmente.' },
+    a:1, exp:'La Ley N° 20.880 exige presentar la declaración dentro de los 30 días siguientes a la asunción del cargo, y actualizarla anualmente durante el mes de marzo.[reference:3][reference:4]' },
 
   { id:'s4q5', sec:'s4',
     q:'El principio de probidad administrativa exige, entre otras cosas:',
     opts:['Priorizar los intereses personales sobre los públicos','Mantener en reserva todos los actos administrativos','Evitar la rendición de cuentas','Observar una conducta funcionaria intachable y dar prioridad al interés público'],
-    a:3, exp:'La probidad implica una conducta funcionaria intachable y la primacía del interés público sobre el interés particular.' },
+    a:3, exp:'La probidad implica una conducta funcionaria intachable y un desempeño honesto y leal, con preeminencia del interés general sobre el particular.[reference:5][reference:6]' },
 
-  // ┌──────────────────────────────────────────────────────────────┐
-  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 4 (s4)          │
-  // │  Recuerda: sec:'s4', ids: s4q6, s4q7, s4q8...                │
-  // └──────────────────────────────────────────────────────────────┘
+  { id:'s4q6', sec:'s4',
+    q:'¿A qué organismos se aplica la Ley N° 20.285 de Transparencia?',
+    opts:['Solo a los ministerios','A ministerios, intendencias, gobernaciones, gobiernos regionales, municipalidades y servicios públicos','Solo a las municipalidades','Solo al Poder Judicial'],
+    a:1, exp:'La ley se aplica a los ministerios, intendencias, gobernaciones, gobiernos regionales, municipalidades, Fuerzas Armadas, de Orden y Seguridad Pública, y órganos y servicios públicos creados para el cumplimiento de la función administrativa.[reference:7]' },
 
+  { id:'s4q7', sec:'s4',
+    q:'¿Qué es la Transparencia Activa?',
+    opts:['La obligación de publicar información de oficio en los sitios web institucionales','La respuesta a solicitudes ciudadanas','La entrega de información solo cuando se solicita','La publicación de información reservada'],
+    a:0, exp:'La Transparencia Activa consiste en publicar y mantener en el sitio web de la institución información sobre las principales actividades del organismo (estructura orgánica, facultades, personal, remuneraciones, etc.).[reference:8]' },
 
-  /* ═══════════════ SECCIÓN 5 · COMPRAS PÚBLICAS Y FINANZAS ═══════════════ */
+  { id:'s4q8', sec:'s4',
+    q:'¿Cada cuánto tiempo se debe actualizar la información de Transparencia Activa?',
+    opts:['Cada 6 meses','Anualmente','Mensualmente, dentro de los primeros 10 días hábiles','Cada 2 años'],
+    a:2, exp:'Las instituciones públicas deben actualizar mensualmente esta información, dentro de los primeros 10 días hábiles de cada mes.[reference:9]' },
+
+  { id:'s4q9', sec:'s4',
+    q:'¿Cuál de los siguientes NO es un principio de la Ley N° 20.285?',
+    opts:['Principio de máxima divulgación','Principio de divisibilidad','Principio de gratuidad','Principio de secreto absoluto'],
+    a:3, exp:'La Ley N° 20.285 se basa en principios como máxima divulgación, divisibilidad, facilitación, no discriminación, oportunidad, control, responsabilidad y gratuidad, no en el secreto absoluto.[reference:10]' },
+
+  { id:'s4q10', sec:'s4',
+    q:'El principio de divisibilidad implica que:',
+    opts:['La información se divide en varias partes para ocultarla','Si un documento contiene información pública y reservada, se da acceso a la pública y se deniega la reservada','Solo se entrega la mitad de la información','La información se entrega por partes previo pago'],
+    a:1, exp:'El principio de divisibilidad establece que si un acto administrativo contiene información que puede ser conocida e información que debe denegarse, se dará acceso a la primera y no a la segunda.[reference:11]' },
+
+  { id:'s4q11', sec:'s4',
+    q:'El principio de gratuidad en la Ley N° 20.285 significa que:',
+    opts:['La información siempre es gratuita, sin perjuicio de lo establecido en la ley','Solo es gratuita para personas naturales','Se debe pagar una tasa por cada solicitud','La gratuidad solo aplica a municipios'],
+    a:0, exp:'El acceso a la información de los órganos de la Administración es gratuito, sin perjuicio de lo establecido en la ley (por ejemplo, costos de reproducción).[reference:12]' },
+
+  { id:'s4q12', sec:'s4',
+    q:'¿Qué requisitos debe contener una solicitud de acceso a la información pública?',
+    opts:['Solo el nombre del solicitante','Nombre, apellidos, dirección, identificación clara de la información y firma','Solo la firma del abogado','Solo el RUT del funcionario'],
+    a:1, exp:'La solicitud debe contener nombre, apellidos y dirección del solicitante, identificación clara de la información requerida, firma y órgano administrativo al que se dirige.[reference:13]' },
+
+  { id:'s4q13', sec:'s4',
+    q:'Si una solicitud de información está incompleta, el órgano público debe:',
+    opts:['Rechazarla de inmediato','Requerir al solicitante para que subsane la falta en un plazo de 5 días','Archivarla sin aviso','Derivarla a otra unidad'],
+    a:1, exp:'Si la solicitud no reúne los requisitos, se requerirá al solicitante para que, en un plazo de 5 días contados desde la notificación, subsane la falta, con indicación de que si no lo hace se le tendrá por desistido.[reference:14]' },
+
+  { id:'s4q14', sec:'s4',
+    q:'¿Cuál es el plazo para interponer un amparo ante el Consejo para la Transparencia?',
+    opts:['5 días hábiles','10 días hábiles','15 días hábiles desde la denegación o el vencimiento del plazo','30 días hábiles'],
+    a:2, exp:'El amparo debe presentarse dentro de los 15 días hábiles contados desde la notificación de la denegación de acceso o desde que haya expirado el plazo para responder.[reference:15][reference:16]' },
+
+  { id:'s4q15', sec:'s4',
+    q:'Las únicas causales de secreto o reserva de la información están establecidas en:',
+    opts:['El artículo 21 de la Ley N° 20.285','El artículo 1° de la Ley N° 20.880','El Código Civil','La Constitución Política'],
+    a:0, exp:'El artículo 21 de la Ley N° 20.285 dispone que las únicas causales de secreto o reserva en cuya virtud se podrá denegar total o parcialmente el acceso a la información son las que allí se señalan.[reference:17]' },
+
+  { id:'s4q16', sec:'s4',
+    q:'¿Qué es el principio de probidad en la función pública según la Ley N° 20.880?',
+    opts:['Cumplir el horario de trabajo','Observar una conducta funcionaria intachable y un desempeño honesto y leal, con preeminencia del interés general','Priorizar los intereses personales','Mantener en secreto la información pública'],
+    a:1, exp:'El principio de probidad consiste en observar una conducta funcionaria intachable, un desempeño honesto y leal de la función o cargo, con preeminencia del interés general sobre el particular.[reference:18][reference:19]' },
+
+  { id:'s4q17', sec:'s4',
+    q:'¿Qué es un conflicto de interés según la Ley N° 20.880?',
+    opts:['Cuando un funcionario tiene dos empleos','Cuando concurren a la vez el interés general propio del ejercicio de las funciones con un interés particular','Cuando un funcionario discute con su jefe','Cuando un funcionario pide vacaciones'],
+    a:1, exp:'Existe conflicto de interés cuando concurren a la vez el interés general propio del ejercicio de las funciones con un interés particular, sea o no de carácter económico, de quien ejerce dichas funciones o de terceros vinculados a él.[reference:20][reference:21]' },
+
+  { id:'s4q18', sec:'s4',
+    q:'¿Quiénes están obligados a presentar una Declaración de Intereses y Patrimonio (DIP)?',
+    opts:['Solo el Presidente de la República','Autoridades y funcionarios señalados en el artículo 4° de la Ley N° 20.880, como ministros, subsecretarios, jefes de servicio, alcaldes, entre otros','Solo los funcionarios municipales','Todos los ciudadanos'],
+    a:1, exp:'Están obligados, entre otros, el Presidente, Ministros, Subsecretarios, Delegados Presidenciales, Jefes Superiores de Servicio, SEREMIS, funcionarios que cumplan labores directas de fiscalización y contratados a honorarios cuya renta sea igual o superior al 3° nivel jerárquico.[reference:22]' },
+
+  { id:'s4q19', sec:'s4',
+    q:'¿Cuándo debe actualizarse periódicamente la Declaración de Intereses y Patrimonio?',
+    opts:['Cada 5 años','Entre el 1 y el 31 de marzo de cada año','Solo cuando cambia de cargo','Nunca'],
+    a:1, exp:'La declaración debe actualizarse anualmente, durante el mes de marzo de cada año.[reference:23]' },
+
+  { id:'s4q20', sec:'s4',
+    q:'¿Qué información debe contener una Declaración de Intereses y Patrimonio?',
+    opts:['Solo los bienes raíces','Datos personales, actividades profesionales/económicas y información patrimonial (activos y pasivos)','Solo el sueldo del funcionario','Solo las deudas'],
+    a:1, exp:'La DIP contiene datos personales del declarante e información de parientes, actividades profesionales, económicas, laborales y gremiales, e información patrimonial (activos y pasivos).[reference:25]' },
+
+  { id:'s4q21', sec:'s4',
+    q:'¿Cuál es el plazo para presentar la declaración de intereses y patrimonio al cesar en el cargo?',
+    opts:['10 días','30 días posteriores al cese','60 días','No se exige'],
+    a:1, exp:'La declaración debe suscribirse dentro de los 30 días posteriores al cese del cargo.[reference:26]' },
+
+  { id:'s4q22', sec:'s4',
+    q:'¿Cuál de los siguientes es un mecanismo para prevenir conflictos de intereses según la Ley N° 20.880?',
+    opts:['Efectuar una Declaración de Intereses y Patrimonio','Constituir un mandato especial de administración de cartera de valores','Establecer obligaciones de enajenar ciertos bienes','Todas las anteriores'],
+    a:3, exp:'La ley establece mecanismos como la DIP, el mandato especial de administración de cartera de valores y la obligación de enajenar ciertos bienes.[reference:27]' },
+
+  { id:'s4q23', sec:'s4',
+    q:'La Ley N° 20.285 regula, entre otras materias:',
+    opts:['El principio de transparencia de la función pública y el derecho de acceso a la información','Solo el secreto de Estado','Solo las compras públicas','Solo el procedimiento administrativo'],
+    a:0, exp:'La ley regula el principio de transparencia de la función pública, el derecho de acceso a la información de los órganos de la Administración del Estado, los procedimientos para su ejercicio y amparo, y las excepciones a la publicidad.[reference:28]' },
+
+  { id:'s4q24', sec:'s4',
+    q:'¿Qué información debe publicarse obligatoriamente en Transparencia Activa?',
+    opts:['Solo el presupuesto','La estructura orgánica, facultades, personal y remuneraciones, contrataciones, transferencias, actos y resoluciones, entre otros','Solo las declaraciones de intereses','Solo las auditorías'],
+    a:1, exp:'La Transparencia Activa exige publicar, entre otros, la estructura orgánica, facultades y atribuciones, planta de personal y remuneraciones, contrataciones, transferencias de fondos públicos, actos y resoluciones con efectos sobre terceros, y resultados de auditorías.[reference:29][reference:30]' },
+
+  { id:'s4q25', sec:'s4',
+    q:'¿Qué principio establece que la información en poder del Estado se presume pública?',
+    opts:['Principio de secreto','Principio de apertura o transparencia','Principio de confidencialidad','Principio de reserva'],
+    a:1, exp:'El principio de apertura o transparencia establece que toda la información en poder de los órganos de la Administración del Estado se presume pública, a menos que esté sujeta a las excepciones señaladas.[reference:31]' },
+
+  { id:'s4q26', sec:'s4',
+    q:'El principio de máxima divulgación implica que los órganos del Estado deben:',
+    opts:['Entregar la menor cantidad de información posible','Proporcionar información en los términos más amplios posibles, excluyendo solo lo que esté sujeto a excepciones legales','Entregar información solo a quienes la necesiten','Mantener toda la información en reserva'],
+    a:1, exp:'El principio de máxima divulgación establece que los órganos de la Administración deben proporcionar información en los términos más amplios posibles, excluyendo sólo aquello que esté sujeto a las excepciones constitucionales o legales.[reference:32]' },
+
+  { id:'s4q27', sec:'s4',
+    q:'El principio de facilitación busca que los mecanismos de acceso a la información:',
+    opts:['Sean complejos y burocráticos','Faciliten el ejercicio del derecho, excluyendo exigencias que puedan obstruirlo','Requieran obligatoriamente un abogado','Exijan expresión de causa o motivo'],
+    a:1, exp:'El principio de facilitación establece que los mecanismos y procedimientos para el acceso a la información deben facilitar el ejercicio del derecho, excluyendo exigencias o requisitos que puedan obstruirlo o impedirlo.[reference:33]' },
+
+  { id:'s4q28', sec:'s4',
+    q:'Según el principio de no discriminación, los órganos del Estado deben entregar información:',
+    opts:['Solo a quienes tengan un interés legítimo','A todas las personas que lo soliciten, en igualdad de condiciones, sin exigir expresión de causa','Solo a los ciudadanos chilenos','Solo a las personas jurídicas'],
+    a:1, exp:'El principio de no discriminación establece que los órganos deben entregar información a todas las personas que lo soliciten, en igualdad de condiciones, sin hacer distinciones arbitrarias y sin exigir expresión de causa o motivo para la solicitud.[reference:34]' },
+
+  { id:'s4q29', sec:'s4',
+    q:'El principio de oportunidad en la Ley N° 20.285 se refiere a que:',
+    opts:['La información se entrega cuando el funcionario tenga tiempo','Se debe proporcionar respuesta dentro de los plazos legales, con la máxima celeridad posible','La información se entrega solo en horario de oficina','Se puede prorrogar el plazo indefinidamente'],
+    a:1, exp:'El principio de oportunidad establece que los órganos deben proporcionar respuesta a las solicitudes de información dentro de los plazos legales, con la máxima celeridad posible y evitando trámites dilatorios.[reference:35]' },
+
+  { id:'s4q30', sec:'s4',
+    q:'El principio de responsabilidad en la Ley N° 20.285 implica que:',
+    opts:['No hay consecuencias por no responder','El incumplimiento de las obligaciones origina responsabilidades y sanciones','Solo el jefe de servicio es responsable','La responsabilidad es solo moral'],
+    a:1, exp:'El principio de responsabilidad establece que el incumplimiento de las obligaciones que la ley impone a los órganos de la Administración origina responsabilidades y da lugar a las sanciones que establece la ley.[reference:36]' },
+
+  { id:'s4q31', sec:'s4',
+    q:'¿Qué es el Consejo para la Transparencia?',
+    opts:['Un órgano autónomo que resuelve amparos por denegación de información','Un ministerio','Una unidad municipal','Una empresa pública'],
+    a:0, exp:'El Consejo para la Transparencia es el órgano autónomo encargado de resolver los amparos por denegación de acceso a la información pública.[reference:37]' },
+
+  { id:'s4q32', sec:'s4',
+    q:'La Ley N° 20.880 entró en vigencia el:',
+    opts:['5 de enero de 2016','1 de enero de 2015','20 de agosto de 2008','11 de julio de 2025'],
+    a:0, exp:'La Ley N° 20.880, sobre Probidad en la Función Pública y Prevención de los Conflictos de Intereses, fue publicada el 5 de enero de 2016.[reference:38][reference:39]' },
+
+  { id:'s4q33', sec:'s4',
+    q:'¿A qué órgano corresponde la Contraloría General de la República en materia de transparencia?',
+    opts:['Queda sujeta a las disposiciones de la Ley N° 20.285 que expresamente ésta señale y a su ley orgánica','No está sujeta a la Ley de Transparencia','Es el único órgano que resuelve amparos','Es el órgano que entrega toda la información pública'],
+    a:0, exp:'La Contraloría General de la República y el Banco Central se ajustarán a las disposiciones de la Ley N° 20.285 que expresamente ésta señale, y a las de sus respectivas leyes orgánicas que versen sobre la materia.[reference:40]' },
+
+  { id:'s4q34', sec:'s4',
+    q:'El artículo 21 de la Ley N° 20.285 establece que las causales de secreto o reserva son:',
+    opts:['Amplias y discrecionales','Taxativas ("las únicas")','Solo aplicables a municipios','Derogables por el alcalde'],
+    a:1, exp:'El artículo 21 dispone que "las únicas causales de secreto o reserva" en cuya virtud se podrá denegar total o parcialmente el acceso a la información son las que allí se señalan, es decir, son taxativas.[reference:41]' },
+
+  { id:'s4q35', sec:'s4',
+    q:'La causal de secreto del artículo 21 N° 1 de la Ley N° 20.285 se refiere a:',
+    opts:['Cuando la publicidad afecte el debido cumplimiento de las funciones del órgano','Cuando la información sea muy antigua','Cuando el documento esté en mal estado','Cuando la información sea extensa'],
+    a:0, exp:'El artículo 21 N° 1 permite denegar el acceso cuando la publicidad, comunicación o conocimiento de la información afecte el debido cumplimiento de las funciones del órgano requerido.[reference:42]' },
+
+  { id:'s4q36', sec:'s4',
+    q:'La causal de secreto del artículo 21 N° 2 de la Ley N° 20.285 se refiere a:',
+    opts:['Cuando la publicidad afecte los derechos de las personas','Cuando la información sea confidencial','Cuando el funcionario esté de vacaciones','Cuando la información esté en otro idioma'],
+    a:0, exp:'El artículo 21 N° 2 establece como causal de secreto o reserva cuando la publicidad, comunicación o conocimiento de la información afecte los derechos de las personas, particularmente su vida privada o la seguridad.[reference:43]' },
+
+  { id:'s4q37', sec:'s4',
+    q:'¿Qué es el amparo ante el Consejo para la Transparencia?',
+    opts:['Un recurso para impugnar la denegación de información','Una solicitud de información','Una denuncia penal','Un recurso judicial'],
+    a:0, exp:'El amparo es el recurso que el solicitante puede interponer ante el Consejo para la Transparencia cuando un órgano de la Administración le deniega el acceso a la información o no responde dentro del plazo legal.[reference:44][reference:45]' },
+
+  { id:'s4q38', sec:'s4',
+    q:'La información publicada en Transparencia Activa debe estar:',
+    opts:['En formato impreso','Completa, actualizada y de fácil identificación y acceso expedito en los sitios electrónicos','Solo disponible para funcionarios','En reserva'],
+    a:1, exp:'La información de Transparencia Activa debe incorporarse en los sitios electrónicos en forma completa y actualizada, y de un modo que permita su fácil identificación y un acceso expedito.[reference:46]' },
+
+  { id:'s4q39', sec:'s4',
+    q:'¿Qué tipo de información NO se incluye en la publicación de beneficiarios de programas sociales?',
+    opts:['El nombre del beneficiario','Los datos sensibles (salud, ideología, vida sexual, etc.)','El monto del subsidio','El programa al que postuló'],
+    a:1, exp:'No se incluirán en estos antecedentes los datos sensibles, esto es, los datos personales que se refieren a características físicas o morales, hábitos personales, origen social, ideologías, creencias religiosas, estados de salud y vida sexual.[reference:47]' },
+
+  { id:'s4q40', sec:'s4',
+    q:'La Ley N° 20.880 tiene por objeto:',
+    opts:['Regular el principio de probidad en el ejercicio de la función pública y la prevención y sanción de conflictos de intereses','Regular las compras públicas','Regular el procedimiento administrativo','Regular la transparencia activa'],
+    a:0, exp:'La Ley N° 20.880 "regula el principio de probidad en el ejercicio de la función pública y la prevención y sanción de conflictos de intereses".[reference:48]' },
+
+  { id:'s4q41', sec:'s4',
+    q:'¿Cuál es el objetivo principal de la Declaración de Intereses y Patrimonio (DIP)?',
+    opts:['Aumentar el sueldo del funcionario','Transparentar y dar publicidad a las relaciones económicas y patrimoniales que pueden afectar la imparcialidad','Controlar el horario de trabajo','Evaluar el desempeño'],
+    a:1, exp:'La DIP tiene por objeto transparentar y dar publicidad a las relaciones económicas y patrimoniales que pueden afectar la imparcialidad del funcionario al momento de la toma de decisiones.[reference:49]' },
+
+  { id:'s4q42', sec:'s4',
+    q:'¿Qué debe hacer un funcionario que se encuentra en una situación de conflicto de interés?',
+    opts:['Continuar tomando decisiones como si nada','Abstenerse de intervenir en el asunto y declararlo','Delegar la decisión en un subordinado sin avisar','Ocultar la situación'],
+    a:1, exp:'El funcionario debe abstenerse de intervenir en el asunto y declarar la situación de conflicto de interés, conforme al principio de abstención y a las normas de probidad.' },
+
+  { id:'s4q43', sec:'s4',
+    q:'La Ley N° 20.880 también regula:',
+    opts:['La obligación de enajenar ciertos bienes cuando generen conflictos de interés','Las licitaciones públicas','Los permisos de edificación','Los sumarios administrativos'],
+    a:0, exp:'La ley regula, además de la DIP, la obligación de enajenar ciertos bienes y el mandato especial de administración de cartera de valores, como mecanismos para prevenir conflictos de intereses.[reference:50]' },
+
+  { id:'s4q44', sec:'s4',
+    q:'¿Qué son los "datos sensibles" según la Ley N° 20.285?',
+    opts:['Datos personales que se refieren a características físicas o morales, hábitos, ideologías, creencias, estados de salud y vida sexual','Datos financieros del Estado','Información de compras públicas','Los sueldos de los funcionarios'],
+    a:0, exp:'Los datos sensibles son los datos personales que se refieren a las características físicas o morales de las personas o a hechos o circunstancias de su vida privada o intimidad, tales como hábitos personales, origen social, ideologías, creencias religiosas, estados de salud y vida sexual.[reference:51]' },
+
+  { id:'s4q45', sec:'s4',
+    q:'¿Cuál es el plazo para que el Consejo para la Transparencia resuelva un amparo?',
+    opts:['No tiene plazo','Debe resolver dentro de los plazos legales establecidos, con celeridad','Tiene un año para resolver','Solo resuelve cuando el solicitante insiste'],
+    a:1, exp:'El Consejo debe resolver los amparos dentro de los plazos legales, aplicando los principios de celeridad y oportunidad que rigen la Ley N° 20.285.' },
+
+  { id:'s4q46', sec:'s4',
+    q:'La información sobre el presupuesto asignado y su ejecución debe publicarse en:',
+    opts:['Transparencia Activa','Solo cuando se solicita','En el Diario Oficial','En un expediente reservado'],
+    a:0, exp:'La Transparencia Activa incluye la información sobre el presupuesto asignado, así como los informes sobre su ejecución, en los términos previstos en la respectiva Ley de Presupuestos.[reference:52]' },
+
+  { id:'s4q47', sec:'s4',
+    q:'Los resultados de las auditorías al ejercicio presupuestario del órgano deben publicarse en:',
+    opts:['Transparencia Activa','Solo en la Contraloría','En un informe interno','No se publican'],
+    a:0, exp:'La Transparencia Activa incluye los resultados de las auditorías al ejercicio presupuestario del respectivo órgano y, en su caso, las aclaraciones que procedan.[reference:53]' },
+
+  { id:'s4q48', sec:'s4',
+    q:'¿Qué principio de la Ley N° 20.285 garantiza que el acceso a la información es gratuito?',
+    opts:['Principio de gratuidad','Principio de oportunidad','Principio de divisibilidad','Principio de control'],
+    a:0, exp:'El principio de gratuidad establece que el acceso a la información de los órganos de la Administración es gratuito, sin perjuicio de lo establecido en la ley (por ejemplo, costos de reproducción).[reference:54]' },
+
+  { id:'s4q49', sec:'s4',
+    q:'El principio de control en la Ley N° 20.285 implica que:',
+    opts:['No hay fiscalización','El cumplimiento de las normas será objeto de fiscalización permanente y las resoluciones son reclamables ante un órgano externo','Solo el Congreso fiscaliza','La fiscalización es interna'],
+    a:1, exp:'El principio de control establece que el cumplimiento de las normas que regulan el derecho de acceso a la información será objeto de fiscalización permanente, y las resoluciones que recaigan en solicitudes de acceso son reclamables ante un órgano externo (el Consejo para la Transparencia).[reference:55]' },
+
+  { id:'s4q50', sec:'s4',
+    q:'La Ley N° 20.880 busca, entre otros objetivos:',
+    opts:['Evitar el enriquecimiento ilícito y prevenir los conflictos de intereses','Aumentar los sueldos de los funcionarios','Reducir el número de funcionarios','Eliminar la Contraloría'],
+    a:0, exp:'La Ley N° 20.880 tiene como objetivos, entre otros, evitar el enriquecimiento ilícito y prevenir los conflictos de intereses en la función pública.[reference:56][reference:57]' },
+
+    /* ═══════════════ SECCIÓN 5 · COMPRAS PÚBLICAS Y FINANZAS ═══════════════ */
 
   { id:'s5q1', sec:'s5',
-    q:'La modalidad de Compra Ágil en Mercado Público se utiliza para compras cuyo monto no supere:',
-    opts:['5 UTM','30 UTM','100 UTM','1.000 UTM'],
-    a:1, exp:'Compra Ágil permite adquirir bienes y servicios por montos de hasta 30 UTM, sin necesidad de licitación.' },
+    q:'La modalidad de Compra Ágil en Mercado Público, tras la entrada en vigencia del nuevo Reglamento (D.S. N° 661/2024), se utiliza para compras cuyo monto no supere:',
+    opts:['30 UTM','100 UTM','500 UTM','1.000 UTM'],
+    a:1, exp:'El nuevo Reglamento de Compras Públicas (D.S. N° 661/2024) aumentó el monto de la Compra Ágil desde 30 UTM a 100 UTM[reference:0].' },
 
   { id:'s5q2', sec:'s5',
-    q:'¿Cuál es una causal legal de Trato Directo?',
-    opts:['Cuando el monto supera las 1.000 UTM','Cuando el alcalde lo estima conveniente','Cuando solo existe un proveedor en el mercado','Cuando no hay presupuesto disponible'],
-    a:2, exp:'El artículo 8 de la Ley N° 19.886 contempla el trato directo, entre otras causales, cuando solo existe un proveedor determinado.' },
+    q:'¿Cuál es una causal legal de Trato Directo según la Ley N° 19.886?',
+    opts:['Cuando el monto supera las 1.000 UTM','Cuando el alcalde lo estima conveniente','Cuando solo existe un proveedor determinado en el mercado','Cuando no hay presupuesto disponible'],
+    a:2, exp:'El Trato Directo procede, entre otras causales, cuando solo existe un proveedor del bien o servicio que se requiere[reference:1].' },
 
   { id:'s5q3', sec:'s5',
     q:'¿Cuál de los siguientes es un principio de la Ley N° 18.575?',
     opts:['Discrecionalidad absoluta','Improcedencia del control jerárquico','Confidencialidad de toda la gestión','Eficiencia, eficacia y control de los recursos públicos'],
-    a:3, exp:'La Ley N° 18.575 consagra los principios de responsabilidad, eficiencia, eficacia, control, probidad, transparencia y publicidad, entre otros.' },
+    a:3, exp:'La Ley N° 18.575 consagra, entre otros, los principios de responsabilidad, eficiencia, eficacia, coordinación, transparencia, probidad y control[reference:2].' },
 
   { id:'s5q4', sec:'s5',
-    q:'El instrumento que formaliza una compra en Mercado Público es:',
+    q:'El instrumento que formaliza una compra en Mercado Público y permite el pago al proveedor es:',
     opts:['La Orden de Compra','La factura','El decreto alcaldicio','El cheque'],
     a:0, exp:'La Orden de Compra es el documento electrónico que formaliza el contrato y permite el pago al proveedor en el portal Mercado Público.' },
 
   { id:'s5q5', sec:'s5',
     q:'La licitación pública es el procedimiento:',
-    opts:['Excepcional y solo para emergencias','De carácter general para las compras y contrataciones del Estado','Que no requiere publicación','Que solo se usa en municipios'],
-    a:1, exp:'La licitación pública es la regla general en las compras públicas, y el trato directo es la excepción taxativamente regulada.' },
+    opts:['Excepcional y solo para emergencias','De carácter general y abierto para las compras y contrataciones del Estado','Que no requiere publicación','Que solo se usa en municipios'],
+    a:1, exp:'La licitación pública es el procedimiento de carácter concursal y abierto, mediante un llamado público a proveedores, y es la regla general en las compras públicas[reference:3].' },
 
-  // ┌──────────────────────────────────────────────────────────────┐
-  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 5 (s5)          │
-  // │  Recuerda: sec:'s5', ids: s5q6, s5q7, s5q8...                │
-  // └──────────────────────────────────────────────────────────────┘
+  { id:'s5q6', sec:'s5',
+    q:'El Trato Directo, por regla general, requiere:',
+    opts:['Una resolución fundada del jefe superior del organismo','La aprobación del Concejo Municipal','Publicación en el Diario Oficial','Un concurso público previo'],
+    a:0, exp:'El Trato Directo es un mecanismo excepcional que exige una resolución fundada o decreto alcaldicio que justifique la causal invocada[reference:4].' },
 
+  { id:'s5q7', sec:'s5',
+    q:'Para las contrataciones iguales o inferiores a 10 UTM por Trato Directo, se debe solicitar un mínimo de:',
+    opts:['Una cotización','Dos cotizaciones','Tres cotizaciones','Cinco cotizaciones'],
+    a:2, exp:'Para las contrataciones iguales o inferiores a 10 UTM, se debe solicitar un mínimo de tres cotizaciones, salvo las causales exceptuadas por el reglamento[reference:5].' },
 
-  /* ═══════════════ SECCIÓN 6 · COMPETENCIAS TÉCNICAS Y DE GESTIÓN ═══════════════ */
+  { id:'s5q8', sec:'s5',
+    q:'La licitación privada se utiliza cuando:',
+    opts:['Una licitación pública no tiene ofertas o estas fueron declaradas inadmisibles','Se quiere evitar la competencia','El monto es inferior a 10 UTM','El proveedor es único'],
+    a:0, exp:'La licitación privada se utiliza cuando una licitación pública no tiene ofertas o dichas ofertas han sido declaradas inadmisibles[reference:6].' },
+
+  { id:'s5q9', sec:'s5',
+    q:'¿Cuál es un principio que rige las compras públicas según la Ley N° 19.886?',
+    opts:['Secreto de las bases','Libre acceso a las licitaciones','Discriminación arbitraria','Negociación directa con el Estado'],
+    a:1, exp:'Las compras públicas se rigen, entre otros, por los principios de libre acceso a las licitaciones, competencia, publicidad y transparencia, igualdad de trato y no discriminación[reference:7].' },
+
+  { id:'s5q10', sec:'s5',
+    q:'El principio de "valor por dinero" en las compras públicas se refiere a:',
+    opts:['Comprar siempre lo más barato','La eficiencia, eficacia y economía en el uso de los recursos, y la mejor relación costo-beneficio','Comprar al proveedor más rápido','Priorizar al proveedor local'],
+    a:1, exp:'El principio de valor por dinero consiste en la eficiencia, eficacia y economía en el uso de los recursos públicos, y la mejor relación costo-beneficio en las adquisiciones[reference:8].' },
+
+  { id:'s5q11', sec:'s5',
+    q:'La fragmentación de las contrataciones para evitar un procedimiento de mayor envergadura constituye:',
+    opts:['Una práctica permitida','Una infracción a los principios de las compras públicas','Una causal de Trato Directo','Un tipo de Compra Ágil'],
+    a:1, exp:'La fragmentación de las contrataciones es una infracción a los principios de la Ley N° 19.886, en particular al de eficiencia y valor por dinero[reference:9].' },
+
+  { id:'s5q12', sec:'s5',
+    q:'El Convenio Marco es un procedimiento realizado por ChileCompra que:',
+    opts:['Impone un proveedor único','Dispone un catálogo de bienes y servicios estandarizados con proveedores adjudicados','Solo aplica a municipios','No requiere licitación previa'],
+    a:1, exp:'El Convenio Marco dispone un catálogo de bienes y servicios estandarizados, entregados por proveedores adjudicados en la licitación de Convenio Marco[reference:10].' },
+
+  { id:'s5q13', sec:'s5',
+    q:'La Compra por Cotización, según el nuevo Reglamento, es un procedimiento:',
+    opts:['Fundado que abre un espacio de negociación con un mínimo de 3 cotizaciones en casos específicos','Exclusivo para emergencias','Que no requiere fundamentación','Solo para bienes sobre 1.000 UTM'],
+    a:0, exp:'La Compra por Cotización es un procedimiento fundado que abre un espacio de negociación con un mínimo de 3 cotizaciones, por ejemplo, en caso de término anticipado de contrato con remanente menor a 1.000 UTM[reference:11].' },
+
+  { id:'s5q14', sec:'s5',
+    q:'En una licitación pública, el uso de Bases Tipo es:',
+    opts:['Opcional','Obligatorio en los rubros disponibles','Solo para municipios','Solo si el monto supera las 1.000 UTM'],
+    a:1, exp:'En la licitación pública es obligatorio el uso de Bases Tipo en los rubros que se encuentren disponibles[reference:12].' },
+
+  { id:'s5q15', sec:'s5',
+    q:'Las inhabilidades para contratar con el Estado y pertenecer al Registro de Proveedores están establecidas en:',
+    opts:['La Ley N° 18.575','El Reglamento de la Ley N° 19.886 (D.S. N° 661/2024)','La Constitución','El Código Civil'],
+    a:1, exp:'El nuevo Reglamento de Compras Públicas (D.S. N° 661/2024) enumera las inhabilidades para contratar con el Estado y pertenecer al Registro de Proveedores[reference:13].' },
+
+  { id:'s5q16', sec:'s5',
+    q:'Un proveedor que se encuentra inhabilitado para contratar con el Estado:',
+    opts:['Puede participar igualmente si ofrece el mejor precio','No puede celebrar contratos con organismos públicos','Solo puede participar en Compra Ágil','Debe pagar una multa para participar'],
+    a:1, exp:'Las inhabilidades para contratar con el Estado implican que el proveedor no puede celebrar contratos con organismos públicos mientras subsista la causal[reference:14].' },
+
+  { id:'s5q17', sec:'s5',
+    q:'Los contratos administrativos regulados por la Ley N° 19.886 pueden modificarse o terminarse anticipadamente por:',
+    opts:['Solo acuerdo de las partes','Las causales establecidas en la ley','Solo decisión del proveedor','Solo orden judicial'],
+    a:1, exp:'Los contratos administrativos regulados por la Ley N° 19.886 podrán modificarse o terminarse anticipadamente por las causales establecidas en la ley[reference:15].' },
+
+  { id:'s5q18', sec:'s5',
+    q:'En una licitación, la Comisión Evaluadora, respecto de los criterios de evaluación, puede:',
+    opts:['Variarlos durante la evaluación según su criterio','Aplicar los criterios técnicos y económicos establecidos en las bases','Modificarlos si hay empate','Eliminarlos si no hay oferentes'],
+    a:1, exp:'Los criterios de evaluación tienen por objeto seleccionar la mejor oferta de acuerdo con los aspectos técnicos y económicos establecidos en las bases de licitación, y no pueden ser variados durante la evaluación[reference:16].' },
+
+  { id:'s5q19', sec:'s5',
+    q:'Si se produce un empate en el resultado final de la evaluación de una licitación, la regla general es:',
+    opts:['Declarar desierto el proceso','Aplicar los criterios de desempate establecidos en las bases','Elegir al proveedor que llegó primero','Sortear entre los empatados'],
+    a:1, exp:'En caso de empates, se deben aplicar los criterios de desempate establecidos en las bases de licitación, no declarar desierto el proceso de forma automática[reference:17].' },
+
+  { id:'s5q20', sec:'s5',
+    q:'La responsabilidad administrativa de los funcionarios públicos, según la Ley N° 18.575, se hace efectiva:',
+    opts:['Solo por decisión del alcalde','Con sujeción a las normas que establece la ley','Solo por resolución judicial','Solo si hay delito'],
+    a:1, exp:'La responsabilidad administrativa de los funcionarios se hace efectiva con sujeción a las normas que establece la Ley N° 18.575 y la normativa especial aplicable[reference:18].' },
+
+  { id:'s5q21', sec:'s5',
+    q:'La Ley N° 18.575 establece que la Administración del Estado deberá observar los principios de:',
+    opts:['Responsabilidad, eficiencia, eficacia, coordinación, transparencia, probidad y control','Solo jerarquía','Solo legalidad','Solo eficiencia'],
+    a:0, exp:'El artículo 3° de la Ley N° 18.575 establece que la Administración del Estado deberá observar los principios de responsabilidad, eficiencia, eficacia, coordinación, transparencia, probidad y control[reference:19].' },
+
+  { id:'s5q22', sec:'s5',
+    q:'El principio de jerarquía en la Administración del Estado implica que:',
+    opts:['No existe subordinación','Los órganos superiores pueden impartir instrucciones a los inferiores','Cada funcionario actúa de forma independiente','Solo el Presidente manda'],
+    a:1, exp:'El principio de jerarquía es aquel sobre el cual se funda la organización administrativa del Estado, e implica la subordinación de los órganos inferiores a los superiores[reference:20].' },
+
+  { id:'s5q23', sec:'s5',
+    q:'El control jerárquico en la Administración del Estado permite:',
+    opts:['Que los funcionarios no rindan cuentas','Que los superiores jerárquicos corrijan y sancionen a los inferiores','Que los actos no sean revisables','Que cada órgano sea autónomo'],
+    a:1, exp:'El control jerárquico es una manifestación del principio de jerarquía, que permite al superior corregir, revisar y sancionar los actos de sus subordinados[reference:21].' },
+
+  { id:'s5q24', sec:'s5',
+    q:'La probidad administrativa, según la Ley N° 18.575, consiste en:',
+    opts:['Cumplir el horario','Observar una conducta funcionaria intachable y un desempeño honesto y leal, con preeminencia del interés general','Priorizar los intereses personales','Mantener en secreto la información'],
+    a:1, exp:'El artículo 52 de la Ley N° 18.575 define la probidad como observar una conducta funcionaria intachable y un desempeño honesto y leal de la función o cargo, con preeminencia del interés general sobre el particular[reference:22].' },
+
+  { id:'s5q25', sec:'s5',
+    q:'El interés general, según la Ley N° 18.575, exige:',
+    opts:['El empleo de medios idóneos para una gestión eficiente y eficaz','La maximización del gasto público','La concentración de decisiones en una persona','La eliminación del control'],
+    a:0, exp:'El interés general exige el empleo de medios idóneos de diagnóstico, decisión y control para concretar una gestión eficiente y eficaz[reference:23].' },
+
+  { id:'s5q26', sec:'s5',
+    q:'La Constitución Política de la República consagra el principio de probidad administrativa en:',
+    opts:['El artículo 1°','El artículo 8°','El artículo 19','El artículo 100'],
+    a:1, exp:'La reforma constitucional N° 20.050 introdujo en la Constitución, en su artículo 8°, el principio de probidad administrativa[reference:24].' },
+
+  { id:'s5q27', sec:'s5',
+    q:'Según la Ley N° 18.575, los servicios públicos pueden ser:',
+    opts:['Solo centralizados','Solo descentralizados','Centralizados o descentralizados','Solo autónomos'],
+    a:2, exp:'Los servicios públicos serán centralizados o descentralizados, pudiendo la descentralización ser funcional o territorial[reference:25].' },
+
+  { id:'s5q28', sec:'s5',
+    q:'Los servicios públicos centralizados actúan:',
+    opts:['Con personalidad jurídica propia','Bajo la personalidad jurídica y con los bienes y recursos del Fisco','Con patrimonio propio','Con autonomía total'],
+    a:1, exp:'Los servicios centralizados actúan bajo la personalidad jurídica y con los bienes y recursos del Fisco, y están sometidos a la dependencia del Presidente de la República[reference:26].' },
+
+  { id:'s5q29', sec:'s5',
+    q:'Los servicios públicos descentralizados actúan:',
+    opts:['Sin personalidad jurídica','Con la personalidad jurídica y el patrimonio propio que la ley les asigne','Bajo la personalidad del Fisco','Solo con bienes municipales'],
+    a:1, exp:'Los servicios descentralizados actúan con la personalidad jurídica y el patrimonio propio que la ley les asigne, y están sometidos a la supervigilancia del Presidente de la República[reference:27].' },
+
+  { id:'s5q30', sec:'s5',
+    q:'La descentralización territorial tiene como entidad típica a:',
+    opts:['Los ministerios','La municipalidad','Las Fuerzas Armadas','Los tribunales'],
+    a:1, exp:'La municipalidad es la entidad típica de la descentralización territorial, con personalidad jurídica y patrimonio propio[reference:28].' },
+
+  { id:'s5q31', sec:'s5',
+    q:'En materia de compras públicas, el principio de igualdad de trato y no discriminación exige que:',
+    opts:['Se favorezca a los proveedores locales','Todos los oferentes reciban el mismo trato y las mismas oportunidades','Se excluya a los proveedores extranjeros','Solo participen proveedores del Estado'],
+    a:1, exp:'El principio de igualdad de trato y no discriminación asegura que todos los oferentes reciban un trato igualitario, sin discriminaciones arbitrarias[reference:29].' },
+
+  { id:'s5q32', sec:'s5',
+    q:'El principio de publicidad y transparencia en las compras públicas implica que:',
+    opts:['Las bases y actos del procedimiento sean secretos','Los procedimientos y sus actos sean públicos y accesibles','Solo el ganador conozca las bases','No se publiquen los resultados'],
+    a:1, exp:'El principio de publicidad y transparencia exige que los procedimientos de compra y sus actos sean públicos y accesibles, garantizando la transparencia[reference:30].' },
+
+  { id:'s5q33', sec:'s5',
+    q:'El principio de competencia en las compras públicas busca:',
+    opts:['Limitar la participación de proveedores','Fomentar la participación del mayor número de oferentes para obtener mejores condiciones','Que solo un proveedor presente ofertas','Evitar la publicidad'],
+    a:1, exp:'El principio de competencia busca fomentar la participación del mayor número posible de proveedores, para que el Estado obtenga las mejores condiciones de precio y calidad[reference:31].' },
+
+  { id:'s5q34', sec:'s5',
+    q:'Las compras públicas se rigen, entre otros, por el principio de:',
+    opts:['Probidad','Secreto','Discriminación','Improvisación'],
+    a:0, exp:'La probidad es uno de los principios que rigen las compras públicas, junto con el libre acceso, la competencia, la publicidad y transparencia, la igualdad de trato y el valor por dinero[reference:32].' },
+
+  { id:'s5q35', sec:'s5',
+    q:'Una licitación pública declarada desierta por falta de oferentes habilita, en principio, a:',
+    opts:['Contratar directamente sin más trámite','Realizar una licitación privada con las mismas bases','Cancelar el proyecto','Aumentar el presupuesto'],
+    a:1, exp:'Si una licitación pública se declara desierta, se debe efectuar una licitación privada con las mismas bases; solo si en esta tampoco hay interesados se podrá proceder a la contratación directa[reference:33].' },
+
+  { id:'s5q36', sec:'s5',
+    q:'La causal de Trato Directo por "emergencia, urgencia o imprevisto" exige, entre otros requisitos:',
+    opts:['Que la situación sea imputable a la entidad','Que se justifique que no puede utilizarse otro procedimiento y exista riesgo de graves perjuicios','Que el monto sea superior a 1.000 UTM','Que lo solicite el proveedor'],
+    a:1, exp:'Para invocar esta causal se debe justificar el riesgo de graves perjuicios, la imposibilidad de usar otro procedimiento y que la situación no sea imputable a la entidad contratante[reference:34].' },
+
+  { id:'s5q37', sec:'s5',
+    q:'La falta de gestión oportuna de los procedimientos necesarios para garantizar la continuidad de las prestaciones:',
+    opts:['Es una causal válida de urgencia','No es admisible como fundamento de emergencia o urgencia','Justifica el Trato Directo','Permite la Compra Ágil'],
+    a:1, exp:'No es admisible invocar como fundamento de emergencia o urgencia la falta de gestión oportuna de los procedimientos necesarios ni la falta de ejecución de proyectos previamente contemplados[reference:35].' },
+
+  { id:'s5q38', sec:'s5',
+    q:'En el Trato Directo por urgencia o emergencia, el plazo del contrato debe:',
+    opts:['Ser indefinido','Estar delimitado a los supuestos de hecho que lo fundan','Superar los 2 años','Ser aprobado por el Concejo'],
+    a:1, exp:'En los contratos suscritos bajo esta justificación, el plazo para efectuar el suministro o la prestación del servicio debe estar delimitado a los supuestos de hecho que lo fundan[reference:36].' },
+
+  { id:'s5q39', sec:'s5',
+    q:'El mal uso del Trato Directo por emergencia o urgencia puede acarrear:',
+    opts:['Ninguna consecuencia','Multas de 10 a 100 UTM, según la cuantía de la contratación','Solo una amonestación verbal','La nulidad del contrato sin más'],
+    a:1, exp:'El mal uso de esta causal puede acarrear la aplicación de multas de 10 a 100 UTM, según la cuantía de la contratación involucrada[reference:37].' },
+
+  { id:'s5q40', sec:'s5',
+    q:'La declaración de intereses y patrimonio, en el ámbito de las compras públicas, corresponde a:',
+    opts:['Solo al jefe de servicio','A requirentes, unidad de compra, comisión evaluadora, visador jurídico, administradores de contratos y firmantes','Solo a los proveedores','Solo a los funcionarios de planta'],
+    a:1, exp:'Conforme al Reglamento de Compras Públicas, deben realizar declaración de intereses y patrimonio los requirentes, la unidad de compra, la comisión evaluadora, el visador jurídico, los administradores de contratos y los firmantes[reference:38].' },
+
+  { id:'s5q41', sec:'s5',
+    q:'Para las compras superiores a 1.000 UTM, si se invoca la causal de "costo desproporcionado", se debe:',
+    opts:['Solo informar al proveedor','Justificar la causal y la razonabilidad del precio','Contar con autorización del Concejo','Publicar en el Diario Oficial'],
+    a:1, exp:'Para las compras superiores a 1.000 UTM, se debe justificar la causal de costo desproporcionado y la razonabilidad del precio[reference:39].' },
+
+  { id:'s5q42', sec:'s5',
+    q:'El nuevo Reglamento de Compras Públicas (D.S. N° 661) entró en vigencia el:',
+    opts:['1 de enero de 2023','12 de diciembre de 2024','5 de enero de 2016','20 de agosto de 2008'],
+    a:1, exp:'El Decreto N° 661/2024, que aprueba el nuevo Reglamento de la Ley N° 19.886, entró en vigor el 12 de diciembre de 2024[reference:40].' },
+
+  { id:'s5q43', sec:'s5',
+    q:'El nuevo Reglamento de Compras Públicas contiene:',
+    opts:['50 artículos','100 artículos','202 artículos','500 artículos'],
+    a:2, exp:'El nuevo Reglamento de Compras Públicas, aprobado por el D.S. N° 661/2024, consta de 202 artículos[reference:41].' },
+
+  { id:'s5q44', sec:'s5',
+    q:'Una de las modificaciones del nuevo Reglamento es:',
+    opts:['Eliminar la Compra Ágil','Aumentar los montos de la Compra Ágil de 30 a 100 UTM','Suprimir el Trato Directo','Eliminar las licitaciones públicas'],
+    a:1, exp:'El nuevo Reglamento aumentó los montos de la Compra Ágil desde 30 UTM a 100 UTM, y estableció su operatoria y requisitos[reference:42].' },
+
+  { id:'s5q45', sec:'s5',
+    q:'Según la Ley N° 18.575, el principio de responsabilidad implica que:',
+    opts:['Los funcionarios no son responsables de sus actos','Las autoridades y funcionarios son responsables de sus actuaciones','Solo el Presidente es responsable','La responsabilidad es solo moral'],
+    a:1, exp:'El principio de responsabilidad establece que las autoridades y funcionarios de la Administración del Estado son responsables de sus actuaciones, en los términos que la ley señala[reference:43].' },
+
+  { id:'s5q46', sec:'s5',
+    q:'El principio de eficiencia y eficacia en la Administración del Estado exige:',
+    opts:['Gastar sin control','Lograr los objetivos con el menor costo y en el menor tiempo posible','Aumentar la burocracia','Priorizar los procedimientos sobre los resultados'],
+    a:1, exp:'La eficiencia y eficacia exigen que la Administración logre sus objetivos con el menor costo y en el menor tiempo posible, optimizando el uso de los recursos públicos[reference:44].' },
+
+  { id:'s5q47', sec:'s5',
+    q:'La coordinación, como principio de la Ley N° 18.575, busca:',
+    opts:['Que cada órgano actúe de forma aislada','Que los órganos de la Administración actúen de manera armónica y coordinada para el cumplimiento de sus fines','Que exista competencia entre órganos','Que se eliminen los controles'],
+    a:1, exp:'El principio de coordinación busca que los órganos de la Administración del Estado actúen de manera armónica y coordinada para el cumplimiento de sus fines[reference:45].' },
+
+  { id:'s5q48', sec:'s5',
+    q:'La transparencia, como principio de la Ley N° 18.575, se relaciona con:',
+    opts:['El secreto de los actos administrativos','El acceso a la información pública y la publicidad de los actos','La reserva de los procedimientos','La confidencialidad de los sueldos'],
+    a:1, exp:'El principio de transparencia se relaciona con el acceso a la información pública y la publicidad de los actos de la Administración, en conformidad a la ley[reference:46].' },
+
+  { id:'s5q49', sec:'s5',
+    q:'El control, como principio de la Ley N° 18.575, implica que:',
+    opts:['No existe fiscalización','Los actos de la Administración están sujetos a control interno y externo','Solo el Congreso controla','La Contraloría no tiene funciones'],
+    a:1, exp:'El principio de control implica que los actos de la Administración están sujetos a mecanismos de control interno y externo, como la Contraloría General de la República y las unidades de control interno[reference:47].' },
+
+  { id:'s5q50', sec:'s5',
+    q:'La Ley N° 18.575 se caracteriza por ser:',
+    opts:['Una ley ordinaria','Una ley orgánica constitucional de bases generales de la Administración del Estado','Un reglamento municipal','Un código'],
+    a:1, exp:'La Ley N° 18.575 es la Ley Orgánica Constitucional de Bases Generales de la Administración del Estado, que establece los principios y normas básicas de la organización y funcionamiento de la Administración[reference:48].' },
+
+    /* ═══════════════ SECCIÓN 6 · COMPETENCIAS TÉCNICAS Y DE GESTIÓN ═══════════════ */
 
   { id:'s6q1', sec:'s6',
     q:'¿Qué unidad municipal emite el Certificado de Informaciones Previas?',
@@ -545,37 +1623,230 @@ const QUESTIONS = [
     opts:['Guardar copias solo en el escritorio','Eliminar documentos antiguos','Delegar todo al correo personal','Mantener un registro ordenado y foliado de cada documento'],
     a:3, exp:'La foliación y el registro ordenado de los documentos aseguran la trazabilidad del expediente y facilitan la fiscalización.' },
 
-  // ┌──────────────────────────────────────────────────────────────┐
-  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 6 (s6)          │
-  // │  Recuerda: sec:'s6', ids: s6q6, s6q7, s6q8...                │
-  // └──────────────────────────────────────────────────────────────┘
+  { id:'s6q6', sec:'s6',
+    q:'El Permiso de Edificación es el acto formal mediante el cual:',
+    opts:['El municipio autoriza la ejecución de obras de construcción, ampliación o modificación','Se autoriza el funcionamiento de un negocio','Se inscribe el inmueble en el Conservador','Se paga el impuesto territorial'],
+    a:0, exp:'El Permiso de Edificación es el acto formal mediante el cual la DOM autoriza la ejecución de obras de construcción, ampliación, reparación, alteración, reconstrucción o demolición de edificaciones.' },
 
-];
+  { id:'s6q7', sec:'s6',
+    q:'La Recepción Final de Obras es el acto por el cual:',
+    opts:['Se inicia la construcción','La DOM certifica que la obra fue ejecutada conforme al permiso otorgado','Se cancela el impuesto territorial','Se inscribe el inmueble'],
+    a:1, exp:'La Recepción Final es el acto por el cual la DOM certifica que la obra fue ejecutada conforme al permiso de edificación otorgado, quedando habilitada para su uso.' },
 
-/* =========================================================
-   4. UTILIDADES
-   ========================================================= */
-const $ = (s, r=document) => r.querySelector(s);
-const pct = (c,t) => t ? Math.round(c/t*100) : 0;
+  { id:'s6q8', sec:'s6',
+    q:'¿Qué normativa regula los permisos de edificación y las normas urbanísticas?',
+    opts:['Ley N° 18.695','Ley General de Urbanismo y Construcciones (LGUC) y su Ordenanza General','Ley N° 19.880','Ley N° 20.285'],
+    a:1, exp:'La Ley General de Urbanismo y Construcciones (D.F.L. N° 458) y su Ordenanza General (D.S. N° 47) regulan los permisos de edificación y las normas urbanísticas.' },
 
-function shuffle(arr){
-  const a = [...arr];
-  for(let i=a.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [a[i],a[j]] = [a[j],a[i]];
-  }
-  return a;
-}
-function lsGet(k, def=null){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; }catch(e){ return def; } }
-function lsSet(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+  { id:'s6q9', sec:'s6',
+    q:'La patente municipal es el acto por el cual:',
+    opts:['Se autoriza el funcionamiento de una actividad comercial, industrial o profesional','Se autoriza construir','Se inscribe el inmueble','Se paga el aseo'],
+    a:0, exp:'La patente municipal es el acto mediante el cual el municipio autoriza el funcionamiento de una actividad comercial, industrial, profesional o de servicios en la comuna.' },
 
-const K = {
-  stats : n => 'muni.stats.' + n,
-  seen  : n => 'muni.seen.'  + n,
-  last  : n => 'muni.last.'  + n,
-  nick  : 'muni.nick'
-};
+  { id:'s6q10', sec:'s6',
+    q:'¿Quién otorga la patente municipal?',
+    opts:['El Concejo Municipal','El alcalde, a través de la Dirección de Rentas o unidad competente','La Contraloría','El Ministerio de Economía'],
+    a:1, exp:'La patente municipal es otorgada por el alcalde a través de la unidad competente (habitualmente la Dirección de Rentas o Patentes), previo cumplimiento de los requisitos.' },
 
+  { id:'s6q11', sec:'s6',
+    q:'El Certificado de Número es un documento emitido por:',
+    opts:['La DOM, que asigna el número oficial a un inmueble','El Conservador de Bienes Raíces','El SII','DIDECO'],
+    a:0, exp:'El Certificado de Número es emitido por la DOM y asigna el número oficial de un inmueble conforme a la numeración municipal.' },
+
+  { id:'s6q12', sec:'s6',
+    q:'El Certificado de Avisos y Antenas es un documento que:',
+    opts:['Autoriza la instalación de avisos publicitarios y antenas','Autoriza construir','Inscribe el inmueble','Autoriza el funcionamiento comercial'],
+    a:0, exp:'El Certificado de Avisos y Antenas es otorgado por la DOM y autoriza la instalación de avisos publicitarios y antenas conforme a la normativa municipal.' },
+
+  { id:'s6q13', sec:'s6',
+    q:'El Plano Regulador Comunal es un instrumento que:',
+    opts:['Regula el uso del suelo y las condiciones de edificación en la comuna','Autoriza patentes','Regula el tránsito vehicular','Inscribe inmuebles'],
+    a:0, exp:'El Plan Regulador Comunal es el instrumento de planificación territorial que regula el uso del suelo y las condiciones de edificación en la comuna.' },
+
+  { id:'s6q14', sec:'s6',
+    q:'Antes de iniciar una obra menor, el propietario debe obtener:',
+    opts:['Patente municipal','Permiso de edificación o permiso de obra menor, según corresponda','Certificado de avisos','Inscripción en el SII'],
+    a:1, exp:'El propietario debe obtener el Permiso de Edificación o el Permiso de Obra Menor otorgado por la DOM antes de iniciar la obra.' },
+
+  { id:'s6q15', sec:'s6',
+    q:'Las obras menores son aquellas que:',
+    opts:['Requieren permiso de edificación completo','No alteran la estructura ni la fachada y están definidas por la Ordenanza General','Solo se ejecutan en zonas rurales','No requieren ningún trámite'],
+    a:1, exp:'Las obras menores son las definidas por la Ordenanza General de Urbanismo y Construcciones, que no alteran la estructura ni la fachada de la edificación.' },
+
+  { id:'s6q16', sec:'s6',
+    q:'Si un contribuyente presenta una solicitud incompleta en la DOM, el funcionario debe:',
+    opts:['Rechazarla sin más','Requerir por escrito la subsanación, indicando los documentos o antecedentes faltantes','Guardarla sin avisar','Derivarla a otra unidad'],
+    a:1, exp:'La buena práctica administrativa exige requerir por escrito al contribuyente para que subsane las deficiencias, indicando con claridad qué falta.' },
+
+  { id:'s6q17', sec:'s6',
+    q:'El plazo para resolver una solicitud de permiso de edificación, por regla general, es de:',
+    opts:['5 días hábiles','10 días hábiles','15 días hábiles desde la presentación completa','30 días hábiles'],
+    a:2, exp:'La DOM debe pronunciarse sobre la solicitud de permiso de edificación dentro de los 15 días hábiles siguientes a su presentación completa, conforme a la LGUC y la Ley N° 19.880.' },
+
+  { id:'s6q18', sec:'s6',
+    q:'Los derechos municipales que se cobran por un permiso de edificación se pagan:',
+    opts:['En cualquier momento','Antes de la entrega del permiso, según lo determine la ordenanza municipal','Después de la recepción final','Nunca'],
+    a:1, exp:'Los derechos municipales deben pagarse antes de la entrega del permiso, conforme lo determinen la Ley de Rentas Municipales y las ordenanzas respectivas.' },
+
+  { id:'s6q19', sec:'s6',
+    q:'El Certificado de Informaciones Previas tiene una vigencia de:',
+    opts:['1 año','2 años','3 años','5 años'],
+    a:2, exp:'El Certificado de Informaciones Previas tiene una vigencia de 3 años contados desde su emisión, salvo que en el intervalo cambien las normas urbanísticas aplicables.' },
+
+  { id:'s6q20', sec:'s6',
+    q:'El Certificado de Informaciones Previas debe ser emitido por la DOM dentro de:',
+    opts:['5 días hábiles','10 días hábiles','20 días hábiles','30 días hábiles'],
+    a:2, exp:'La DOM debe emitir el Certificado de Informaciones Previas dentro de los 20 días hábiles siguientes a la solicitud completa.' },
+
+  { id:'s6q21', sec:'s6',
+    q:'DIDECO significa:',
+    opts:['Dirección de Desarrollo Comunitario','Dirección de Deportes Comunitarios','Dirección de Derechos Comunitarios','Dirección de Desarrollo Comunal'],
+    a:0, exp:'DIDECO es la Dirección de Desarrollo Comunitario, unidad municipal encargada de las políticas sociales y el desarrollo local.' },
+
+  { id:'s6q22', sec:'s6',
+    q:'¿Qué unidad municipal se encarga de las políticas sociales y comunitarias?',
+    opts:['DOM','DIDECO','Dirección de Rentas','Secretaría Municipal'],
+    a:1, exp:'DIDECO es la unidad que se encarga de las políticas sociales y comunitarias del municipio.' },
+
+  { id:'s6q23', sec:'s6',
+    q:'Las Juntas de Vecinos son organizaciones:',
+    opts:['Políticas','De carácter territorial que representan a los vecinos de una unidad vecinal','Sindicales','Religiosas'],
+    a:1, exp:'Las Juntas de Vecinos son organizaciones comunitarias de carácter territorial que representan a los vecinos de una unidad vecinal, reguladas por la Ley N° 19.418.' },
+
+  { id:'s6q24', sec:'s6',
+    q:'La Ley N° 19.418 regula:',
+    opts:['Las Juntas de Vecinos y organizaciones comunitarias','Las compras públicas','El procedimiento administrativo','La transparencia'],
+    a:0, exp:'La Ley N° 19.418 establece normas sobre Juntas de Vecinos y demás organizaciones comunitarias.' },
+
+  { id:'s6q25', sec:'s6',
+    q:'La Unión Comunal de Juntas de Vecinos es una organización que:',
+    opts:['Agrupa a las Juntas de Vecinos de una comuna','Agrupa a los municipios','Depende del gobierno regional','Es una organización política'],
+    a:0, exp:'La Unión Comunal de Juntas de Vecinos agrupa a las Juntas de Vecinos de una comuna y las representa ante las autoridades.' },
+
+  { id:'s6q26', sec:'s6',
+    q:'El Registro de Organizaciones Comunitarias tiene por objeto:',
+    opts:['Cobrar patentes','Mantener un catálogo actualizado de las organizaciones comunitarias del territorio','Fiscalizar a las organizaciones','Eliminar organizaciones'],
+    a:1, exp:'El Registro de Organizaciones Comunitarias es un catálogo que mantiene el municipio con las organizaciones comunitarias de su territorio, con el fin de acreditar su existencia y funcionamiento.' },
+
+  { id:'s6q27', sec:'s6',
+    q:'La personalidad jurídica de una organización comunitaria se otorga:',
+    opts:['Por escritura pública','Por el municipio, a través del alcalde, previa solicitud','Por el Ministerio de Justicia','Por notario'],
+    a:1, exp:'La personalidad jurídica de las organizaciones comunitarias se otorga por el alcalde, a través del municipio, previa solicitud y cumplimiento de los requisitos legales.' },
+
+  { id:'s6q28', sec:'s6',
+    q:'Las OPD (Oficinas de Protección de los Derechos de la Infancia) funcionan en coordinación con:',
+    opts:['Las municipalidades y el Servicio Nacional de Protección Especializada a la Niñez','El Ministerio de Defensa','Las Fuerzas Armadas','La Contraloría'],
+    a:0, exp:'Las OPD operan en convenio entre las municipalidades y el Servicio Nacional de Protección Especializada a la Niñez y Adolescencia.' },
+
+  { id:'s6q29', sec:'s6',
+    q:'La OMIL (Oficina Municipal de Intermediación Laboral) depende habitualmente de:',
+    opts:['La Dirección de Control','DIDECO','La DOM','El Concejo Municipal'],
+    a:1, exp:'La OMIL suele depender de DIDECO y se encarga de intermediar entre oferentes y demandantes de empleo en la comuna.' },
+
+  { id:'s6q30', sec:'s6',
+    q:'Los programas sociales que ejecuta DIDECO se financian, entre otras fuentes, con:',
+    opts:['Recursos municipales, aportes fiscales y convenios con otros organismos','Solo con recursos municipales','Solo con donaciones','Solo con recursos privados'],
+    a:0, exp:'DIDECO ejecuta programas sociales financiados con recursos municipales, aportes fiscales, convenios con otros organismos públicos y otras fuentes.' },
+
+  { id:'s6q31', sec:'s6',
+    q:'La Ficha de Protección Social (o Registro Social de Hogares) es un instrumento utilizado por DIDECO para:',
+    opts:['Determinar la elegibilidad de las familias en programas sociales','Cobrar patentes','Fiscalizar construcciones','Otorgar permisos de edificación'],
+    a:0, exp:'La Ficha de Protección Social (hoy Registro Social de Hogares) es un instrumento utilizado para determinar la elegibilidad de las familias en programas sociales.' },
+
+  { id:'s6q32', sec:'s6',
+    q:'Una organización comunitaria territorial puede solicitar personalidad jurídica cuando:',
+    opts:['Tiene al menos 15 socios mayores de edad y cumple los requisitos legales','Tiene 5 socios','Es aprobada por el Concejo','Es autorizada por la Contraloría'],
+    a:0, exp:'Para solicitar personalidad jurídica, las organizaciones comunitarias deben cumplir los requisitos de la Ley N° 19.418, entre ellos, contar con un número mínimo de socios mayores de edad.' },
+
+  { id:'s6q33', sec:'s6',
+    q:'El dirigente de una organización comunitaria debe:',
+    opts:['Ser funcionario municipal','Ser socio activo de la organización y cumplir los requisitos estatutarios','Ser concejal','Ser alcalde'],
+    a:1, exp:'El dirigente de una organización comunitaria debe ser socio activo de la organización y cumplir los requisitos estatutarios, sin necesidad de ser funcionario municipal.' },
+
+  { id:'s6q34', sec:'s6',
+    q:'Las organizaciones comunitarias pueden postular a fondos concursables del Estado, como:',
+    opts:['El Fondo de Desarrollo Vecinal (FONDEVE)','El Fondo Común Municipal','El Fondo Nacional de Salud','El Fondo de las Fuerzas Armadas'],
+    a:0, exp:'Las organizaciones comunitarias pueden postular a fondos concursables como el Fondo de Desarrollo Vecinal (FONDEVE) y otros programas de financiamiento.' },
+
+  { id:'s6q35', sec:'s6',
+    q:'El proceso de digitalización documental en un municipio debe resguardar:',
+    opts:['Solo la rapidez','La integridad, autenticidad y conservación de los documentos','La eliminación de los originales','El ahorro de papel'],
+    a:1, exp:'El proceso de digitalización debe resguardar la integridad, autenticidad, disponibilidad y conservación de los documentos, conforme a la normativa de gestión documental.' },
+
+  { id:'s6q36', sec:'s6',
+    q:'La foliación de un expediente consiste en:',
+    opts:['Numerar correlativamente cada hoja del expediente','Firmar cada hoja','Archivar el expediente','Enviar el expediente a otra unidad'],
+    a:0, exp:'La foliación consiste en numerar correlativamente cada hoja del expediente, con el fin de preservar su integridad y facilitar su consulta.' },
+
+  { id:'s6q37', sec:'s6',
+    q:'Un expediente municipal debe contener:',
+    opts:['Solo los documentos principales','Todos los documentos que se generen durante su tramitación, ordenados cronológicamente','Solo las resoluciones finales','Solo los documentos del interesado'],
+    a:1, exp:'Un expediente municipal debe contener todos los documentos que se generen durante su tramitación, foliados y ordenados cronológicamente.' },
+
+  { id:'s6q38', sec:'s6',
+    q:'¿Qué es el principio de "orden original" en la gestión documental?',
+    opts:['Que los documentos se ordenen alfabéticamente','Que los documentos se conserven en el orden en que fueron producidos','Que los documentos se ordenen por fecha de vencimiento','Que los documentos se ordenen por tamaño'],
+    a:1, exp:'El principio de orden original exige que los documentos se conserven en el orden en que fueron producidos y acumulados por la unidad administrativa.' },
+
+  { id:'s6q39', sec:'s6',
+    q:'Para resguardar la información, es recomendable guardar copias de respaldo:',
+    opts:['Solo en el computador personal','En medios externos y en sistemas institucionales autorizados','Solo en el correo personal','Solo en la nube pública'],
+    a:1, exp:'Las copias de respaldo deben guardarse en medios externos y en sistemas institucionales autorizados, para evitar la pérdida de información sensible.' },
+
+  { id:'s6q40', sec:'s6',
+    q:'La atención al contribuyente en un municipio debe caracterizarse por ser:',
+    opts:['Rápida, aunque sin registro','Cordial, oportuna, con registro y derivación adecuada','Burocrática','Solo presencial'],
+    a:1, exp:'La atención al contribuyente debe ser cordial, oportuna, con registro de la solicitud y derivación adecuada al funcionario o unidad competente.' },
+
+  { id:'s6q41', sec:'s6',
+    q:'El correo electrónico institucional debe usarse:',
+    opts:['Para fines personales','Exclusivamente para fines institucionales y relacionados con el cargo','Para enviar cadenas','Para redes sociales'],
+    a:1, exp:'El correo electrónico institucional debe usarse exclusivamente para fines institucionales relacionados con el cargo, resguardando la confidencialidad de la información.' },
+
+  { id:'s6q42', sec:'s6',
+    q:'En Microsoft Word, la opción de "control de cambios" permite:',
+    opts:['Bloquear el documento','Registrar las modificaciones realizadas al documento por distintos usuarios','Imprimir el documento','Eliminar el documento'],
+    a:1, exp:'La opción "control de cambios" permite registrar las modificaciones realizadas al documento, con el fin de revisarlas y aceptarlas o rechazarlas.' },
+
+  { id:'s6q43', sec:'s6',
+    q:'En Microsoft Excel, la función SUMA permite:',
+    opts:['Buscar un valor','Sumar un rango de celdas','Contar celdas','Promediar un rango'],
+    a:1, exp:'La función SUMA permite sumar los valores de un rango de celdas, obteniendo el total de los mismos.' },
+
+  { id:'s6q44', sec:'s6',
+    q:'En Excel, para fijar una celda en una fórmula (referencia absoluta) se utiliza:',
+    opts:['El signo +','El signo $','El signo #','El signo &'],
+    a:1, exp:'El signo $ se utiliza para fijar filas o columnas en una fórmula, convirtiendo la referencia en absoluta (por ejemplo, $A$1).' },
+
+  { id:'s6q45', sec:'s6',
+    q:'En Excel, la función CONTAR.SI sirve para:',
+    opts:['Sumar valores','Contar celdas que cumplan una condición','Promediar valores','Buscar valores'],
+    a:1, exp:'La función CONTAR.SI permite contar el número de celdas que cumplen una condición determinada.' },
+
+  { id:'s6q46', sec:'s6',
+    q:'Un archivo PDF/A se utiliza para:',
+    opts:['Editar documentos','Archivar documentos a largo plazo, preservando su formato original','Comprimir imágenes','Reproducir videos'],
+    a:1, exp:'El formato PDF/A está diseñado para el archivo y conservación de documentos a largo plazo, preservando su apariencia original.' },
+
+  { id:'s6q47', sec:'s6',
+    q:'La firma electrónica avanzada en documentos municipales:',
+    opts:['Tiene el mismo valor legal que la firma manuscrita, conforme a la Ley N° 19.799','No tiene validez legal','Solo vale en el sector privado','Requiere autorización judicial'],
+    a:0, exp:'La firma electrónica avanzada tiene el mismo valor legal que la firma manuscrita, conforme a la Ley N° 19.799 sobre documentos electrónicos y firma electrónica.' },
+
+  { id:'s6q48', sec:'s6',
+    q:'¿Qué es el "expediente electrónico"?',
+    opts:['Un archivo de Excel','El conjunto ordenado de documentos electrónicos que conforman un procedimiento administrativo','Un correo electrónico','Una carpeta compartida en la nube'],
+    a:1, exp:'El expediente electrónico es el conjunto ordenado de documentos electrónicos que conforman un procedimiento administrativo, con la misma validez que el expediente en papel.' },
+
+  { id:'s6q49', sec:'s6',
+    q:'Al responder un correo institucional, es recomendable:',
+    opts:['Hacerlo de inmediato sin leer','Revisar el contenido, verificar destinatarios y adjuntos, y cuidar el tono y la ortografía','Responder solo con emojis','Reenviarlo a todos'],
+    a:1, exp:'Al responder un correo institucional se debe revisar el contenido, verificar destinatarios y adjuntos, y cuidar el tono, la ortografía y la confidencialidad de la información.' },
+
+  { id:'s6q50', sec:'s6',
+    q:'Una buena práctica al atender presencialmente a un contribuyente es:',
+    opts:['Atenderlo sin registrar la solicitud','Registrar la solicitud, informar plazos, orientarlo y derivarlo a la unidad competente','Derivarlo a otra unidad sin explicación','Pedirle que vuelva otro día'],
+    a:1, exp:'La buena práctica administrativa exige registrar la solicitud, informar los plazos, orientar al contribuyente y derivarlo a la unidad competente para su tramitación.' },
 /* =========================================================
    5. ESTADO
    ========================================================= */
