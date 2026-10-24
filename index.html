@@ -1853,6 +1853,46 @@ const QUESTIONS = [
 const state = { nick:'', mode:'completo', session:null };
 
 /* =========================================================
+   UTILIDADES BASE (faltaban)
+   ========================================================= */
+const $ = (sel) => document.querySelector(sel);
+
+const K = {
+  nick:  'nick',
+  stats: (nick) => 'stats:' + nick,
+  seen:  (nick) => 'seen:'  + nick,
+  last:  (nick) => 'last:'  + nick
+};
+
+function lsGet(key, fallback){
+  try {
+    const v = localStorage.getItem(key);
+    return v === null ? fallback : JSON.parse(v);
+  } catch(e){
+    return fallback;
+  }
+}
+
+function lsSet(key, value){
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch(e){}
+}
+
+function shuffle(arr){
+  const a = [...arr];
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function pct(part, total){
+  return total === 0 ? 0 : Math.round((part / total) * 100);
+}  
+  
+/* =========================================================
    6. NAVEGACIÓN
    ========================================================= */
 function showScreen(id){
