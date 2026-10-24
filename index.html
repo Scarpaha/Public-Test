@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Test Normativa Municipal</title>
+
+  <!-- ===== PWA / iPhone: permiten "Agregar a pantalla de inicio" ===== -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Test Muni">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1d4ed8">
+  <meta name="description" content="Test de práctica sobre normativa municipal chilena">
+  <link rel="manifest" id="appManifest">
+  <link rel="apple-touch-icon" id="appIcon">
+
+  <style>
+    :root{
+      --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9;
+      --brand:#1d4ed8; --brand2:#2563eb; --brand-soft:#dbeafe;
+      --ok:#16a34a; --ok-soft:#dcfce7;
+      --bad:#dc2626; --bad-soft:#fee2e2;
+      --warn:#d97706; --warn-soft:#fef3c7;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .topbar{
+      background:linear-gradient(120deg,#0f172a,#1e3a8a);
+      color:#fff; padding:14px 20px; display:flex; align-items:center;
+      justify-content:space-between; gap:12px; position:sticky; top:0; z-index:50;
+      box-shadow:0 2px 12px rgba(15,23,42,.18);
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
+    .brand .logo{font-size:20px}
+    .topbar-right{display:flex; align-items:center; gap:10px}
+    .user-tag{
+      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22);
+      padding:5px 12px; border-radius:999px; font-size:13px;
+    }
+    main{max-width:820px; margin:0 auto; padding:28px 18px 70px}
+    .screen{display:none; animation:fade .25s ease}
+    .screen.active{display:block}
+    @keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+    .hero{text-align:center; margin-bottom:22px}
+    .hero h1{font-size:clamp(22px,4vw,30px); margin:0 0 10px; line-height:1.2}
+    .lead{color:var(--muted); margin:0 auto; max-width:640px; line-height:1.55; font-size:15px}
+    .card{
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+      padding:22px; box-shadow:0 6px 20px rgba(15,23,42,.05); margin-bottom:18px;
+    }
+    .card h3{margin:0 0 14px; font-size:16px}
+    .label{display:block; font-size:13px; font-weight:600; color:var(--muted); margin-bottom:7px}
+    .input{
+      width:100%; padding:13px 14px; border:1.5px solid var(--line); border-radius:11px;
+      font-size:16px; font-family:inherit; outline:none; transition:.15s;
+    }
+    .input:focus{border-color:var(--brand2); box-shadow:0 0 0 3px var(--brand-soft)}
+    .hint{color:var(--muted); font-size:13px; margin:12px 0 0; line-height:1.5}
+    .btn{
+      font-family:inherit; font-size:15px; font-weight:600; border-radius:11px;
+      border:1.5px solid transparent; padding:12px 20px; cursor:pointer; transition:.15s;
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .btn.primary{background:var(--brand); color:#fff}
+    .btn.primary:hover:not(:disabled){background:var(--brand2)}
+    .btn.ghost{background:#fff; border-color:var(--line); color:var(--ink)}
+    .btn.ghost:hover:not(:disabled){border-color:#cbd5e1; background:#f8fafc}
+    .btn.light{color:#fff; border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.1)}
+    .btn.tiny{padding:7px 14px; font-size:13px}
+    .btn.block{width:100%}
+    .btn:disabled{opacity:.45; cursor:not-allowed}
+    .modes{display:grid; gap:9px}
+    .mode{
+      display:flex; align-items:center; gap:12px; padding:13px 15px; cursor:pointer;
+      border:1.5px solid var(--line); border-radius:12px; background:#fff; transition:.15s;
+      text-align:left; font-family:inherit; font-size:14.5px; color:var(--ink);
+    }
+    .mode:hover{border-color:#cbd5e1; background:#f8fafc}
+    .mode.sel{border-color:var(--brand2); background:var(--brand-soft)}
+    .mode .dot{
+      width:18px; height:18px; border-radius:50%; border:2px solid #cbd5e1;
+      flex:0 0 auto; position:relative;
+    }
+    .mode.sel .dot{border-color:var(--brand)}
+    .mode.sel .dot::after{
+      content:""; position:absolute; inset:3px; border-radius:50%; background:var(--brand);
+    }
+    .mode .m-sub{display:block; font-size:12px; color:var(--muted); margin-top:2px}
+    .mode .m-count{
+      margin-left:auto; font-size:11.5px; font-weight:700; color:var(--brand);
+      background:var(--brand-soft); padding:3px 9px; border-radius:999px; white-space:nowrap;
+    }
+    .quiz-top{margin-bottom:14px}
+    .quiz-meta{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:9px; flex-wrap:wrap}
+    .badge{
+      background:var(--brand-soft); color:#1e40af; font-size:12.5px; font-weight:700;
+      padding:5px 12px; border-radius:999px;
+    }
+    .muted{color:var(--muted); font-size:13px}
+    .progress{height:8px; background:#e2e8f0; border-radius:999px; overflow:hidden}
+    .progress > div{height:100%; background:linear-gradient(90deg,var(--brand),var(--brand2)); width:0; transition:width .3s ease; border-radius:999px}
+    .qtext{font-size:17.5px; line-height:1.5; margin:0 0 18px; font-weight:600}
+    .options{display:grid; gap:10px}
+    .option{
+      display:flex; align-items:flex-start; gap:13px; text-align:left; width:100%;
+      padding:14px 16px; border:1.5px solid var(--line); background:#fff; border-radius:12px;
+      cursor:pointer; font-family:inherit; font-size:15px; line-height:1.45; color:var(--ink);
+      transition:.12s;
+    }
+    .option:hover{border-color:#cbd5e1; background:#f8fafc}
+    .option.selected{border-color:var(--brand2); background:var(--brand-soft)}
+    .option .letter{
+      flex:0 0 auto; width:26px; height:26px; border-radius:8px; background:#f1f5f9;
+      display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;
+      color:var(--muted);
+    }
+    .option.selected .letter{background:var(--brand); color:#fff}
+    .quiz-actions{display:flex; gap:10px; margin-top:18px}
+    .quiz-actions .btn{flex:1}
+    .score-wrap{display:flex; align-items:center; gap:24px; flex-wrap:wrap; justify-content:center; margin-bottom:8px}
+    .score-circle{
+      width:132px; height:132px; border-radius:50%; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; flex:0 0 auto;
+      background:conic-gradient(var(--brand) calc(var(--p)*1%), #e2e8f0 0);
+      position:relative;
+    }
+    .score-circle::before{content:""; position:absolute; inset:11px; background:#fff; border-radius:50%}
+    .score-circle .num{position:relative; font-size:29px; font-weight:800; line-height:1}
+    .score-circle .lbl{position:relative; font-size:12px; color:var(--muted); margin-top:3px}
+    .score-info{flex:1; min-width:200px}
+    .score-info h2{margin:0 0 6px; font-size:21px}
+    .score-info p{margin:0; color:var(--muted); font-size:14.5px; line-height:1.5}
+    .sec-row{margin-bottom:14px}
+    .sec-head{display:flex; justify-content:space-between; gap:10px; font-size:14px; margin-bottom:6px; align-items:baseline}
+    .sec-head b{font-weight:600}
+    .sec-head .num{font-size:13px; color:var(--muted); white-space:nowrap}
+    .bar{height:9px; background:#e2e8f0; border-radius:999px; overflow:hidden}
+    .bar > div{height:100%; border-radius:999px; transition:width .5s ease}
+    .bar .g{background:var(--ok)} .bar .y{background:var(--warn)} .bar .r{background:var(--bad)}
+    .tag{font-size:11.5px; font-weight:700; padding:2px 9px; border-radius:999px; margin-left:8px; white-space:nowrap}
+    .tag.ok{background:var(--ok-soft); color:#15803d}
+    .tag.mid{background:var(--warn-soft); color:#b45309}
+    .tag.bad{background:var(--bad-soft); color:#b91c1c}
+    .tag.none{background:#f1f5f9; color:#64748b}
+    .rev-item{border-left:4px solid var(--bad); background:#fff; border-radius:12px; padding:16px 18px; margin-bottom:14px; border-top:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line)}
+    .rev-item.good{border-left-color:var(--ok)}
+    .rev-q{font-weight:600; margin:0 0 10px; line-height:1.45; font-size:15px}
+    .rev-opt{font-size:14px; padding:8px 12px; border-radius:9px; margin-bottom:6px; line-height:1.4}
+    .rev-opt.bad{background:var(--bad-soft); color:#991b1b}
+    .rev-opt.good{background:var(--ok-soft); color:#166534}
+    .rev-exp{font-size:13.5px; color:var(--muted); margin-top:10px; line-height:1.55; background:#f8fafc; padding:11px 13px; border-radius:9px}
+    .actions{display:grid; gap:10px; grid-template-columns:1fr 1fr; margin-top:6px}
+    .actions .full{grid-column:1/-1}
+    .hist{display:flex; justify-content:space-between; gap:10px; font-size:13.5px; padding:9px 0; border-bottom:1px dashed var(--line)}
+    .hist:last-child{border-bottom:none}
+    .hist .h-score{font-weight:700}
+    @media(max-width:520px){
+      .actions{grid-template-columns:1fr}
+      .score-wrap{gap:16px}
+      main{padding:20px 14px 60px}
+      .card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="logo">🏛️</span><span>Test Normativa Municipal</span></div>
+  <div class="topbar-right">
+    <span id="userTag" class="user-tag" hidden></span>
+    <button id="btnHome" class="btn tiny light" hidden>Inicio</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ INICIO ============ -->
+  <section id="screen-start" class="screen active">
+    <div class="hero">
+      <h1>Prepárate para tu postulación municipal</h1>
+      <p class="lead">Test de práctica sobre Estatuto Administrativo, Ley Orgánica de Municipalidades,
+      Procedimiento Administrativo, Probidad y Transparencia, Compras Públicas y Gestión Técnica.</p>
+    </div>
+
+    <div class="card">
+      <label class="label" for="nickInput">Tu nombre o nick</label>
+      <input id="nickInput" class="input" maxlength="20" placeholder="Ej: jperez" autocomplete="off" spellcheck="false">
+
+      <label class="label" style="margin-top:18px">Modalidad del test</label>
+      <div class="modes" id="modeList"></div>
+
+      <button id="btnStart" class="btn primary block" style="margin-top:20px" disabled>Comenzar test</button>
+      <p class="hint" id="rotationHint"></p>
+      <p class="hint" style="font-size:12px; opacity:.72; margin-top:6px">
+        💾 Tus resultados e historial se guardan solo en este dispositivo y navegador.
+        En iPhone, agrega esta página a la pantalla de inicio para mayor seguridad.
+      </p>
+    </div>
+
+    <div id="startStats" class="card" hidden>
+      <h3>Tu progreso acumulado</h3>
+      <div id="startStatsBody"></div>
+      <button id="btnStatsFromStart" class="btn ghost block" style="margin-top:14px">Ver estadísticas completas</button>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="screen-quiz" class="screen">
+    <div class="quiz-top">
+      <div class="quiz-meta">
+        <span id="quizSection" class="badge"></span>
+        <span id="quizCount" class="muted"></span>
+      </div>
+      <div class="progress"><div id="quizBar"></div></div>
+    </div>
+    <div class="card">
+      <p class="qtext" id="quizQuestion"></p>
+      <div id="quizOptions" class="options"></div>
+    </div>
+    <div class="quiz-actions">
+      <button id="btnPrev" class="btn ghost">Anterior</button>
+      <button id="btnNext" class="btn primary" disabled>Siguiente</button>
+    </div>
+  </section>
+
+  <!-- ============ RESULTADO ============ -->
+  <section id="screen-result" class="screen">
+    <div class="card">
+      <div class="score-wrap">
+        <div class="score-circle" id="scoreCircle">
+          <span class="num" id="scoreNum">0%</span>
+          <span class="lbl" id="scoreLbl">0 / 0</span>
+        </div>
+        <div class="score-info">
+          <h2 id="resultTitle">Resultado</h2>
+          <p id="resultMsg"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Desempeño por sección</h3>
+      <div id="resultSections"></div>
+    </div>
+
+    <div class="card" id="weakCard" hidden>
+      <h3>🎯 Puntos a reforzar</h3>
+      <div id="weakList"></div>
+    </div>
+
+    <div class="actions">
+      <button id="btnReview" class="btn ghost full">🔍 Revisar errores</button>
+      <button id="btnAgain" class="btn primary">Hacer otro test</button>
+      <button id="btnStats" class="btn ghost">Ver estadísticas</button>
+    </div>
+  </section>
+
+  <!-- ============ REVISIÓN ============ -->
+  <section id="screen-review" class="screen">
+    <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div>
+        <h3 style="margin:0">Revisión de respuestas</h3>
+        <p class="muted" style="margin:4px 0 0" id="reviewSub"></p>
+      </div>
+      <label class="muted" style="display:flex; align-items:center; gap:8px; cursor:pointer">
+        <input type="checkbox" id="chkAll"> Ver todas
+      </label>
+    </div>
+    <div id="reviewList"></div>
+    <button id="btnBackResult" class="btn ghost block">← Volver al resultado</button>
+  </section>
+
+  <!-- ============ ESTADÍSTICAS ============ -->
+  <section id="screen-stats" class="screen">
+    <div class="card">
+      <h3>📊 Estadísticas de <span id="statsNick"></span></h3>
+      <div id="statsOverview"></div>
+    </div>
+    <div class="card">
+      <h3>Rendimiento por sección</h3>
+      <p class="muted" style="margin:-8px 0 14px; font-size:13px">Ordenado de menor a mayor porcentaje de logro.</p>
+      <div id="statsSections"></div>
+    </div>
+    <div class="card" id="statsWeakCard" hidden>
+      <h3>🎯 Dónde enfocar el estudio</h3>
+      <div id="statsWeak"></div>
+    </div>
+    <div class="card" id="statsHistCard" hidden>
+      <h3>Historial de tests</h3>
+      <div id="statsHist"></div>
+    </div>
+    <button id="btnStatsBack" class="btn ghost block">← Volver al inicio</button>
+  </section>
+
+</main>
+
+<script>
+/* =========================================================
+   1. DATOS · SECCIONES (no tocar)
+   ========================================================= */
+const SECTIONS = [
+  { id:'s1', name:'Estatuto Administrativo',              sub:'Ley N° 18.883' },
+  { id:'s2', name:'Organización y Gestión Municipal',     sub:'Ley N° 18.695' },
+  { id:'s3', name:'Procedimiento y Actos Administrativos', sub:'Ley N° 19.880' },
+  { id:'s4', name:'Probidad y Transparencia',             sub:'Leyes N° 20.285 / 20.880' },
+  { id:'s5', name:'Compras Públicas y Finanzas',          sub:'Leyes N° 19.886 / 18.575' },
+  { id:'s6', name:'Competencias Técnicas y de Gestión',   sub:'DOM / DIDECO / Ofimática' }
+];
+
+/* =========================================================
+   2. CONFIGURACIÓN DEL TEST
+   ========================================================= */
+const QUESTIONS_PER_TEST = 25;   // ← cantidad de preguntas por test
+
+/* =========================================================
+   3. BANCO DE PREGUNTAS
+   ─────────────────────────────────────────────────────────
+   FORMATO DE CADA PREGUNTA:
+     { id:'sXqN', sec:'sX',
+       q:'PREGUNTA',
+       opts:['Opción A','Opción B','Opción C','Opción D'],
+       a:0,   // ← índice correcto: 0=A, 1=B, 2=C, 3=D
+       exp:'Explicación.' },
+   REGLAS:
+     - El id debe ser ÚNICO en todo el archivo (s1q6, s1q7...).
+     - sec debe coincidir con la sección ('s1'..'s6').
+     - a es un número entre 0 y 3.
+     - Las preguntas se mezclan automáticamente.
+   ========================================================= */
+const QUESTIONS = [
+
+  /* ═══════════════ SECCIÓN 1 · ESTATUTO ADMINISTRATIVO ═══════════════ */
+
+  { id:'s1q1', sec:'s1',
+    q:'¿Cuál es un requisito de ingreso a la Administración Municipal según la Ley N° 18.883?',
+    opts:['Ser ciudadano con derecho a sufragio','Estar afiliado a un partido político','Tener domicilio en la comuna por 5 años','Contar con recomendación del alcalde'],
+    a:0, exp:'El artículo 12 exige, entre otros, ser ciudadano con derecho a sufragio, tener salud compatible con el cargo y cumplir los requisitos de estudio y capacitación.' },
+
+  { id:'s1q2', sec:'s1',
+    q:'¿Cuál de las siguientes constituye una prohibición para el funcionario municipal?',
+    opts:['Solicitar permiso administrativo','Ejecutar actividades políticas o partidistas dentro del horario de trabajo','Participar en capacitaciones','Presentar reclamos por escrito'],
+    a:1, exp:'El artículo 84 prohíbe, entre otras conductas, ejecutar actividades políticas o partidistas dentro del horario de trabajo.' },
+
+  { id:'s1q3', sec:'s1',
+    q:'¿Cuántos días hábiles de feriado anual corresponden, en general, a un funcionario municipal?',
+    opts:['10 días hábiles','15 días hábiles','20 días hábiles','30 días hábiles'],
+    a:1, exp:'El artículo 96 otorga 15 días hábiles de feriado anual, que aumentan a 20 en las regiones extremas del país.' },
+
+  { id:'s1q4', sec:'s1',
+    q:'¿Cuál es la medida disciplinaria de mayor gravedad contemplada en la Ley N° 18.883?',
+    opts:['Censura','Multa','Suspensión del empleo','Destitución'],
+    a:3, exp:'El artículo 122 distingue censura, multa, suspensión y destitución; esta última es la más grave y pone término a la relación funcionaria.' },
+
+  { id:'s1q5', sec:'s1',
+    q:'El permiso sin goce de remuneraciones que puede otorgarse a un funcionario municipal es de hasta:',
+    opts:['15 días en el año','3 meses dentro del año','6 meses dentro del año','12 meses dentro del año'],
+    a:1, exp:'El artículo 111 permite hasta 3 meses en el año, pudiendo el alcalde ampliarlo por motivos calificados conforme a la misma norma.' },
+
+  // ┌──────────────────────────────────────────────────────────────┐
+  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 1 (s1)          │
+  // │                                                              │
+  // │  1) Agrega una COMA al final de la última pregunta de arriba.│
+  // │  2) Pega aquí debajo tus preguntas nuevas.                   │
+  // │                                                              │
+  // │  Ejemplo:                                                    │
+  // │  { id:'s1q6', sec:'s1',                                      │
+  // │    q:'¿Pregunta?',                                           │
+  // │    opts:['A','B','C','D'],                                   │
+  // │    a:0,                                                      │
+  // │    exp:'Explicación.' },                                     │
+  // │                                                              │
+  // │  { id:'s1q7', sec:'s1',                                      │
+  // │    q:'¿Otra pregunta?',                                      │
+  // │    opts:['A','B','C','D'],                                   │
+  // │    a:2,                                                      │
+  // │    exp:'Explicación.' },                                     │
+  // └──────────────────────────────────────────────────────────────┘
+
+
+  /* ═══════════════ SECCIÓN 2 · LEY ORGÁNICA DE MUNICIPALIDADES ═══════════════ */
+
+  { id:'s2q1', sec:'s2',
+    q:'¿Qué función le corresponde al Concejo Municipal?',
+    opts:['Ejecutiva y administrativa','Normativa, resolutiva y fiscalizadora','Jurisdiccional','Legislativa'],
+    a:1, exp:'El artículo 79 de la Ley N° 18.695 asigna al concejo funciones normativas, resolutivas y fiscalizadoras, sin carácter ejecutivo.' },
+
+  { id:'s2q2', sec:'s2',
+    q:'La Dirección de Control Municipal tiene como función principal:',
+    opts:['Atender público en el mesón','Administrar los recursos humanos','Ejercer el control interno y la auditoría de la gestión municipal','Tramitar permisos de edificación'],
+    a:2, exp:'La Dirección de Control realiza el control interno, auditoría y fiscalización del cumplimiento de la normativa y de los procedimientos municipales.' },
+
+  { id:'s2q3', sec:'s2',
+    q:'¿Qué unidad municipal se encarga de las políticas de desarrollo social y comunitario?',
+    opts:['DIDECO','Dirección de Obras Municipales','Dirección de Administración y Finanzas','Secretaría Municipal'],
+    a:0, exp:'La Dirección de Desarrollo Comunitario (DIDECO) gestiona programas sociales, organizaciones comunitarias y acciones de desarrollo local.' },
+
+  { id:'s2q4', sec:'s2',
+    q:'Respecto de la representación de la municipalidad, el alcalde:',
+    opts:['Solo representa en juicio al Concejo','No tiene facultad de representación','Solo puede ser representado por la Contraloría','Representa judicial y extrajudicialmente a la municipalidad'],
+    a:3, exp:'El artículo 63 letra a) atribuye al alcalde la representación judicial y extrajudicial de la municipalidad.' },
+
+  { id:'s2q5', sec:'s2',
+    q:'¿Cuánto dura el período de un alcalde?',
+    opts:['3 años','4 años','5 años','6 años'],
+    a:1, exp:'El alcalde es elegido por sufragio universal por un período de 4 años, con posibilidad de reelección conforme a la normativa vigente.' },
+
+  // ┌──────────────────────────────────────────────────────────────┐
+  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 2 (s2)          │
+  // │  (mismo formato que la sección 1, cambiando sec:'s2')        │
+  // │  Recuerda: id único → s2q6, s2q7, s2q8...                    │
+  // └──────────────────────────────────────────────────────────────┘
+
+
+  /* ═══════════════ SECCIÓN 3 · LEY 19.880 ═══════════════ */
+
+  { id:'s3q1', sec:'s3',
+    q:'A falta de plazo legal especial, ¿en cuánto tiempo debe concluir el procedimiento administrativo?',
+    opts:['10 días hábiles','20 días hábiles','30 días hábiles','60 días corridos'],
+    a:1, exp:'La Ley N° 19.880 fija en 20 días hábiles el plazo para concluir el procedimiento cuando no exista un plazo especial establecido.' },
+
+  { id:'s3q2', sec:'s3',
+    q:'El principio de impulsión de oficio significa que:',
+    opts:['El interesado debe impulsar cada etapa del procedimiento','El procedimiento se suspende si el interesado no insiste','El procedimiento se impulsa de oficio en todos sus trámites','Solo el juez puede impulsar el procedimiento'],
+    a:2, exp:'El artículo 4 consagra la impulsión de oficio: corresponde a la Administración hacer avanzar el procedimiento sin necesidad de requerimiento del interesado.' },
+
+  { id:'s3q3', sec:'s3',
+    q:'¿Cuál de las siguientes es una forma válida de notificación de los actos administrativos?',
+    opts:['Solo notificación personal','Solo por correo electrónico','Solo mediante publicación en el Diario Oficial','Notificación personal, por carta certificada o por avisos'],
+    a:3, exp:'El artículo 46 contempla la notificación personal, por carta certificada y por avisos, según las circunstancias del caso.' },
+
+  { id:'s3q4', sec:'s3',
+    q:'¿Qué recurso puede interponer el interesado para impugnar un acto ante la misma autoridad que lo dictó?',
+    opts:['Recurso de reposición','Recurso de apelación','Recurso de casación','Recurso de queja'],
+    a:0, exp:'El recurso de reposición se interpone ante la misma autoridad que dictó el acto; el jerárquico, ante el superior jerárquico.' },
+
+  { id:'s3q5', sec:'s3',
+    q:'El silencio administrativo, conforme a la Ley N° 19.880, produce:',
+    opts:['Siempre efecto positivo','Efecto negativo, salvo que una norma disponga lo contrario','Ningún efecto jurídico','La nulidad de oficio del procedimiento'],
+    a:1, exp:'El silencio produce efectos negativos, es decir, se entiende rechazada la solicitud, salvo que una norma legal especial disponga lo contrario.' },
+
+  // ┌──────────────────────────────────────────────────────────────┐
+  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 3 (s3)          │
+  // │  Recuerda: sec:'s3', ids: s3q6, s3q7, s3q8...                │
+  // └──────────────────────────────────────────────────────────────┘
+
+
+  /* ═══════════════ SECCIÓN 4 · PROBIDAD Y TRANSPARENCIA ═══════════════ */
+
+  { id:'s4q1', sec:'s4',
+    q:'¿Cuál es el plazo general para responder una solicitud de acceso a la información pública?',
+    opts:['5 días hábiles','10 días corridos','20 días hábiles, prorrogables por 10 días hábiles','30 días hábiles'],
+    a:2, exp:'La Ley N° 20.285 establece 20 días hábiles, prorrogables por otros 10 días hábiles cuando existan circunstancias que lo justifiquen.' },
+
+  { id:'s4q2', sec:'s4',
+    q:'¿Qué organismo conoce de los amparos por denegación de información?',
+    opts:['La Contraloría General de la República','El Consejo para la Transparencia','La Corte Suprema','El Ministerio Público'],
+    a:1, exp:'El Consejo para la Transparencia es el órgano autónomo que resuelve los amparos por denegación de acceso a la información.' },
+
+  { id:'s4q3', sec:'s4',
+    q:'¿Cuál de las siguientes es una causal de secreto o reserva de la información?',
+    opts:['Que la información sea muy extensa','Que el documento esté en formato papel','Afectar la seguridad de la Nación o el interés nacional','Que el funcionario esté de vacaciones'],
+    a:2, exp:'El artículo 21 de la Ley N° 20.285 enumera las causales de secreto o reserva, entre ellas la afectación de la seguridad de la Nación o del interés nacional.' },
+
+  { id:'s4q4', sec:'s4',
+    q:'La declaración de intereses y patrimonio debe presentarse, al asumir el cargo, dentro de:',
+    opts:['10 días','30 días','60 días','6 meses'],
+    a:1, exp:'La Ley N° 20.880 exige presentar la declaración dentro de los 30 días siguientes a la asunción del cargo, y actualizarla anualmente.' },
+
+  { id:'s4q5', sec:'s4',
+    q:'El principio de probidad administrativa exige, entre otras cosas:',
+    opts:['Priorizar los intereses personales sobre los públicos','Mantener en reserva todos los actos administrativos','Evitar la rendición de cuentas','Observar una conducta funcionaria intachable y dar prioridad al interés público'],
+    a:3, exp:'La probidad implica una conducta funcionaria intachable y la primacía del interés público sobre el interés particular.' },
+
+  // ┌──────────────────────────────────────────────────────────────┐
+  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 4 (s4)          │
+  // │  Recuerda: sec:'s4', ids: s4q6, s4q7, s4q8...                │
+  // └──────────────────────────────────────────────────────────────┘
+
+
+  /* ═══════════════ SECCIÓN 5 · COMPRAS PÚBLICAS Y FINANZAS ═══════════════ */
+
+  { id:'s5q1', sec:'s5',
+    q:'La modalidad de Compra Ágil en Mercado Público se utiliza para compras cuyo monto no supere:',
+    opts:['5 UTM','30 UTM','100 UTM','1.000 UTM'],
+    a:1, exp:'Compra Ágil permite adquirir bienes y servicios por montos de hasta 30 UTM, sin necesidad de licitación.' },
+
+  { id:'s5q2', sec:'s5',
+    q:'¿Cuál es una causal legal de Trato Directo?',
+    opts:['Cuando el monto supera las 1.000 UTM','Cuando el alcalde lo estima conveniente','Cuando solo existe un proveedor en el mercado','Cuando no hay presupuesto disponible'],
+    a:2, exp:'El artículo 8 de la Ley N° 19.886 contempla el trato directo, entre otras causales, cuando solo existe un proveedor determinado.' },
+
+  { id:'s5q3', sec:'s5',
+    q:'¿Cuál de los siguientes es un principio de la Ley N° 18.575?',
+    opts:['Discrecionalidad absoluta','Improcedencia del control jerárquico','Confidencialidad de toda la gestión','Eficiencia, eficacia y control de los recursos públicos'],
+    a:3, exp:'La Ley N° 18.575 consagra los principios de responsabilidad, eficiencia, eficacia, control, probidad, transparencia y publicidad, entre otros.' },
+
+  { id:'s5q4', sec:'s5',
+    q:'El instrumento que formaliza una compra en Mercado Público es:',
+    opts:['La Orden de Compra','La factura','El decreto alcaldicio','El cheque'],
+    a:0, exp:'La Orden de Compra es el documento electrónico que formaliza el contrato y permite el pago al proveedor en el portal Mercado Público.' },
+
+  { id:'s5q5', sec:'s5',
+    q:'La licitación pública es el procedimiento:',
+    opts:['Excepcional y solo para emergencias','De carácter general para las compras y contrataciones del Estado','Que no requiere publicación','Que solo se usa en municipios'],
+    a:1, exp:'La licitación pública es la regla general en las compras públicas, y el trato directo es la excepción taxativamente regulada.' },
+
+  // ┌──────────────────────────────────────────────────────────────┐
+  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 5 (s5)          │
+  // │  Recuerda: sec:'s5', ids: s5q6, s5q7, s5q8...                │
+  // └──────────────────────────────────────────────────────────────┘
+
+
+  /* ═══════════════ SECCIÓN 6 · COMPETENCIAS TÉCNICAS Y DE GESTIÓN ═══════════════ */
+
+  { id:'s6q1', sec:'s6',
+    q:'¿Qué unidad municipal emite el Certificado de Informaciones Previas?',
+    opts:['DIDECO','La Dirección de Control','La Dirección de Obras Municipales','La Secretaría Municipal'],
+    a:2, exp:'La Dirección de Obras Municipales (DOM) emite el Certificado de Informaciones Previas, que informa sobre las normas urbanísticas aplicables a un predio.' },
+
+  { id:'s6q2', sec:'s6',
+    q:'Los derechos municipales por permisos de edificación se calculan, entre otros factores, según:',
+    opts:['El presupuesto de la obra y la tabla de derechos vigente','El número de funcionarios municipales','La antigüedad del contribuyente','El tipo de plano presentado'],
+    a:0, exp:'El cálculo se realiza sobre el presupuesto de la obra, aplicando la tabla de derechos municipales establecida en la normativa vigente.' },
+
+  { id:'s6q3', sec:'s6',
+    q:'Un contribuyente solicita atención presencial en la DOM. La buena práctica administrativa indica:',
+    opts:['Negar la atención si no trae carpeta','Derivar sin dejar registro','Registrar la solicitud, informar plazos y derivar según corresponda','Pedir el RUT del alcalde'],
+    a:2, exp:'Toda atención debe quedar registrada, informarse los plazos al usuario y derivarse al funcionario o unidad competente.' },
+
+  { id:'s6q4', sec:'s6',
+    q:'En una planilla de Excel, ¿qué función permite buscar un valor dentro de una tabla?',
+    opts:['SUMA','BUSCARV / VLOOKUP','PROMEDIO','CONTAR'],
+    a:1, exp:'BUSCARV (o BUSCARX en versiones recientes) permite buscar un valor en la primera columna de un rango y devolver un dato asociado.' },
+
+  { id:'s6q5', sec:'s6',
+    q:'Para resguardar la trazabilidad de un expediente municipal, lo recomendable es:',
+    opts:['Guardar copias solo en el escritorio','Eliminar documentos antiguos','Delegar todo al correo personal','Mantener un registro ordenado y foliado de cada documento'],
+    a:3, exp:'La foliación y el registro ordenado de los documentos aseguran la trazabilidad del expediente y facilitan la fiscalización.' },
+
+  // ┌──────────────────────────────────────────────────────────────┐
+  // │  📌 PEGAR ACÁ · NUEVAS PREGUNTAS DE SECCIÓN 6 (s6)          │
+  // │  Recuerda: sec:'s6', ids: s6q6, s6q7, s6q8...                │
+  // └──────────────────────────────────────────────────────────────┘
+
+];
+
+/* =========================================================
+   4. UTILIDADES
+   ========================================================= */
+const $ = (s, r=document) => r.querySelector(s);
+const pct = (c,t) => t ? Math.round(c/t*100) : 0;
+
+function shuffle(arr){
+  const a = [...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+function lsGet(k, def=null){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; }catch(e){ return def; } }
+function lsSet(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+
+const K = {
+  stats : n => 'muni.stats.' + n,
+  seen  : n => 'muni.seen.'  + n,
+  last  : n => 'muni.last.'  + n,
+  nick  : 'muni.nick'
+};
+
+/* =========================================================
+   5. ESTADO
+   ========================================================= */
+const state = { nick:'', mode:'completo', session:null };
+
+/* =========================================================
+   6. NAVEGACIÓN
+   ========================================================= */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('screen-' + id);
+  if(el) el.classList.add('active');
+  window.scrollTo({ top:0, behavior:'smooth' });
+  $('#btnHome').hidden = (id === 'start');
+  $('#userTag').hidden = !state.nick;
+  $('#userTag').textContent = state.nick ? '👤 ' + state.nick : '';
+}
+$('#btnHome').addEventListener('click', () => { renderStart(); showScreen('start'); });
+
+/* =========================================================
+   7. PANTALLA DE INICIO
+   ========================================================= */
+function countBySection(secId){
+  return QUESTIONS.filter(q => q.sec === secId).length;
+}
+
+function renderModes(){
+  const list = $('#modeList');
+  list.innerHTML = '';
+
+  const totalQs = QUESTIONS.length;
+  const options = [
+    { id:'completo', name:'Test completo', sub:`${QUESTIONS_PER_TEST} preguntas · todas las secciones`, count: totalQs },
+    ...SECTIONS.map(s => ({
+      id:s.id, name:s.name, sub:s.sub, count: countBySection(s.id)
+    }))
+  ];
+
+  options.forEach(o => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'mode' + (state.mode === o.id ? ' sel' : '');
+    b.innerHTML = `
+      <span class="dot"></span>
+      <span style="flex:1">
+        <b>${o.name}</b>
+        <span class="m-sub">${o.sub}</span>
+      </span>
+      <span class="m-count">${o.count} preg.</span>`;
+    b.addEventListener('click', () => {
+      state.mode = o.id;
+      renderModes();
+      updateRotationHint();
+    });
+    list.appendChild(b);
+  });
+}
+
+function getLastIdx(nick){ return Number(lsGet(K.last(nick), 0)) || 0; }
+
+function updateRotationHint(){
+  if(!state.nick){ $('#rotationHint').textContent = ''; return; }
+  const nextIdx = (getLastIdx(state.nick) + 1) % SECTIONS.length;
+  const nextSec = SECTIONS[nextIdx];
+  $('#rotationHint').innerHTML =
+    `Al repetir el test, las secciones rotan para que no siempre empieces por la misma. ` +
+    `La próxima sección de inicio será <b>${nextSec.name}</b>.`;
+}
+
+function renderStart(){
+  $('#nickInput').value = state.nick;
+  $('#btnStart').disabled = state.nick.trim().length === 0;
+  renderModes();
+  updateRotationHint();
+  renderStartStats();
+}
+
+function renderStartStats(){
+  const box = $('#startStats');
+  if(!state.nick){ box.hidden = true; return; }
+  const st = getStats(state.nick);
+  const totals = totalize(st);
+  if(totals.total === 0){ box.hidden = true; return; }
+  box.hidden = false;
+  const p = pct(totals.correct, totals.total);
+  $('#startStatsBody').innerHTML = `
+    <div class="hist"><span>Tests realizados</span><span class="h-score">${st.sessions}</span></div>
+    <div class="hist"><span>Respuestas correctas</span><span class="h-score">${totals.correct} / ${totals.total}</span></div>
+    <div class="hist"><span>Logro global</span><span class="h-score">${p}%</span></div>`;
+}
+
+$('#nickInput').addEventListener('input', e => {
+  state.nick = e.target.value.trim();
+  $('#btnStart').disabled = state.nick.length === 0;
+  renderStartStats();
+  updateRotationHint();
+});
+
+$('#btnStart').addEventListener('click', () => {
+  if(!state.nick) return;
+  lsSet(K.nick, state.nick);
+  startTest(state.mode);
+});
+
+$('#btnStatsFromStart').addEventListener('click', () => { renderStats(); showScreen('stats'); });
+
+/* =========================================================
+   8. ESTADÍSTICAS · carga y guardado
+   ========================================================= */
+function getStats(nick){
+  const st = lsGet(K.stats(nick), null);
+  const base = { sessions:0, history:[], sections:{} };
+  SECTIONS.forEach(s => base.sections[s.id] = { correct:0, total:0 });
+  if(!st) return base;
+  base.sessions = st.sessions || 0;
+  base.history  = Array.isArray(st.history) ? st.history : [];
+  SECTIONS.forEach(s => {
+    const d = (st.sections && st.sections[s.id]) || { correct:0, total:0 };
+    base.sections[s.id] = { correct:d.correct||0, total:d.total||0 };
+  });
+  return base;
+}
+function totalize(st){
+  let correct = 0, total = 0;
+  SECTIONS.forEach(s => {
+    const d = st.sections[s.id] || { correct:0, total:0 };
+    correct += d.correct; total += d.total;
+  });
+  return { correct, total };
+}
+
+/* =========================================================
+   9. SELECCIÓN DE PREGUNTAS
+   ========================================================= */
+function pickQuestions(secId, n, seen){
+  const pool    = QUESTIONS.filter(q => q.sec === secId);
+  const unseen  = pool.filter(q => !seen.includes(q.id));
+  const already = pool.filter(q =>  seen.includes(q.id));
+
+  let picked = shuffle(unseen).slice(0, n);
+  if(picked.length < n){
+    picked = picked.concat(shuffle(already).slice(0, n - picked.length));
+  }
+  return picked;
+}
+
+/* =========================================================
+   10. INICIAR TEST
+   ========================================================= */
+function startTest(mode){
+  const nick = state.nick;
+  const lastIdx = getLastIdx(nick);
+  let ordered;
+
+  if(mode === 'completo'){
+    const startIdx = (lastIdx + 1) % SECTIONS.length;
+    ordered = [...SECTIONS.slice(startIdx), ...SECTIONS.slice(0, startIdx)];
+    lsSet(K.last(nick), startIdx);
+  } else {
+    const idx = SECTIONS.findIndex(s => s.id === mode);
+    if(idx < 0) return;
+    ordered = [SECTIONS[idx]];
+    lsSet(K.last(nick), idx);
+  }
+
+  const seen = lsGet(K.seen(nick), []);
+  let picked = [];
+
+  if(mode === 'completo'){
+    // Distribuir: ~4 por sección y completar con extra hasta 25
+    const perSec = Math.floor(QUESTIONS_PER_TEST / ordered.length);
+    ordered.forEach(sec => {
+      picked = picked.concat(pickQuestions(sec.id, perSec, seen));
+    });
+    if(picked.length < QUESTIONS_PER_TEST){
+      const remaining = QUESTIONS_PER_TEST - picked.length;
+      const usedIds = picked.map(q => q.id);
+      const candidates = QUESTIONS.filter(q =>
+        ordered.some(s => s.id === q.sec) && !usedIds.includes(q.id)
+      );
+      picked = picked.concat(shuffle(candidates).slice(0, remaining));
+    }
+    picked = picked.slice(0, QUESTIONS_PER_TEST);
+  } else {
+    picked = pickQuestions(ordered[0].id, QUESTIONS_PER_TEST, seen);
+  }
+
+  if(picked.length === 0){
+    alert('No hay preguntas cargadas para esta selección.');
+    return;
+  }
+
+  const questions = picked.map(q => ({
+    ...q,
+    shuffled: shuffle(q.opts.map((text, i) => ({ text, correct: i === q.a })))
+  }));
+
+  state.session = {
+    mode,
+    questions,
+    answers: new Array(questions.length).fill(null),
+    index: 0
+  };
+
+  state.mode = mode;
+  showScreen('quiz');
+  renderQuestion();
+}
+
+/* =========================================================
+   11. RENDER DEL QUIZ
+   ========================================================= */
+function renderQuestion(){
+  const s = state.session;
+  if(!s) return;
+  const item = s.questions[s.index];
+  const sec  = SECTIONS.find(x => x.id === item.sec);
+
+  $('#quizSection').textContent = sec ? `${sec.name} · ${sec.sub}` : '';
+  $('#quizCount').textContent   = `Pregunta ${s.index + 1} de ${s.questions.length}`;
+  $('#quizBar').style.width     = ((s.index + 1) / s.questions.length * 100) + '%';
+  $('#quizQuestion').textContent = item.q;
+
+  const cont = $('#quizOptions');
+  cont.innerHTML = '';
+
+  item.shuffled.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'option' + (s.answers[s.index] === i ? ' selected' : '');
+    btn.innerHTML = `<span class="letter">${'ABCD'[i]}</span><span>${opt.text}</span>`;
+    btn.addEventListener('click', () => {
+      s.answers[s.index] = i;
+      renderQuestion();
+    });
+    cont.appendChild(btn);
+  });
+
+  $('#btnPrev').disabled = s.index === 0;
+  $('#btnNext').disabled = s.answers[s.index] === null;
+  $('#btnNext').textContent = (s.index === s.questions.length - 1) ? 'Finalizar' : 'Siguiente';
+}
+
+$('#btnPrev').addEventListener('click', () => {
+  const s = state.session;
+  if(s && s.index > 0){ s.index--; renderQuestion(); }
+});
+
+$('#btnNext').addEventListener('click', () => {
+  const s = state.session;
+  if(!s) return;
+  if(s.index < s.questions.length - 1){
+    s.index++; renderQuestion();
+  } else {
+    finishTest();
+  }
+});
+
+/* =========================================================
+   12. FINALIZAR TEST
+   ========================================================= */
+function finishTest(){
+  const s = state.session;
+  const nick = state.nick;
+  let correct = 0;
+  const perSec = {};
+  SECTIONS.forEach(x => perSec[x.id] = { correct:0, total:0 });
+
+  s.questions.forEach((q, i) => {
+    const ans = s.answers[i];
+    const isOk = ans !== null && q.shuffled[ans].correct;
+    if(isOk) correct++;
+    perSec[q.sec].total++;
+    if(isOk) perSec[q.sec].correct++;
+  });
+
+  s.result = { correct, total: s.questions.length, perSec };
+
+  // Guardar estadísticas
+  const st = getStats(nick);
+  st.sessions++;
+  SECTIONS.forEach(x => {
+    st.sections[x.id].correct += perSec[x.id].correct;
+    st.sections[x.id].total   += perSec[x.id].total;
+  });
+
+  const modeLabel = (s.mode === 'completo')
+    ? 'Test completo'
+    : (SECTIONS.find(x => x.id === s.mode) || {}).name || 'Sección';
+
+  st.history.unshift({
+    date: new Date().toISOString(),
+    mode: modeLabel,
+    correct,
+    total: s.questions.length
+  });
+  st.history = st.history.slice(0, 12);
+  lsSet(K.stats(nick), st);
+
+  // Marcar preguntas vistas
+  const seen = lsGet(K.seen(nick), []);
+  const ids  = s.questions.map(q => q.id);
+  lsSet(K.seen(nick), Array.from(new Set([...seen, ...ids])));
+
+  renderResult();
+  showScreen('result');
+}
+
+/* =========================================================
+   13. RESULTADO
+   ========================================================= */
+function barClass(p){ return p >= 80 ? 'g' : (p >= 60 ? 'y' : 'r'); }
+function tagFor(p, total){
+  if(total === 0) return '<span class="tag none">Sin datos</span>';
+  if(p >= 80) return '<span class="tag ok">Fortaleza</span>';
+  if(p >= 60) return '<span class="tag mid">A reforzar</span>';
+  return '<span class="tag bad">Punto débil</span>';
+}
+
+function renderResult(){
+  const s = state.session;
+  const r = s.result;
+  const p = pct(r.correct, r.total);
+
+  const circle = $('#scoreCircle');
+  circle.style.setProperty('--p', p);
+  $('#scoreNum').textContent = p + '%';
+  $('#scoreLbl').textContent = `${r.correct} / ${r.total}`;
+
+  $('#resultTitle').textContent = `¡Bien, ${state.nick}!`;
+  let msg = '';
+  if(p >= 85) msg = 'Excelente desempeño. Estás muy cerca del nivel esperado para una postulación municipal.';
+  else if(p >= 70) msg = 'Buen resultado. Revisa los errores y refuerza las secciones más débiles.';
+  else if(p >= 50) msg = 'Vas por buen camino, pero necesitas repasar. Revisa tus errores y vuelve a intentarlo.';
+  else msg = 'Es un punto de partida. Revisa los errores con calma y repite el test: las preguntas irán rotando.';
+  $('#resultMsg').textContent = msg;
+
+  const cont = $('#resultSections');
+  cont.innerHTML = '';
+  SECTIONS.forEach(sec => {
+    const d = r.perSec[sec.id];
+    if(!d || d.total === 0) return;
+    const sp = pct(d.correct, d.total);
+    const row = document.createElement('div');
+    row.className = 'sec-row';
+    row.innerHTML = `
+      <div class="sec-head">
+        <b>${sec.name}${tagFor(sp, d.total)}</b>
+        <span class="num">${d.correct}/${d.total} · ${sp}%</span>
+      </div>
+      <div class="bar"><div class="${barClass(sp)}" style="width:${sp}%"></div></div>`;
+    cont.appendChild(row);
+  });
+
+  const weakCard = $('#weakCard');
+  const weakList = $('#weakList');
+  weakList.innerHTML = '';
+  const low = SECTIONS
+    .map(sec => ({ ...sec, ...r.perSec[sec.id] }))
+    .filter(x => x.total > 0)
+    .map(x => ({ ...x, p: pct(x.correct, x.total) }))
+    .filter(x => x.p < 80)
+    .sort((a, b) => a.p - b.p);
+
+  if(low.length === 0){
+    weakCard.hidden = true;
+  } else {
+    weakCard.hidden = false;
+    low.forEach(x => {
+      const div = document.createElement('div');
+      div.className = 'sec-row';
+      div.innerHTML = `
+        <div class="sec-head">
+          <b>${x.name}</b>
+          <span class="num">${x.p}% de logro</span>
+        </div>
+        <div class="bar"><div class="${barClass(x.p)}" style="width:${x.p}%"></div></div>`;
+      weakList.appendChild(div);
+    });
+  }
+
+  $('#btnReview').disabled = r.correct === r.total;
+}
+
+/* =========================================================
+   14. REVISIÓN DE ERRORES
+   ========================================================= */
+$('#btnReview').addEventListener('click', () => { renderReview(false); showScreen('review'); });
+$('#chkAll').addEventListener('change', e => renderReview(e.target.checked));
+
+function renderReview(showAll){
+  const s = state.session;
+  const list = $('#reviewList');
+  list.innerHTML = '';
+
+  const wrongCount = s.questions.filter((q, i) => {
+    const a = s.answers[i];
+    return a === null || !q.shuffled[a].correct;
+  }).length;
+
+  $('#reviewSub').textContent = showAll
+    ? `Mostrando las ${s.questions.length} preguntas del test.`
+    : (wrongCount === 0 ? '¡No tuviste errores en este test!' : `Tienes ${wrongCount} respuesta(s) por revisar.`);
+
+  let shown = 0;
+  s.questions.forEach((q, i) => {
+    const ans = s.answers[i];
+    const isOk = ans !== null && q.shuffled[ans].correct;
+    if(!showAll && isOk) return;
+    shown++;
+
+    const sec = SECTIONS.find(x => x.id === q.sec);
+    const item = document.createElement('div');
+    item.className = 'rev-item' + (isOk ? ' good' : '');
+
+    let html = `<p class="rev-q">${shown}. ${q.q}</p>`;
+    if(ans === null){
+      html += `<div class="rev-opt bad">⚠️ Sin responder</div>`;
+    } else if(!isOk){
+      html += `<div class="rev-opt bad">✗ Tu respuesta: ${q.shuffled[ans].text}</div>`;
+    }
+    const good = q.shuffled.find(o => o.correct);
+    html += `<div class="rev-opt good">✓ Correcta: ${good.text}</div>`;
+    html += `<div class="rev-exp"><b>${sec ? sec.name : ''}:</b> ${q.exp || ''}</div>`;
+    item.innerHTML = html;
+    list.appendChild(item);
+  });
+
+  if(shown === 0){
+    list.innerHTML = `<div class="card" style="text-align:center; color:var(--muted)">
+      🎉 No hay errores que revisar en este test.</div>`;
+  }
+}
+$('#btnBackResult').addEventListener('click', () => showScreen('result'));
+
+/* =========================================================
+   15. REPETIR TEST
+   ========================================================= */
+$('#btnAgain').addEventListener('click', () => {
+  const s = state.session;
+  if(!s) return;
+  if(s.mode === 'completo'){
+    startTest('completo');
+  } else {
+    const lastIdx = getLastIdx(state.nick);
+    const nextSec = SECTIONS[(lastIdx + 1) % SECTIONS.length];
+    startTest(nextSec.id);
+  }
+});
+
+/* =========================================================
+   16. ESTADÍSTICAS · pantalla
+   ========================================================= */
+$('#btnStats').addEventListener('click', () => { renderStats(); showScreen('stats'); });
+$('#btnStatsBack').addEventListener('click', () => { renderStart(); showScreen('start'); });
+
+function renderStats(){
+  const nick = state.nick;
+  $('#statsNick').textContent = nick || '—';
+
+  if(!nick){
+    $('#statsOverview').innerHTML = '<p class="muted">Primero ingresa tu nick y realiza un test.</p>';
+    $('#statsSections').innerHTML = '';
+    $('#statsWeakCard').hidden = true;
+    $('#statsHistCard').hidden = true;
+    return;
+  }
+
+  const st = getStats(nick);
+  const totals = totalize(st);
+  const gp = pct(totals.correct, totals.total);
+
+  $('#statsOverview').innerHTML = `
+    <div class="hist"><span>Tests completados</span><span class="h-score">${st.sessions}</span></div>
+    <div class="hist"><span>Respuestas totales</span><span class="h-score">${totals.total}</span></div>
+    <div class="hist"><span>Respuestas correctas</span><span class="h-score">${totals.correct}</span></div>
+    <div class="hist"><span>Logro global</span><span class="h-score">${gp}%</span></div>`;
+
+  const rows = SECTIONS.map(sec => {
+    const d = st.sections[sec.id] || { correct:0, total:0 };
+    return { ...sec, ...d, p: pct(d.correct, d.total) };
+  }).sort((a, b) => {
+    if(a.total === 0 && b.total === 0) return 0;
+    if(a.total === 0) return 1;
+    if(b.total === 0) return -1;
+    return a.p - b.p;
+  });
+
+  const cont = $('#statsSections');
+  cont.innerHTML = '';
+  rows.forEach(sec => {
+    const row = document.createElement('div');
+    row.className = 'sec-row';
+    row.innerHTML = `
+      <div class="sec-head">
+        <b>${sec.name}${tagFor(sec.p, sec.total)}</b>
+        <span class="num">${sec.total ? `${sec.correct}/${sec.total} · ${sec.p}%` : 'sin datos'}</span>
+      </div>
+      <div class="bar"><div class="${barClass(sec.p)}" style="width:${sec.total ? sec.p : 0}%"></div></div>`;
+    cont.appendChild(row);
+  });
+
+  const weak = rows.filter(r => r.total > 0 && r.p < 80);
+  const weakCard = $('#statsWeakCard');
+  if(weak.length === 0){
+    weakCard.hidden = true;
+  } else {
+    weakCard.hidden = false;
+    const top = weak.slice(0, 3);
+    $('#statsWeak').innerHTML = `
+      <p class="muted" style="margin:0 0 12px; font-size:13.5px">
+        Estas son las secciones con menor porcentaje de logro acumulado. Priorízalas al estudiar.
+      </p>
+      ${top.map((w, i) => `
+        <div class="hist">
+          <span><b>${i + 1}.</b> ${w.name} <span class="muted">(${w.sub})</span></span>
+          <span class="h-score" style="color:var(--bad)">${w.p}%</span>
+        </div>`).join('')}`;
+  }
+
+  const histCard = $('#statsHistCard');
+  if(st.history.length === 0){
+    histCard.hidden = true;
+  } else {
+    histCard.hidden = false;
+    $('#statsHist').innerHTML = st.history.map(h => {
+      const d = new Date(h.date);
+      const fecha = d.toLocaleDateString('es-CL', { day:'2-digit', month:'2-digit' }) +
+                    ' ' + d.toLocaleTimeString('es-CL', { hour:'2-digit', minute:'2-digit' });
+      return `<div class="hist">
+        <span>${fecha} · <span class="muted">${h.mode}</span></span>
+        <span class="h-score">${pct(h.correct, h.total)}% (${h.correct}/${h.total})</span>
+      </div>`;
+    }).join('');
+  }
+}
+
+/* =========================================================
+   17. PWA · manifest, icono y service worker
+   ========================================================= */
+(function initPWA(){
+  const svgIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">' +
+    '<rect width="192" height="192" rx="42" fill="#1d4ed8"/>' +
+    '<rect x="50" y="70" width="92" height="70" fill="#ffffff"/>' +
+    '<polygon points="96,34 30,74 162,74" fill="#ffffff"/>' +
+    '<rect x="78" y="106" width="36" height="34" fill="#1d4ed8"/>' +
+    '<rect x="42" y="146" width="108" height="8" fill="#ffffff"/>' +
+    '</svg>';
+
+  function utf8ToBase64(str){
+    const bytes = new TextEncoder().encode(str);
+    let bin = '';
+    for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return btoa(bin);
+  }
+  const iconUri = 'data:image/svg+xml;base64,' + utf8ToBase64(svgIcon);
+
+  const appleIcon = document.getElementById('appIcon');
+  if(appleIcon) appleIcon.href = iconUri;
+
+  const manifest = {
+    name: 'Test Normativa Municipal',
+    short_name: 'Test Muni',
+    description: 'Test de práctica sobre normativa municipal chilena',
+    start_url: './',
+    scope: './',
+    display: 'standalone',
+    orientation: 'portrait',
+    background_color: '#f1f5f9',
+    theme_color: '#1d4ed8',
+    icons: [
+      { src: iconUri, sizes: '192x192', type: 'image/svg+xml', purpose: 'any' },
+      { src: iconUri, sizes: '512x512', type: 'image/svg+xml', purpose: 'any' }
+    ]
+  };
+  const manifestLink = document.getElementById('appManifest');
+  if(manifestLink){
+    try {
+      manifestLink.href = 'data:application/manifest+json;base64,' + utf8ToBase64(JSON.stringify(manifest));
+    } catch(e){}
+  }
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
+})();
+
+/* =========================================================
+   18. INICIALIZACIÓN
+   ========================================================= */
+(function init(){
+  const savedNick = lsGet(K.nick, '');
+  if(savedNick){
+    state.nick = savedNick;
+    $('#nickInput').value = savedNick;
+    $('#btnStart').disabled = false;
+  }
+  renderModes();
+  updateRotationHint();
+  renderStartStats();
+})();
+</script>
+</body>
+</html>
