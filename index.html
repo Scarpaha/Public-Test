@@ -312,7 +312,8 @@ const SECTIONS = [
   { id:'s3', name:'Procedimiento y Actos Administrativos', sub:'Ley N° 19.880' },
   { id:'s4', name:'Probidad y Transparencia',             sub:'Leyes N° 20.285 / 20.880' },
   { id:'s5', name:'Compras Públicas y Finanzas',          sub:'Leyes N° 19.886 / 18.575' },
-  { id:'s6', name:'Competencias Técnicas y de Gestión',   sub:'DOM / DIDECO / Ofimática' }
+  { id:'s6', name:'Competencias Técnicas y de Gestión',   sub:'DOM / DIDECO / Ofimática' },
+  { id:'s7', name:'¿A qué ley corresponde?',              sub:'Escribe el número de ley' }
 ];
 
 /* =========================================================
@@ -1846,7 +1847,136 @@ const QUESTIONS = [
   { id:'s6q50', sec:'s6',
     q:'Una buena práctica al atender presencialmente a un contribuyente es:',
     opts:['Atenderlo sin registrar la solicitud','Registrar la solicitud, informar plazos, orientarlo y derivarlo a la unidad competente','Derivarlo a otra unidad sin explicación','Pedirle que vuelva otro día'],
-    a:1, exp:'La buena práctica administrativa exige registrar la solicitud, informar los plazos, orientar al contribuyente y derivarlo a la unidad competente para su tramitación.' } ];
+    a:1, exp:'La buena práctica administrativa exige registrar la solicitud, informar los plazos, orientar al contribuyente y derivarlo a la unidad competente para su tramitación.' },
+
+  /* ═══════════════ SECCIÓN 7 · ¿A QUÉ LEY CORRESPONDE? ═══════════════ */
+
+  { id:'s7q1', sec:'s7', type:'input',
+    q:'¿Qué ley establece el Estatuto Administrativo de los funcionarios municipales?',
+    answer:'18.883',
+    exp:'La Ley N° 18.883 contiene el Estatuto Administrativo de los funcionarios municipales: carrera funcionaria, deberes, derechos, permisos y responsabilidades.' },
+
+  { id:'s7q2', sec:'s7', type:'input',
+    q:'¿Qué ley orgánica constitucional regula la organización y funcionamiento de las municipalidades?',
+    answer:'18.695',
+    exp:'La Ley N° 18.695, Orgánica Constitucional de Municipalidades, regula la organización, funcionamiento y atribuciones de las municipalidades.' },
+
+  { id:'s7q3', sec:'s7', type:'input',
+    q:'¿Qué ley establece las bases del procedimiento administrativo que rige los actos de la Administración del Estado?',
+    answer:'19.880',
+    exp:'La Ley N° 19.880 regula las bases de los procedimientos administrativos que rigen los actos de los órganos de la Administración del Estado.' },
+
+  { id:'s7q4', sec:'s7', type:'input',
+    q:'¿Qué ley regula el principio de transparencia y el derecho de acceso a la información pública?',
+    answer:'20.285',
+    exp:'La Ley N° 20.285 regula el principio de transparencia de la función pública y el derecho de acceso a la información de los órganos del Estado.' },
+
+  { id:'s7q5', sec:'s7', type:'input',
+    q:'¿Qué ley regula la probidad en la función pública y la prevención de conflictos de intereses?',
+    answer:'20.880',
+    exp:'La Ley N° 20.880 regula el principio de probidad en la función pública y la prevención y sanción de conflictos de intereses.' },
+
+  { id:'s7q6', sec:'s7', type:'input',
+    q:'¿Qué ley regula las compras públicas y contrataciones del Estado?',
+    answer:'19.886',
+    exp:'La Ley N° 19.886 regula las bases sobre contratos administrativos de suministro y prestación de servicios, y las compras públicas.' },
+
+  { id:'s7q7', sec:'s7', type:'input',
+    q:'¿Qué ley orgánica constitucional establece las bases generales de la Administración del Estado?',
+    answer:'18.575',
+    exp:'La Ley N° 18.575, Orgánica Constitucional de Bases Generales de la Administración del Estado, fija los principios de organización y funcionamiento de la Administración.' },
+
+  { id:'s7q8', sec:'s7', type:'input',
+    q:'¿Qué ley regula las Juntas de Vecinos y demás organizaciones comunitarias?',
+    answer:'19.418',
+    exp:'La Ley N° 19.418 establece normas sobre Juntas de Vecinos y demás organizaciones comunitarias, su constitución y funcionamiento.' },
+
+  { id:'s7q9', sec:'s7', type:'input',
+    q:'¿Qué ley regula los documentos electrónicos y la firma electrónica?',
+    answer:'19.799',
+    exp:'La Ley N° 19.799 regula los documentos electrónicos y la firma electrónica, otorgando a la firma electrónica avanzada el mismo valor legal que la manuscrita.' },
+
+  { id:'s7q10', sec:'s7', type:'input',
+    q:'¿Qué ley regula el lobby y las gestiones de intereses ante las autoridades?',
+    answer:'20.730',
+    exp:'La Ley N° 20.730 regula el lobby y las gestiones de intereses ante las autoridades y funcionarios públicos.' },
+
+  { id:'s7q11', sec:'s7', type:'input',
+    q:'¿En qué ley se regulan el feriado, los permisos y las licencias de los funcionarios municipales?',
+    answer:'18.883',
+    exp:'El feriado anual, los permisos y las licencias de los funcionarios municipales se regulan en la Ley N° 18.883 (Estatuto Administrativo Municipal).' },
+
+  { id:'s7q12', sec:'s7', type:'input',
+    q:'¿Qué ley establece el procedimiento de sumario administrativo e investigación sumaria?',
+    answer:'18.883',
+    exp:'La Ley N° 18.883 regula el procedimiento de sumario administrativo e investigación sumaria aplicable a los funcionarios municipales.' },
+
+  { id:'s7q13', sec:'s7', type:'input',
+    q:'¿Qué ley regula el amparo por denegación de acceso a la información pública?',
+    answer:'20.285',
+    exp:'La Ley N° 20.285 regula el amparo ante el Consejo para la Transparencia cuando se deniega el acceso a la información pública.' },
+
+  { id:'s7q14', sec:'s7', type:'input',
+    q:'¿Qué ley creó el Consejo para la Transparencia?',
+    answer:'20.285',
+    exp:'La Ley N° 20.285 creó el Consejo para la Transparencia, órgano autónomo que resuelve los amparos por denegación de información.' },
+
+  { id:'s7q15', sec:'s7', type:'input',
+    q:'¿Qué ley regula la Declaración de Intereses y Patrimonio (DIP)?',
+    answer:'20.880',
+    exp:'La Ley N° 20.880 regula la Declaración de Intereses y Patrimonio que deben presentar autoridades y funcionarios públicos.' },
+
+  { id:'s7q16', sec:'s7', type:'input',
+    q:'¿Qué ley establece las normas sobre licitaciones públicas, privadas y tratos directos?',
+    answer:'19.886',
+    exp:'La Ley N° 19.886 y su reglamento regulan las licitaciones públicas, privadas y el trato directo como mecanismos de compra pública.' },
+
+  { id:'s7q17', sec:'s7', type:'input',
+    q:'¿Qué ley consagra los principios de responsabilidad, eficiencia, eficacia, coordinación, transparencia, probidad y control en la Administración?',
+    answer:'18.575',
+    exp:'La Ley N° 18.575 consagra en su artículo 3° los principios de responsabilidad, eficiencia, eficacia, coordinación, transparencia, probidad y control.' },
+
+  { id:'s7q18', sec:'s7', type:'input',
+    q:'¿Qué ley regula los recursos de reposición, jerárquico y de aclaración?',
+    answer:'19.880',
+    exp:'La Ley N° 19.880 regula los recursos de reposición, jerárquico y de aclaración o rectificación en el procedimiento administrativo.' },
+
+  { id:'s7q19', sec:'s7', type:'input',
+    q:'¿Qué ley regula la carrera funcionaria y los ascensos en la Administración Municipal?',
+    answer:'18.883',
+    exp:'La carrera funcionaria y los ascensos en la Administración Municipal se regulan en la Ley N° 18.883 (Estatuto Administrativo Municipal).' },
+
+  { id:'s7q20', sec:'s7', type:'input',
+    q:'¿Qué ley establece las causales de cese de funciones de los funcionarios municipales?',
+    answer:'18.883',
+    exp:'Las causales de cese de funciones (renuncia, jubilación, destitución, supresión del cargo, etc.) se regulan en la Ley N° 18.883.' },
+
+  { id:'s7q21', sec:'s7', type:'input',
+    q:'¿Qué ley otorga al alcalde la representación judicial y extrajudicial de la municipalidad?',
+    answer:'18.695',
+    exp:'El artículo 63 letra a) de la Ley N° 18.695 atribuye al alcalde la representación judicial y extrajudicial de la municipalidad.' },
+
+  { id:'s7q22', sec:'s7', type:'input',
+    q:'¿Qué ley regula las atribuciones del Concejo Municipal?',
+    answer:'18.695',
+    exp:'Las atribuciones normativas, resolutivas y fiscalizadoras del Concejo Municipal se regulan en la Ley N° 18.695.' },
+
+  { id:'s7q23', sec:'s7', type:'input',
+    q:'¿Qué ley establece el plazo general de 20 días hábiles para concluir el procedimiento administrativo?',
+    answer:'19.880',
+    exp:'La Ley N° 19.880 fija en 20 días hábiles el plazo general para concluir el procedimiento cuando no exista un plazo especial.' },
+
+  { id:'s7q24', sec:'s7', type:'input',
+    q:'¿Qué ley establece la obligación de publicar información de transparencia activa en los sitios web?',
+    answer:'20.285',
+    exp:'La Ley N° 20.285 obliga a los órganos del Estado a publicar de oficio información de transparencia activa en sus sitios web.' },
+
+  { id:'s7q25', sec:'s7', type:'input',
+    q:'¿Qué ley establece el plazo de 2 años para declarar la nulidad de oficio de un acto administrativo?',
+    answer:'19.880',
+    exp:'El artículo 53 de la Ley N° 19.880 establece que la nulidad de oficio puede declararse dentro de los 2 años siguientes a la dictación del acto.' }
+];
+  
 /* =========================================================
    5. ESTADO
    ========================================================= */
@@ -1890,8 +2020,22 @@ function shuffle(arr){
 
 function pct(part, total){
   return total === 0 ? 0 : Math.round((part / total) * 100);
+}
+
+function normalizeLawNumber(str){
+  return String(str == null ? '' : str).replace(/\D/g, '');
+}
+
+function isAnswerCorrect(q, ans){
+  if(ans === null || ans === undefined) return false;
+  if(q.type === 'input'){
+    const user = normalizeLawNumber(ans);
+    const expected = normalizeLawNumber(q.answer);
+    return user.length > 0 && user === expected;
+  }
+  const opt = q.shuffled && q.shuffled[ans];
+  return !!(opt && opt.correct);
 }  
-  
 /* =========================================================
    6. NAVEGACIÓN
    ========================================================= */
@@ -2079,10 +2223,15 @@ function startTest(mode){
     return;
   }
 
-  const questions = picked.map(q => ({
-    ...q,
-    shuffled: shuffle(q.opts.map((text, i) => ({ text, correct: i === q.a })))
-  }));
+   const questions = picked.map(q => {
+    if(q.type === 'input'){
+      return { ...q };
+    }
+    return {
+      ...q,
+      shuffled: shuffle(q.opts.map((text, i) => ({ text, correct: i === q.a })))
+    };
+  });
 
   state.session = {
     mode,
@@ -2113,23 +2262,55 @@ function renderQuestion(){
   const cont = $('#quizOptions');
   cont.innerHTML = '';
 
-  item.shuffled.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'option' + (s.answers[s.index] === i ? ' selected' : '');
-    btn.innerHTML = `<span class="letter">${'ABCD'[i]}</span><span>${opt.text}</span>`;
-    btn.addEventListener('click', () => {
-      s.answers[s.index] = i;
-      renderQuestion();
-    });
-    cont.appendChild(btn);
-  });
+  if(item.type === 'input'){
+    const wrap = document.createElement('div');
 
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'input';
+    input.placeholder = 'Ej: 18.883';
+    input.autocomplete = 'off';
+    input.spellcheck = false;
+    input.value = s.answers[s.index] || '';
+    input.addEventListener('input', e => {
+      const v = e.target.value.trim();
+      s.answers[s.index] = v.length > 0 ? e.target.value : null;
+      updateNavButtons();
+    });
+
+    const hint = document.createElement('p');
+    hint.className = 'hint';
+    hint.style.marginTop = '10px';
+    hint.style.fontSize = '12.5px';
+    hint.innerHTML = '💡 Ingresa el número de la ley (por ejemplo <b>18.883</b> o <b>18883</b>). Solo se consideran los dígitos.';
+
+    wrap.appendChild(input);
+    wrap.appendChild(hint);
+    cont.appendChild(wrap);
+  } else {
+    item.shuffled.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'option' + (s.answers[s.index] === i ? ' selected' : '');
+      btn.innerHTML = `<span class="letter">${'ABCD'[i]}</span><span>${opt.text}</span>`;
+      btn.addEventListener('click', () => {
+        s.answers[s.index] = i;
+        renderQuestion();
+      });
+      cont.appendChild(btn);
+    });
+  }
+
+  updateNavButtons();
+}
+
+function updateNavButtons(){
+  const s = state.session;
+  if(!s) return;
   $('#btnPrev').disabled = s.index === 0;
   $('#btnNext').disabled = s.answers[s.index] === null;
   $('#btnNext').textContent = (s.index === s.questions.length - 1) ? 'Finalizar' : 'Siguiente';
 }
-
 $('#btnPrev').addEventListener('click', () => {
   const s = state.session;
   if(s && s.index > 0){ s.index--; renderQuestion(); }
@@ -2155,9 +2336,9 @@ function finishTest(){
   const perSec = {};
   SECTIONS.forEach(x => perSec[x.id] = { correct:0, total:0 });
 
-  s.questions.forEach((q, i) => {
+ s.questions.forEach((q, i) => {
     const ans = s.answers[i];
-    const isOk = ans !== null && q.shuffled[ans].correct;
+    const isOk = isAnswerCorrect(q, ans);
     if(isOk) correct++;
     perSec[q.sec].total++;
     if(isOk) perSec[q.sec].correct++;
@@ -2282,19 +2463,16 @@ function renderReview(showAll){
   const list = $('#reviewList');
   list.innerHTML = '';
 
-  const wrongCount = s.questions.filter((q, i) => {
-    const a = s.answers[i];
-    return a === null || !q.shuffled[a].correct;
-  }).length;
+    const wrongCount = s.questions.filter((q, i) => !isAnswerCorrect(q, s.answers[i])).length;
 
   $('#reviewSub').textContent = showAll
     ? `Mostrando las ${s.questions.length} preguntas del test.`
     : (wrongCount === 0 ? '¡No tuviste errores en este test!' : `Tienes ${wrongCount} respuesta(s) por revisar.`);
 
-  let shown = 0;
+    let shown = 0;
   s.questions.forEach((q, i) => {
     const ans = s.answers[i];
-    const isOk = ans !== null && q.shuffled[ans].correct;
+    const isOk = isAnswerCorrect(q, ans);
     if(!showAll && isOk) return;
     shown++;
 
@@ -2303,18 +2481,28 @@ function renderReview(showAll){
     item.className = 'rev-item' + (isOk ? ' good' : '');
 
     let html = `<p class="rev-q">${shown}. ${q.q}</p>`;
-    if(ans === null){
-      html += `<div class="rev-opt bad">⚠️ Sin responder</div>`;
-    } else if(!isOk){
-      html += `<div class="rev-opt bad">✗ Tu respuesta: ${q.shuffled[ans].text}</div>`;
+
+    if(q.type === 'input'){
+      if(ans === null){
+        html += `<div class="rev-opt bad">⚠️ Sin responder</div>`;
+      } else if(!isOk){
+        html += `<div class="rev-opt bad">✗ Tu respuesta: ${ans}</div>`;
+      }
+      html += `<div class="rev-opt good">✓ Correcta: Ley N° ${q.answer}</div>`;
+    } else {
+      if(ans === null){
+        html += `<div class="rev-opt bad">⚠️ Sin responder</div>`;
+      } else if(!isOk){
+        html += `<div class="rev-opt bad">✗ Tu respuesta: ${q.shuffled[ans].text}</div>`;
+      }
+      const good = q.shuffled.find(o => o.correct);
+      html += `<div class="rev-opt good">✓ Correcta: ${good.text}</div>`;
     }
-    const good = q.shuffled.find(o => o.correct);
-    html += `<div class="rev-opt good">✓ Correcta: ${good.text}</div>`;
+
     html += `<div class="rev-exp"><b>${sec ? sec.name : ''}:</b> ${q.exp || ''}</div>`;
     item.innerHTML = html;
     list.appendChild(item);
   });
-
   if(shown === 0){
     list.innerHTML = `<div class="card" style="text-align:center; color:var(--muted)">
       🎉 No hay errores que revisar en este test.</div>`;
